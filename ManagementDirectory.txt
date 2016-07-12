@@ -1,0 +1,19 @@
+/bootstrap/*LTE*/
+/bower/*sba*/
+/build/*LTE*/
+/chosen/*testsba*/
+/class/*project*/
+/dist/*sba/LTE/*/
+/documentation/*LTE*/
+/exemplo/*sba*/
+/js/*sba*/
+/less/*sba*/
+/pages/*LTE*/
+/pages SBAdmin/*sba*/
+/php/*project*/
+/plugins/*LTE*/
+/pluginsOLD/*tests*/
+/select/*sbatests*/
+/style/*tests*/
+/test/*tests*/
+/utilities/*sbaHome*/
