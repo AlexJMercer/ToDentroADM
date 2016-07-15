@@ -45,7 +45,14 @@ include "../Session_editor.php";
   <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
       <?php
-            include '../inc/topotime.php';
+            if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper" >
@@ -78,7 +85,7 @@ include "../Session_editor.php";
           </div>
         </section>
         <?php
-          print_r($_SESSION);
+          //print_r($_SESSION);
         ?>
       </div><!-- /.content-wrapper -->
       <?php

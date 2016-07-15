@@ -61,8 +61,8 @@ else
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-          Categorias
-          <a class="btn btn-primary btn-flat pull-right" href="CategoriaObj.php"><i class="fa fa-plus"></i>   Cadastrar Categorias </a>
+            Notificações
+            <a class="btn btn-primary btn-flat pull-right" data-toggle="modal" data-target="#notificacao"><i class="fa fa-plus"></i>   Cadastrar notificação </a>
           </h1>
         </section>
         <!-- Main content -->
@@ -71,22 +71,22 @@ else
             <div class="col-xs-12">
               <div class="box box-info">
                 <div class="box-header">
-                  <h3 class="box-title">Listagem de categorias</h3>
-                  <a class="btn btn-info btn-flat pull-right" href="ViewCategoriasObj.php" title="Atualizar resultados" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh"></i></a>
+                  <h3 class="box-title">Listagem de notificações</h3>
+                  <a class="btn btn-info btn-flat pull-right" href="ViewNotificacoesObj.php" title="Atualizar resultados" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh"></i></a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="dataT" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>Categoria</th>
+                        <th>Notificaçoes</th>
                         <th>Opções</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
 
-                      $listar = new Categorias();
-                      $list = $listar->ListarCategorias();
+                      $listar = new Notificacoes();
+                      $list = $listar->ListarNotificacoes();
 
                       if ($list != null)
                       {
@@ -94,23 +94,33 @@ else
                         {
                     ?>
                       <tr class="odd gradeX">
-                        <form name="view" action="EditCategoriaObj.php" method="post">
-                        <td><?php echo $line->categoria; ?></td>
+                        <form name="view" action="EditNotificacaoObj.php" method="post">
+                        <td><?php echo $line->titulo; ?></td>
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                          <button type="submit" name="excluir" value="excluir" formaction="CrudCategoria.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          <button type="submit" name="excluir" value="excluir" formaction="CrudNotificacoes.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                         </td>
                       </tr>
                       </form>
-                    <?php
-                        }
-                      }
-                      else
-                      {
-                        echo "<h2> Nada cadastrado!!</h2>";
-                      }
-                    ?>
+                      <?php
+                              }
+                            }
+                            else
+                            {
+                      ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p> Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                      <?php
+                            }
+                      ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
@@ -157,9 +167,8 @@ else
         $('.dataTables_filter input').attr("placeholder", "Pesquise aqui");
       });
     </script>
-
     <?php
-        if (isset($_GET['success']) && $_GET['success']=='1' )
+        if (isset($_GET['success']))
         {
     ?>
         <script type="text/javascript">
@@ -186,15 +195,33 @@ else
         </script>
     <?php
         unset($_GET['success']);
-        $_GET['success']=0;
         }
-        elseif (isset($_GET['erro']) && $_GET['erro']=='1')
+        elseif (isset($_GET['erro']))
         {
     ?>
-    <script type="text/javascript">
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+          $(window).load(function()
+          {
+            $.toast({
+              text: "Falha no cadastro!", // Text that is to be shown in the toast
+              heading: 'ERRO!', // Optional heading to be shown on the toast
+              icon: 'error', // Type of toast icon
+              showHideTransition: 'slide', // fade, slide or plain
+              allowToastClose: true, // Boolean value true or false
+              hideAfter: 3500, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+              stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+              position: 'bottom-right', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+              textAlign: 'left',  // Text alignment i.e. left, right or center
+              loader: true,  // Whether to show loader or not. True by default
+              loaderBg: '#9ec600',  // Background color of the toast loader #00ff40
+            })
+          }
+          );
+        });
 
-
-    </script>
+        </script>
     <?php
         }
     ?>

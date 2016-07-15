@@ -32,7 +32,14 @@
   </head>
   <body class="hold-transition skin-green  sidebar-mini">
     <div class="wrapper">
-      <?php include '../inc/topotime.php';
+      <?php if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
 
             include '../inc/menutime.php';
 

@@ -101,25 +101,45 @@ class Noticias
 
       public function ExcluirNoticias()
       {
-         $sql    = "DELETE from noticias where id_not = $this->id";
+         $sql    = "DELETE FROM noticias WHERE id_not = $this->id";
          $return = pg_query($sql);
          return $return;
       }
 
+      public function SelectInfoNoticias($id='')
+      {
+         $sql       = "SELECT n.id_not, n.titulo, n.status_id, n.data, n.hora FROM noticias n WHERE n.id_not = $id";
+         $resultado = pg_query($sql);
+         $retorno   = null;
+
+         while ($registro = pg_fetch_assoc($resultado))
+         {
+            $object         = new Noticias();
+            $object->id     = $registro['id_not'];
+            $object->titulo = $registro['titulo'];
+            $object->data   = $registro['data'];
+            $object->hora   = $registro['hora'];
+            $object->status = $registro['status_id'];
+
+            $retorno = $object;
+         }
+         return $retorno;
+      }
+
       public function AtualizarNoticias()
       {
-        $this->transacao("BEGIN");
+           $this->transacao("BEGIN");
 
-        $sql         = "UPDATE noticias set autor = '$this->autor',
-                                      data        = '$this->data',
-                                      hora        = '$this->hora',
-                                      titulo      = '$this->titulo',
-                                      linha_apoio = '$this->linha_apoio',
-                                      status_id   = '$this->status',
-                                      texto       = '$this->noticia',
-                                      url         = '$this->url'
-                                WHERE id_not      =  $this->id";
-        $return = pg_query($sql);
+           $sql         = "UPDATE noticias SET autor = '$this->autor',
+                                         data        = '$this->data',
+                                         hora        = '$this->hora',
+                                         titulo      = '$this->titulo',
+                                         linha_apoio = '$this->linha_apoio',
+                                         status_id   = '$this->status',
+                                         texto       = '$this->noticia',
+                                         url         = '$this->url'
+                                   WHERE id_not      =  $this->id";
+           $return = pg_query($sql);
 
           if($return)
           {

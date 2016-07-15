@@ -3,6 +3,7 @@
 include_once "../../class/Carrega.class.php";
 
 include "../Session.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,7 +50,7 @@ else
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Disciplinas</h1>
+          <h1>Notícias</h1>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -58,54 +59,59 @@ else
               <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Disciplinas</h3>
+                  <h3 class="box-title">Confirmar exclusão da notícia</h3>
                 </div><!-- /.box-header -->
-<?php
+               <?php
 
-  $id    = $_POST["id"];
-  $curso = $_POST['curso'];
+                  $id = $_POST["id"];
 
-  if (isset($_POST["exibir"]))
-  {
-    $exib = new Disciplinas();
-    $comp = $exib->ShowDisciplinas($id);
+                  if (isset($_POST["excluir"]))
+                  {
+                     $exib = new Noticias();
+                     $comp = $exib->SelectInfoNoticias($id);
 
-    if ($exib != null)
-    {
-?>
-                <div class="box-body">
-                  <div class="form-group">
-                    <dl class="dl-horizontal">
-                      <dt>Curso:</dt>
-                      <dd><?php echo $comp->curso; ?></dd>
-                      <dt>Disciplina:</dt>
-                      <dd><?php echo $comp->disciplina; ?></dd>
-                    </dl>
-                    <form action="EditDisciplinaObj.php" method="post">
+                     if ($exib != null)
+                     {
+               ?>
+                  <div class="box-body">
+                     <div class="form-group">
+                        <dl class="dl-horizontal">
+                           <dt>Titulo da notícia:</dt>
+                           <dd><?php echo $comp->titulo; ?></dd>
+                           <dt>Status:</dt>
+                           <dd><?php $badge = new Select();
+                                     $badge->labelStatus($comp->status); ?></dd>
+                           <dt>Data e hora:</dt>
+                           <dd><?php
+                                    echo date('d/m/Y', strtotime($comp->data));
+                                    echo " - ";
+                                    echo date('H:i', strtotime($comp->hora));
+                               ?></dd>
+                        </dl>
+                     </div>
+                    <form action="CrudNoticias.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                      <input type="hidden" name="curso" value="<?php echo $curso; ?>">
                       <div class="col-sm-6">
-                        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block margin" formaction="ViewDisciplinasObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
+                        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewNoticiasObj.php"><i class="fa fa-list"></i> Retornar para lista </button>
                       </div>
+                      <br>
                       <div class="col-sm-6">
-                        <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block margin"><i class="fa fa-edit"></i> Editar </button>
+                        <button type="submit" name="excluir" value="excluir" class="btn btn-danger btn-flat btn-block"><i class="fa fa-times"></i> Confirmar exclusão da notícia </button>
                       </div>
                     </form>
                   </div>
                 </div>
-<?php
-    }
-  }
-?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
+            <?php
+                }
+              }
+            ?>
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-        include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -118,5 +124,63 @@ else
     <script src="../../dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
+    <!-- Select2 -->
+    <script src="../../plugins/select2/select2.full.min.js"></script>
+    <!-- bootstrap time picker -->
+    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
+    <!-- date-range-picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+
+    <script type="text/javascript">
+    $(function()
+    {
+      $(".select2").select2();
+
+      $('#reservation').daterangepicker({
+        singleDatePicker: true,
+        format: 'DD/MM/YYYY',
+        "locale": {
+        "format": "DD/MM/YYYY",
+        "separator": " - ",
+        "applyLabel": "Apply",
+        "cancelLabel": "Cancel",
+        "fromLabel": "From",
+        "toLabel": "To",
+        "customRangeLabel": "Custom",
+        "daysOfWeek": [
+            "Dom",
+            "Seg",
+            "Ter",
+            "Qua",
+            "Qui",
+            "Sex",
+            "Sab"
+        ],
+        "monthNames": [
+            "Janeiro",
+            "Feveireiro",
+            "Março",
+            "Abril",
+            "Maio",
+            "Junho",
+            "Julho",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Dezembro"
+        ],
+        "firstDay": 1
+    },
+      });
+    });
+
+    $(window).load(function()
+    {
+        $('#myModal').modal('show');
+    });
+    </script>
   </body>
 </html>

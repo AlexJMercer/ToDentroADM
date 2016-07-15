@@ -21,6 +21,7 @@ include "../Session.php";
     <link rel="stylesheet" href="../../plugins/ionicons-2.0.1/ionicons-2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/datatables/extensions/Responsive/css/dataTables.responsive.css">
     <!-- Toast -->
     <link rel="stylesheet" href="../../plugins/toastr/jquery.toast.css" type="text/css">
     <!-- Theme style -->
@@ -44,7 +45,14 @@ include "../Session.php";
   <body class="hold-transition skin-green-light  sidebar-mini">
     <div class="wrapper">
       <?php
-            include '../inc/topotime.php';
+            if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -65,9 +73,11 @@ include "../Session.php";
                   <a class="btn btn-info btn-flat pull-right" href="ViewNoticiasObj.php" title="Atualizar resultados" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh"></i></a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table id="dataT" class="table table-bordered table-hover">
+                  <div class="table-responsive">
+                  <table id="dataT" class="table table-bordered table-hover dt-responsive nowrap">
                     <thead>
                       <tr>
+                        <th>ID</th>
                         <th>Data</th>
                         <th>Notícia</th>
                         <th>Status</th>
@@ -88,6 +98,7 @@ include "../Session.php";
                     ?>
                     <tr class="odd gradeX">
                       <form name="view" action="EditNoticiaObj.php" method="post">
+                        <td><?php echo $line->id; ?></td>
                         <td><?php echo date('d/m/Y',strtotime($line->data)); ?></td>
                         <td><?php echo $line->titulo; ?></td>
                         <td><?php $badge = new Select();
@@ -96,7 +107,7 @@ include "../Session.php";
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <button type="submit" name="exibir" value="exibir" formaction="ShowNoticiaObj.php" class="btn btn-flat btn-info"><i class="fa fa-expand"></i> Exibir </button>
                           <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                          <button type="submit" name="excluir" value="excluir" formaction="CrudNoticias.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          <button type="submit" name="excluir" value="excluir" formaction="ExcluirNoticiaObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                         </td>
                       </form>
                     </tr>
@@ -114,7 +125,9 @@ include "../Session.php";
                     ?>
                     </tbody>
                   </table>
+                  </div>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -132,6 +145,7 @@ include "../Session.php";
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="../../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+
     <!-- SlimScroll -->
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -145,6 +159,7 @@ include "../Session.php";
       $(function ()
       {
         $("#dataT").DataTable({
+          "responsive":false,
           "ordering": false,
           "oLanguage": { "sSearch": "",
                          "sInfo": "Um total de _TOTAL_ notícias (_START_ de _END_)",

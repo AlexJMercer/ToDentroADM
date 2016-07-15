@@ -40,7 +40,14 @@ include "../Session.php";
     <div class="wrapper">
       <div id="container">
       <?php
-            include '../inc/topotime.php';
+            if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">

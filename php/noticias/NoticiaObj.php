@@ -47,7 +47,14 @@ include "../Session_editor.php";
     <div class="wrapper">
       <div id="container">
       <?php
-            include '../inc/topotime.php';
+            if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
@@ -120,7 +127,7 @@ include "../Session_editor.php";
                         ?>
                         <span id="listagemCategorias"></span>
                         <div class="col-sm-2">
-                         <button type="button" class="btn btn-info btn-flat" id="cadCat" name="button" style="width:100%;"><i class="fa fa-plus"></i> Adicionar Categoria </button>
+                         <button type="button" class="btn btn-info btn-flat" id="cadCat" name="button" style="width:100%;"><i class="fa fa-plus"></i> Categorias </button>
                         </div>
                       </div>
                       <div id="resposta"></div>

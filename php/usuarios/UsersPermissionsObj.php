@@ -36,7 +36,15 @@ include "../Session.php";
   <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
       <?php
-            include '../inc/topotime.php';
+            if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
+            
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
@@ -53,16 +61,16 @@ include "../Session.php";
                 <div class="box-header with-border">
                   <h3 class="box-title">Informações do usuário</h3>
                 </div><!-- /.box-header -->
-<?php
+                <?php
 
-    $exib = new Usuarios();
-    $comp = $exib->newUserPermission($_SESSION['novo_usuario']);
-    unset($_SESSION['novo_usuario']);
-    //print_r($_SESSION);
+                    $exib = new Usuarios();
+                    $comp = $exib->newUserPermission($_SESSION['novo_usuario']);
+                    unset($_SESSION['novo_usuario']);
+                    //print_r($_SESSION);
 
-    if ($exib != null)
-    {
-?>
+                    if ($exib != null)
+                    {
+                ?>
                 <div class="box-body">
                   <div class="form-group">
                     <dl class="dl-horizontal">
@@ -74,83 +82,81 @@ include "../Session.php";
                       <dd><?php echo $comp->tipo; ?></dd>
                     </dl>
                   </div>
-
-              <div class="col-sm-12">
-              <div class="box box-success">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Permissões de acesso</h3>
-                </div><!-- /.box-header -->
-                  <form class="form-horizontal" action="CrudPermissions.php" method="post">
-                    <div class="box-body">
-                      <div class="form-group">
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="noticias" value="Permitido">
-                          <label> Notícias </label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="cardapios" value="Permitido">
-                          <label> Cardápios </label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="cursos" value="Permitido">
-                          <label> Cursos </label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="monitorias" value="Permitido">
-                          <label>Monitorias</label>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="estagios" value="Permitido">
-                          <label>Estágios</label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="eventos" value="Permitido">
-                          <label>Eventos</label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="categorias" value="Permitido">
-                          <label>Categorias</label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="locais" value="Permitido">
-                          <label>Locais</label>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="assistencias" value="Permitido">
-                          <label> Assistência Estudantil </label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input type="checkbox" name="setores" value="Permitido">
-                          <label>Setores</label>
-                        </div>
-                      </div>
-                    </div><!-- /.box-body -->
-                    <div class="box-footer">
-                        <input type="hidden" name="usuario" value="<?php echo $comp->id; ?>"/>
-                        <br>
-                        <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
-                        <br>
-                        <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
-                    </div><!-- /.box-footer -->
-                  </form>
-                  <?php
-                      }
-                    //}
-                  ?>
-              </div><!-- /.box -->
-              </div>
-              <!-- general form elements disabled -->
-            </div>
+                  <div class="col-sm-12">
+                    <div class="box box-success">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Permissões de acesso</h3>
+                      </div><!-- /.box-header -->
+                        <form class="form-horizontal" action="CrudPermissions.php" method="post">
+                          <div class="box-body">
+                            <div class="form-group">
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="noticias" value="Permitido">
+                                <label> Notícias </label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="cardapios" value="Permitido">
+                                <label> Cardápios </label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="cursos" value="Permitido">
+                                <label> Cursos </label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="monitorias" value="Permitido">
+                                <label>Monitorias</label>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="estagios" value="Permitido">
+                                <label>Estágios</label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="eventos" value="Permitido">
+                                <label>Eventos</label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="categorias" value="Permitido">
+                                <label>Categorias</label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="locais" value="Permitido">
+                                <label>Locais</label>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="assistencias" value="Permitido">
+                                <label> Assistência Estudantil </label>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="checkbox" name="setores" value="Permitido">
+                                <label>Setores</label>
+                              </div>
+                            </div>
+                          </div><!-- /.box-body -->
+                          <div class="box-footer">
+                              <input type="hidden" name="usuario" value="<?php echo $comp->id; ?>"/>
+                              <br>
+                              <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
+                              <br>
+                              <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
+                          </div><!-- /.box-footer -->
+                        </form>
+                        <?php
+                            }
+                          //}
+                        ?>
+                    </div><!-- /.box -->
+                  </div>
+                  <!-- general form elements disabled -->
+                </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-        include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

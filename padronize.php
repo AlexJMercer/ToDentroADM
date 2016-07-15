@@ -48,3 +48,29 @@
 
 ?>
 http://jsfiddle.net/RtH3K/1/
+
+--------------------------------------------------------------------------------------
+data-toggle="tooltip" title="Campo Obrigatório!"
+---------------------------------------------------------------------------------------
+
+<?php
+
+
+  if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+  {
+    if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
+  }
+  else
+  {
+    include '../inc/topo_basic.php';
+  }
+
+
+ ?>

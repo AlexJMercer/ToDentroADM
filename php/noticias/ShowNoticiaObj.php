@@ -37,7 +37,14 @@ include "../Session.php";
   <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
       <?php
-            include '../inc/topotime.php';
+            if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+{
+  include '../inc/topo_full.php';
+}
+else
+{
+  include '../inc/topo_basic.php';
+}
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
@@ -58,18 +65,18 @@ include "../Session.php";
                     <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                   </div><!-- /. tools -->
                 </div><!-- /.box-header -->
-<?php
+                  <?php
 
-   $id = $_POST["id"];
+                     $id = $_POST["id"];
 
-   if (isset($_POST["exibir"]))
-   {
-      $exib = new Noticias();
-      $comp = $exib->ShowNoticias($id);
+                     if (isset($_POST["exibir"]))
+                     {
+                        $exib = new Noticias();
+                        $comp = $exib->ShowNoticias($id);
 
-      if ($exib != null)
-      {
-?>
+                        if ($exib != null)
+                        {
+                  ?>
                 <div class="box-body">
                   <div class="form-group">
                     <div class="col-sm-7">
@@ -130,11 +137,10 @@ include "../Session.php";
                   </dl>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-
-<?php
-    }
-  }
-?>
+            <?php
+                }
+              }
+            ?>
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
