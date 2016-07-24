@@ -41,13 +41,13 @@ include "../Session.php";
       <div id="container">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
@@ -65,19 +65,18 @@ else
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de cardápios</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
-<?php
+                <?php
 
-  $id = $_POST["id"];
+                  $id = $_POST["id"];
 
-  if (isset($_POST["editar"]))
-  {
-    $edit = new Cardapios();
-    $comp = $edit->EditarCardapios($id);
+                  if (isset($_POST["editar"]))
+                  {
+                    $edit = new Cardapios();
+                    $comp = $edit->EditarCardapios($id);
 
-    if ($edit != null)
-    {
-?>
+                    if ($edit != null)
+                    {
+                ?>
                 <form class="form-horizontal" name="cadcardapio" id="form" method="post" action="CrudCardapios.php">
                   <div class="box-body">
                       <div class="form-group">

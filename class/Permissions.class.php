@@ -57,22 +57,22 @@ include_once 'Carrega.class.php';
       return $resultado;
     }
 
-    public function Listar($value='')
+    public function ListarPermissions()
     {
       # code...
     }
 
-    public function Atualizar($value='')
+    public function AtualizarPermissions()
     {
       # code...
     }
 
-    public function Excluir($value='')
+    public function ExcluirPermissions()
     {
       # code...
     }
 
-    public function Editar($value='')
+    public function EditarPermissions($id='')
     {
       # code...
     }
@@ -121,6 +121,34 @@ include_once 'Carrega.class.php';
       }
     }
 
+    public function EditarPermissions($id)
+    {
+      $sql       = "SELECT * FROM permissions p WHERE p.user_id = $id";
+      $resultado = pg_query($sql);
+      $num       = pg_num_rows($resultado);
 
+      if ($num==1)
+      {
+        while ($registro = pg_fetch_assoc($resultado))
+        {
+          $object               = new Permissions();
+          $object->id           = $registro['id_perm'];
+          $object->noticias     = $registro['noticias'];
+          $object->cardapios    = $registro['cardapios'];
+          $object->cursos       = $registro['cursos'];
+          $object->monitorias   = $registro['monitorias'];
+          $object->estagios     = $registro['estagios'];
+          $object->eventos      = $registro['eventos'];
+          $object->categorias   = $registro['categorias'];
+          $object->locais       = $registro['locais'];
+          $object->assistencias = $registro['assistencias'];
+          $object->setores      = $registro['setores'];
+
+          $return = $object;
+        }
+        return $return;
+      }
+    }
+    
   }
 ?>

@@ -37,13 +37,13 @@ include "../Session.php";
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -73,27 +73,24 @@ else
                       </tr>
                     </thead>
                     <tbody>
-<?php
+                    <?php
 
-  $listar = new Eventos();
-  $list = $listar->Listar();
+                      $listar = new Eventos();
+                      $list = $listar->Listar();
 
-  if ($list != null)
-  {
-    foreach ($list as $line)
-    {
-?>
+                      if ($list != null)
+                      {
+                        foreach ($list as $line)
+                        {
+                    ?>
                      <tr class="odd gradeX">
                         <form name="view" action="EditEventoObj.php" method="post">
                            <td><?php echo $line->evento; ?></td>
                            <td><?php echo date('d/m/Y',strtotime($line->dataInicio)); ?></td>
                            <td>
                               <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
-
                               <button type="submit" name="exibir" value="exibir" class="btn btn-flat btn-info" formaction="ShowEventoObj.php"><i class="fa fa-edit"></i> Exibir </button>
-
                               <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-
                               <button type="submit" name="excluir" value="excluir" formaction="CrudEventos.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                            </td>
                         </form>

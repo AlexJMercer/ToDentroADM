@@ -37,13 +37,13 @@ include "../Session.php";
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -72,17 +72,17 @@ else
                         <th style="text-align:center">Opções</th>
                       </tr>
                     </thead>
-<?php
+                    <?php
 
-  $listar = new Cardapios();
-  $list = $listar->ListarCardapios();
+                      $listar = new Cardapios();
+                      $list = $listar->ListarCardapios();
 
-  /*print_r($list);*/
-  if ($list != null)
-  {
-    foreach ($list as $line)
-    {
-?>
+                      /*print_r($list);*/
+                      if ($list != null)
+                      {
+                        foreach ($list as $line)
+                        {
+                    ?>
                     <form name="view" class="" action="EditCardapioObj.php" method="post">
                     <tbody>
                       <tr>

@@ -43,13 +43,13 @@ include "../Session.php";
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -78,20 +78,20 @@ else
                       </tr>
                     </thead>
                     <tbody>
-<?php
+                    <?php
 
-  $curso = $_POST["curso"];
+                      $curso = $_POST["curso"];
 
-  if (isset($_POST['pesquisar']) || isset($_POST['retornar']))
-  {
-    $listar = new Disciplinas();
-    $list = $listar->ListarEspecifyDisciplinas($curso);
+                      if (isset($_POST['pesquisar']) || isset($_POST['retornar']))
+                      {
+                        $listar = new Disciplinas();
+                        $list = $listar->ListarEspecifyDisciplinas($curso);
 
-    if ($list != null)
-    {
-      foreach ($list as $line)
-      {
-?>
+                        if ($list != null)
+                        {
+                          foreach ($list as $line)
+                          {
+                    ?>
                       <tr class="odd gradeX">
                         <form name="view" action="EditDisciplinaObj.php" method="post">
                         <td><?php echo $line->disciplina; ?></td>

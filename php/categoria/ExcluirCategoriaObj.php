@@ -3,6 +3,7 @@
 include_once "../../class/Carrega.class.php";
 
 include "../Session.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,42 +48,58 @@ include "../Session.php";
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Locais</h1>
+          <h1>Categorias</h1>
         </section>
         <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
               <!-- Horizontal Form -->
-              <div class="box box-success">
+              <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Cadastro de locais</h3>
+                  <h3 class="box-title">Confirmar exclusão da categoria</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
-                <form class="form-horizontal" id="form" method="post" action="CrudLocal.php">
+                <?php
+
+                  $id = $_POST["id"];
+
+                  if (isset($_POST["excluir"]))
+                  {
+                    $exib = new Categorias();
+                    $comp = $exib->EditarCategorias($id);
+
+                    if ($exib != null)
+                    {
+                ?>
                   <div class="box-body">
-                      <div class="form-group">
-                        <label for="local" class="col-sm-2 control-label">Local:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="sala" id="local" placeholder="Digite o categoria aqui" autofocus required>
-                        </div>
+                     <div class="form-group">
+                        <dl class="dl-horizontal">
+                           <dt>Categoria:</dt>
+                           <dd><?php echo $comp->categoria; ?></dd>
+                        </dl>
+                     </div>
+                    <form action="CrudCategoria.php" method="post">
+                      <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
+                      <div class="col-sm-6">
+                        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewCategoriasObj.php"><i class="fa fa-list"></i> Retornar para lista </button>
                       </div>
-                  </div><!-- /.box-body -->
-                  <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
-                    <br>
-                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
-                  </div><!-- /.box-footer -->
-                </form>
+                      <div class="col-sm-6">
+                        <button type="submit" name="excluir" value="excluir" class="btn btn-danger btn-flat btn-block"><i class="fa fa-times"></i> Confirmar exclusão da categoria </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
-            </div><!--/.col (right) -->
+            <?php
+                }
+              }
+            ?>
+            </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-        include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -95,6 +112,5 @@ include "../Session.php";
     <script src="../../dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
-
   </body>
 </html>

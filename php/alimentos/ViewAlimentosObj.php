@@ -39,13 +39,13 @@ include "../Session.php";
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -74,16 +74,16 @@ else
                       </tr>
                     </thead>
                     <tbody>
-<?php
+                    <?php
 
-  $listar = new Alimentos();
-  $list = $listar->ListarAlimentos();
+                      $listar = new Alimentos();
+                      $list = $listar->ListarAlimentos();
 
-  if ($list != null)
-  {
-    foreach ($list as $line)
-    {
-?>
+                      if ($list != null)
+                      {
+                        foreach ($list as $line)
+                        {
+                    ?>
                       <tr class="odd gradeX">
                         <form name="view" action="EditAlimentoObj.php" method="post">
                         <td><?php echo $line->alimento; ?></td>

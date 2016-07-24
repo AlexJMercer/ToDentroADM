@@ -42,18 +42,20 @@ include "../Session.php";
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
   </head>
   <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
+
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -99,7 +101,7 @@ else
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                          <button type="submit" name="excluir" value="excluir" formaction="CrudCategoria.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          <button type="submit" name="excluir" value="excluir" formaction="ExcluirCategoriaObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                         </td>
                       </tr>
                       </form>
@@ -108,7 +110,17 @@ else
                       }
                       else
                       {
-                        echo "<h2> Nada cadastrado!!</h2>";
+                    ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p> Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                    <?php
                       }
                     ?>
                     </tbody>
@@ -132,7 +144,7 @@ else
     <!-- DataTables -->
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-      <script src="../../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -159,7 +171,7 @@ else
     </script>
 
     <?php
-        if (isset($_GET['success']) && $_GET['success']=='1' )
+        if (isset($_GET['success']))
         {
     ?>
         <script type="text/javascript">
@@ -185,15 +197,31 @@ else
         });
         </script>
     <?php
-        unset($_GET['success']);
-        $_GET['success']=0;
         }
-        elseif (isset($_GET['erro']) && $_GET['erro']=='1')
+        elseif (isset($_GET['erro']))
         {
     ?>
     <script type="text/javascript">
-
-
+    $(document).ready(function()
+    {
+      $(window).load(function()
+      {
+        $.toast({
+          text: "Erro durante execução da operação!", // Text that is to be shown in the toast
+          heading: 'Erro!', // Optional heading to be shown on the toast
+          icon: 'error', // Type of toast icon
+          showHideTransition: 'slide', // fade, slide or plain
+          allowToastClose: true, // Boolean value true or false
+          hideAfter: 3500, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+          stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+          position: 'bottom-right', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+          textAlign: 'left',  // Text alignment i.e. left, right or center
+          loader: true,  // Whether to show loader or not. True by default
+          loaderBg: '#008548',  // Background color of the toast loader #00ff40
+        })
+      }
+      );
+    });
     </script>
     <?php
         }

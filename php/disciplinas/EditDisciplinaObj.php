@@ -37,13 +37,13 @@ include "../Session.php";
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
@@ -61,21 +61,21 @@ else
                   <h3 class="box-title">Cadastro de disciplinas</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-<?php
+                <?php
 
-  $id = $_POST["id"];
+                  $id = $_POST["id"];
 
-  if (isset($_POST["editar"]))
-  {
+                  if (isset($_POST["editar"]))
+                  {
 
-    $edit = new Disciplinas();
-    $comp = $edit->EditarDisciplinas($id);
+                    $edit = new Disciplinas();
+                    $comp = $edit->EditarDisciplinas($id);
 
-    //print_r($comp);
-    //var_dump($comp);
-    if ($edit != null)
-    {
-?>
+                    //print_r($comp);
+                    //var_dump($comp);
+                    if ($edit != null)
+                    {
+                ?>
                 <form class="form-horizontal" id="form" method="post" action="CrudDisciplinas.php">
                   <div class="box-body">
                       <div class="form-group">
@@ -103,10 +103,10 @@ else
                     <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewDisciplinasObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
-<?php
-    }
-  }
-?>
+                <?php
+                    }
+                  }
+                ?>
               </div><!-- /.box -->
               <!-- general form elements disabled -->
             </div><!--/.col (right) -->
@@ -115,7 +115,6 @@ else
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-        include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

@@ -27,7 +27,10 @@
             <span class="hidden-xs"> Enviar notificações </span>
           </a>
         </li>
-
+        <!-- Control Sidebar Toggle Button >
+        <li>
+          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i> Skins</a>
+        </li-->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="../../dist/img/LogoIFSP.jpg" class="user-image" alt="User Image">
@@ -45,15 +48,19 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <form class="" action="" method="post">
-                <div class="pull-left">
-                  <button type="button" name="button" class="btn btn-primary btn-flat"><i class="fa fa-user"></i>  Profile </button>
+                <div class="form-group">
+                  <button type="button" name="button" class="btn btn-primary btn-flat btn-block"><i class="fa fa-user"></i> Informações pessoais </button>
                 </div>
-                <div class="pull-right">
-                  <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat"><i class="fa fa-sign-out"></i>  Logout </button>
+                <div class="form-group">
+                  <button type="button" data-toggle="control-sidebar" class="btn bg-teal btn-flat btn-block"><i class="fa fa-gears"></i> Temas </button>
+                </div>
+                <div class="form-group">
+                  <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
                 </div>
               </form>
             </li>
           </ul>
+
         </li>
       </ul>
     </div>

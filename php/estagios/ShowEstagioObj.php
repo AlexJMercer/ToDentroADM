@@ -37,13 +37,13 @@ include "../Session.php";
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
-{
-  include '../inc/topo_full.php';
-}
-else
-{
-  include '../inc/topo_basic.php';
-}
+            {
+              include '../inc/topo_full.php';
+            }
+            else
+            {
+              include '../inc/topo_basic.php';
+            }
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
@@ -60,64 +60,61 @@ else
                 <div class="box-header with-border">
                   <h3 class="box-title">Estágios</h3>
                 </div><!-- /.box-header -->
-<?php
+              <?php
 
-  $id = $_POST["id"];
+                $id = $_POST["id"];
 
-  if (isset($_POST["exibir"]))
-  {
-    $exib = new Estagios();
-    $comp = $exib->Editar($id);
-    //print_r($comp);
-    //var_dump($comp);
-    if ($exib != null)
-    {
-?>
-<div class="box-body">
-  <div class="form-group">
-    <dl class="dl-horizontal">
-      <dt>Título:</dt>
-      <dd><?php echo $comp->titulo; ?></dd>
-      <dt>Oferta para os cursos:</dt>
-      <dd><?php $cursos = new Select();
-                $cursos->labelCursos($comp->curso);
-          ?></dd>
-      <dt>Atividades:</dt>
-      <dd><?php echo $comp->atividades; ?></dd>
-      <dt>Salário:</dt>
-      <dd><?php echo $comp->salario; ?></dd>
-      <dt>Exigências:</dt>
-      <dd><?php echo $comp->exigencias; ?></dd>
-      <dt>Condições:</dt>
-      <dd><?php echo $comp->condicoes; ?></dd>
-      <dt>Informações:</dt>
-      <dd><textarea class="form-control"  rows="8" cols="40" disabled><?php echo $comp->info; ?></textarea></dd>
-    </dl>
-    <form action="EditEstagioObj.php" method="post">
+                if (isset($_POST["exibir"]))
+                {
+                  $exib = new Estagios();
+                  $comp = $exib->Editar($id);
+                  //print_r($comp);
+                  //var_dump($comp);
+                  if ($exib != null)
+                  {
+              ?>
+              <div class="box-body">
+                <div class="form-group">
+                  <dl class="dl-horizontal">
+                    <dt>Título:</dt>
+                    <dd><?php echo $comp->titulo; ?></dd>
+                    <dt>Oferta para os cursos:</dt>
+                    <dd><?php $cursos = new Select();
+                              $cursos->labelCursos($comp->curso);
+                        ?></dd>
+                    <dt>Atividades:</dt>
+                    <dd><?php echo $comp->atividades; ?></dd>
+                    <dt>Salário:</dt>
+                    <dd><?php echo $comp->salario; ?></dd>
+                    <dt>Exigências:</dt>
+                    <dd><?php echo $comp->exigencias; ?></dd>
+                    <dt>Condições:</dt>
+                    <dd><?php echo $comp->condicoes; ?></dd>
+                    <dt>Informações:</dt>
+                    <dd><textarea class="form-control"  rows="8" cols="40" disabled><?php echo $comp->info; ?></textarea></dd>
+                  </dl>
+                  <form action="EditEstagioObj.php" method="post">
 
-      <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-      <div class="col-sm-6">
-        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block margin" formaction="ViewEstagiosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
-      </div>
-      <div class="col-sm-6">
-        <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block margin"><i class="fa fa-edit"></i> Editar </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<?php
-    }
-  }
-?>
-              <!-- general form elements disabled -->
+                    <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+                    <div class="col-sm-6">
+                      <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block margin" formaction="ViewEstagiosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
+                    </div>
+                    <div class="col-sm-6">
+                      <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block margin"><i class="fa fa-edit"></i> Editar </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <?php
+                  }
+                }
+              ?>
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-        include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

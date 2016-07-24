@@ -57,7 +57,7 @@
     <div class="icon">
       <i class="fa fa-cutlery"></i>
     </div>
-    <a href="../cardapios/ViewCardapiosObj.php" class="small-box-footer">Ir para cardápios <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="../cardapio/ViewCardapiosObj.php" class="small-box-footer">Ir para cardápios <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 
   <div class="small-box bg-maroon">
@@ -150,6 +150,6 @@
     <div class="icon">
       <i class="fa fa-tags"></i>
     </div>
-    <a href="../categorias/ViewCategoriasObj.php" class="small-box-footer">Ir para categorias <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="../categoria/ViewCategoriasObj.php" class="small-box-footer">Ir para categorias <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div><!-- ./col -->
