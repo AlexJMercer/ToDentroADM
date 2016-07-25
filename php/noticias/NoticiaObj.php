@@ -43,7 +43,7 @@ include "../Session_editor.php";
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="fixed hold-transition skin-green-light sidebar-mini">
+  <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
       <div id="container">
       <?php
@@ -97,7 +97,7 @@ include "../Session_editor.php";
                       <div class="form-group">
                         <label for="titulo" class="col-sm-2 control-label">Título:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o título aqui" required>
+                           <input type="text" class="form-control" name="titulo" id="titulo" data-toggle="tooltip" title="Campo obrigatório!!" placeholder="Digite Aqui..."required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -109,7 +109,7 @@ include "../Session_editor.php";
                       <div class="form-group">
                         <label for="status" class="col-sm-2 control-label">Status:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" name="status" id="status" style="width:100%;" required>
+                          <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo obrigatório!!" required>
                             <option value=""></option>
                             <?php
                                 $staSelect = new Select();
@@ -186,8 +186,11 @@ include "../Session_editor.php";
     <script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
     <!-- bootstrap time picker -->
     <script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="../../plugins/fastclick/fastclick.min.js"></script>
+
     <!-- CK Editor -->
     <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
     <!-- AdminLTE App -->
@@ -248,8 +251,5 @@ include "../Session_editor.php";
          }
     });
    </script>
-
-
-
   </body>
 </html>
