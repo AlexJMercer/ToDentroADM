@@ -24,7 +24,7 @@ include "../Session.php";
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../../dist/css/skins/skin-green-light.min.css">
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
     <link rel="stylesheet" href="../../bootstrap/css/center.css">
     <style type='text/css'>
@@ -107,7 +107,7 @@ include "../Session.php";
                               else
                               {
                           ?>
-                                <button type="submit" class="btn btn-flat btn-github" formaction="UsersPermissionsObj.php" name="permissions" value="permissions" title="Definir ou editar quais as páginas o editor possui acesso"><i class="fa fa-credit-card"></i> Permissões </button>
+                                <button type="submit" class="btn btn-flat btn-github" formaction="UsersEditPermissionsObj.php" name="permissions" value="permissions" title="Definir ou editar quais as páginas o editor possui acesso"><i class="fa fa-credit-card"></i> Permissões </button>
                                 <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
                                 <button type="submit" name="excluir" value="excluir" formaction="CrudCategoria.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                           <?php
@@ -134,6 +134,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
+  include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

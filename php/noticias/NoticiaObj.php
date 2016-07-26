@@ -35,13 +35,20 @@ include "../Session_editor.php";
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../../dist/css/skins/skin-green-light.min.css">
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+      .modal-backdrop{
+         position: relative;
+      }
+
+    </style>
   </head>
   <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
@@ -165,6 +172,7 @@ include "../Session_editor.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
+        include '../inc/style_page.html';
       ?>
       </div><!-- /.container -->
     </div><!-- ./wrapper -->
@@ -207,15 +215,19 @@ include "../Session_editor.php";
 	  </script>
 
     <script type="text/javascript">
-    $(document).ready(function(){
-      $("#status").select2({
-        placeholder:"Selecione o status"
-      });
 
-      CKEDITOR.replace('noticia');
-    });
+       $(document).ready(function(){
+         $("#status").select2({
+           placeholder:"Selecione o status"
+         });
 
-      $('.file').fileinput({
+         CKEDITOR.replace('noticia');
+       });
+
+    </script>
+
+    <script type="text/javascript">
+       $('.file').fileinput({
           browseClass: "btn btn-info btn-flat btn-block",
           showCaption: false,
           showRemove: false,
@@ -226,7 +238,7 @@ include "../Session_editor.php";
           maxImageWidth: 400,
           maxImageHeight: 200,
           allowedFileExtensions : ['jpg', 'png','gif']
-      });
+       });
     </script>
 
     <script type="text/javascript">
@@ -249,7 +261,7 @@ include "../Session_editor.php";
                   $('#listagemCategorias').html(resultado);
              })
          }
-    });
+      });
    </script>
   </body>
 </html>

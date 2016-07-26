@@ -94,6 +94,7 @@ if(empty($_SESSION['email']) && empty($_SESSION['senha']) && empty($_SESSION['ti
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
+  include '../inc/style_page.html';
       ?>
     <!-- jQuery 2.1.4 -->
     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>

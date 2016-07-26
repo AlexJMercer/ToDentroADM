@@ -41,13 +41,6 @@ include_once 'Carrega.class.php';
        $this->$key = $value;
     }
 
-    public function Inserir()
-    {
-      $sql       = "INSERT INTO permissaoteste (user_id, noticias, cardapios, cursos) VALUES ('$this->usuario', '$this->noticias', '$this->cardapios', '$this->cursos')";
-      $resultado = pg_query($sql);
-      return $resultado;
-    }
-
     public function InserirPermissions()
     {
       $sql       = "INSERT INTO permissions (user_id, noticias, cardapios, cursos, monitorias, estagios, eventos, categorias, locais, assistencias, setores)
@@ -55,11 +48,6 @@ include_once 'Carrega.class.php';
                                   '$this->eventos', '$this->categorias', '$this->locais', '$this->assistencias', '$this->setores')";
       $resultado = pg_query($sql);
       return $resultado;
-    }
-
-    public function ListarPermissions()
-    {
-      # code...
     }
 
     public function AtualizarPermissions()
@@ -70,25 +58,6 @@ include_once 'Carrega.class.php';
     public function ExcluirPermissions()
     {
       # code...
-    }
-
-    public function EditarPermissions($id='')
-    {
-      # code...
-    }
-
-    public function loadPermissionsTESTE($id)
-    {
-      $sql       = "SELECT * FROM permissaoteste pt WHERE pt.user_id = $id";
-      $resultado = pg_query($sql);
-
-        while ($registro = pg_fetch_assoc($resultado))
-        {
-          $_SESSION['permissao_id']   = $registro['id_perm'];
-          $_SESSION['perm_noticias']  = $registro['noticias'];
-          $_SESSION['perm_cardapios'] = $registro['cardapios'];
-          $_SESSION['perm_cursos']    = $registro['cursos'];
-        }
     }
 
     public function loadPermissions($id)
@@ -125,14 +94,12 @@ include_once 'Carrega.class.php';
     {
       $sql       = "SELECT * FROM permissions p WHERE p.user_id = $id";
       $resultado = pg_query($sql);
-      $num       = pg_num_rows($resultado);
 
-      if ($num==1)
-      {
         while ($registro = pg_fetch_assoc($resultado))
         {
           $object               = new Permissions();
           $object->id           = $registro['id_perm'];
+          $object->usuario      = $registro['user_id'];
           $object->noticias     = $registro['noticias'];
           $object->cardapios    = $registro['cardapios'];
           $object->cursos       = $registro['cursos'];
@@ -147,8 +114,7 @@ include_once 'Carrega.class.php';
           $return = $object;
         }
         return $return;
-      }
     }
-    
+
   }
 ?>

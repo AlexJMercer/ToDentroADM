@@ -22,7 +22,7 @@ include "../Session.php";
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../../dist/css/skins/skin-green-light.min.css">
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
     <!-- jQuery 2.1.4 -->
     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
@@ -86,6 +86,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
+  include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- Bootstrap 3.3.5 -->

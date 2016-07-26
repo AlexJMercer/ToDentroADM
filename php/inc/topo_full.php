@@ -62,6 +62,10 @@
           </ul>
 
         </li>
+        <!-- Control Sidebar Toggle Button -->
+        <li>
+         <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -94,7 +98,7 @@
          <div class="col-sm-10">
            <div class="checkbox">
              <label>
-               <input type="checkbox" name="notificar" value="notificar">
+               <input type="checkbox"  name="notificar" value="notificar">
                   Enviar notificação!
              </label>
            </div>

@@ -111,6 +111,7 @@ else
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
+  include '../inc/style_page.html';
         include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->

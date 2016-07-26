@@ -28,7 +28,7 @@ include "../Session.php";
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-   <link rel="stylesheet" href="../../dist/css/skins/skin-green-light.min.css">
+   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,17 +86,13 @@ include "../Session.php";
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="categoria" class="col-sm-2 control-label">Categorias do evento:</label>
-                        <div class="col-sm-10">
-                          <select class="form-control select2" id="categoria" name="categoria" placeholder="Selecione a categoria" required>
-                            <option value=""></option>
-                            <?php
-                              $catSelect = new Select();
-                              $catSelect->categoriaSelect($comp->categoria);
-                            ?>
-                          </select>
+                        <?php $_SESSION['categoria_edit']=$comp->categoria; ?>
+                        <span id="listagemCategorias"></span>
+                        <div class="col-sm-2">
+                         <button type="button" class="btn btn-info btn-flat" id="cadCat" name="button" style="width:100%;"><i class="fa fa-plus"></i> Categorias </button>
                         </div>
                       </div>
+                      <div id="resposta"></div>
                       <div class="form-group">
                          <label for="dataInicio" class="col-sm-2 control-label">Data de inicio do evento:</label>
                          <div class="col-sm-10">
@@ -143,6 +139,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
+  include '../inc/style_page.html';
         include '../inc/control-sidebar.html';
       ?>
     </div><!-- ./wrapper -->
@@ -198,6 +195,29 @@ include "../Session.php";
 
     });
     </script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+         $("#cadCat").click(function(){
+             $.ajax({
+                 type: 'post',
+                 url: '../categoria/newCategoriaObj.php',
+                 dataType: 'html',
+                 success: function (txt) {
+                     $('#resposta').html(txt);
+                 }
+             });
+         });
+         atualiza();
+
+         function atualiza()
+         {
+             $.get('../categoria/Listagem_Categorias.php', function (resultado){
+                  $('#listagemCategorias').html(resultado);
+             })
+         }
+      });
+   </script>
   </body>
 </html>
 <?php

@@ -156,5 +156,29 @@
         }
         return $retorno;
       }
+
+      public function ListUserPermission($id)
+      {
+        /*$sql_user_id = "SELECT CURRVAL('usuarios_id_user_seq')";
+        $busca       = pg_query($sql_user_id);
+        $id_user     = pg_fetch_array($busca);
+        $this->id    = $id_user[0];*/
+
+        $sql       = "SELECT * FROM usuarios, usertype WHERE usuarios.type_id =usertype.id_type AND usuarios.id_user='$id'";
+        $resultado = pg_query($sql);
+        $retorno   = null;
+
+        while ($reg = pg_fetch_assoc($resultado))
+        {
+          $object        = new Usuarios();
+          $object->id    = $reg["id_user"];
+          $object->nome  = $reg["nome"];
+          $object->email = $reg["email"];
+          $object->tipo  = $reg["type"];
+
+          $retorno = $object;
+        }
+        return $retorno;
+      }
 }
 ?>
