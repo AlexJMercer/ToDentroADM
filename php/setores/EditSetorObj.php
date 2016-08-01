@@ -76,13 +76,13 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="setor" class="col-sm-2 control-label">Setor:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="setor" id="setor" placeholder="Digite aqui" value="<?php echo $comp->setor; ?>" required>
+                          <input type="text" class="form-control" name="setor" id="setor" placeholder="Digite aqui" value="<?php echo $comp->setor; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="texto" class="col-sm-2 control-label">Descrição:</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="texto" id="texto" rows="5" cols="40" placeholder="Digite aqui" required><?php echo $comp->texto; ?></textarea>
+                          <textarea class="form-control" name="texto" id="texto" rows="5" cols="40" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required><?php echo $comp->texto; ?></textarea>
                         </div>
                       </div>
                   </div><!-- /.box-body -->

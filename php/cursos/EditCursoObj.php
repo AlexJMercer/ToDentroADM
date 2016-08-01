@@ -80,13 +80,13 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="curso" class="col-sm-2 control-label">Nome do curso:</label>
                         <div class="col-sm-10">
-                          <input type="text" value="<?php echo $comp->nome; ?>" class="form-control" name="nome" id="curso" placeholder="Digite o nome aqui" required>
+                          <input type="text" value="<?php echo $comp->nome; ?>" class="form-control" name="nome" id="curso" placeholder="Digite o nome aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                          <label for="inst" class="col-sm-2 control-label">Instituto:</label>
                          <div class="col-sm-10">
-                           <select class="form-control" name="instituto" id='inst' required>
+                           <select class="form-control" name="instituto" id='inst' data-toggle="tooltip" title="Campo Obrigatório!" required>
                               <option value=""></option>
                               <?php
                                   $instituto = new Select();

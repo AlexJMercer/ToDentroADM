@@ -47,27 +47,25 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Categorias</h1>
+          <h1>Categorias
+            <a class="btn btn-info btn-flat pull-right" href="ViewCategoriasObj.php"><i class="fa fa-list"></i>  Listar categorias</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div id="cadCat">
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de categorias</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form_cat" action="CrudCategoria.php" method="post">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="categoria" class="col-sm-2 control-label">Categoria:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="categoria" placeholder="Digite a categoria aqui" autofocus required>
+                          <input type="text" class="form-control" name="categoria" placeholder="Digite a categoria aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
@@ -78,7 +76,6 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
               </div>
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
@@ -86,7 +83,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- Bootstrap 3.3.5 -->

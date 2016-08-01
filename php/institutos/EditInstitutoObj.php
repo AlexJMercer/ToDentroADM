@@ -76,7 +76,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="nome" class="col-sm-2 control-label">Nome do instituto:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="instituto" id="nome" value="<?php echo $comp->instituto; ?>" placeholder="Digite aqui" autofocus required>
+                          <input type="text" class="form-control" name="instituto" id="nome" value="<?php echo $comp->instituto; ?>" placeholder="Digite aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->

@@ -47,32 +47,30 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Disciplinas</h1>
+          <h1>Disciplinas
+            <a class="btn btn-info btn-flat pull-right" href="PreviewDisciplinasObj.php"><i class="fa fa-list"></i>  Listar disciplinas</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de disciplinas</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form" method="post" action="CrudDisciplinas.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="disciplina" class="col-sm-2 control-label">Disciplina:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite o categoria aqui"  required>
+                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite o categoria aqui"  data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                          <label for="curso" class="col-sm-2 control-label">Curso:</label>
                          <div class="col-sm-10">
-                           <select class="form-control select2" name="curso" id="curso" style="width: 100%;" required>
+                           <select class="form-control select2" name="curso" id="curso" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                              <option value=""></option>
                              <?php $cursoSelect = new Select();
                                    $cursoSelect->cursoSelect();
@@ -88,15 +86,13 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

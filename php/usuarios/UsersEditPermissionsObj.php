@@ -4,6 +4,33 @@ include_once "../../class/Carrega.class.php";
 
 include "../Session.php";
 ?>
+<?php
+
+    $id = $_POST["id"];
+    if (isset($_POST["permissions"]))
+    {
+
+      $exib = new Usuarios();
+      $comp = $exib->ListUserPermission($id);
+      //print_r($_SESSION);
+      $load       = new Permissions();
+      $permission = $load->LoadIdPermission($id);
+
+      if ($permission != null)
+      {
+        $edit  = new Permissions();
+        $dados = $edit->EditarPermissions($id);
+      }
+      else
+      {
+        $_SESSION['novo_usuario'] = $comp->email;
+        header('Location:UsersPermissionsObj.php');
+        exit;
+      }
+
+      if ($edit != NULL AND $exib != NULL)
+      {
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -61,193 +88,180 @@ include "../Session.php";
                 <div class="box-header with-border">
                   <h3 class="box-title">Informações do usuário</h3>
                 </div><!-- /.box-header -->
-                <?php
-
-                    $id = $_POST["id"];
-                    if (isset($_POST["permissions"]))
-                    {
-
-                    $exib = new Usuarios();
-                    $comp = $exib->ListUserPermission($id);
-                    //print_r($_SESSION);
-
-                    $edit = new Permissions();
-                    $dados = $edit->EditarPermissions($id);
-
-                    if ($exib != null && $edit != null)
-                    {
-                ?>
-
-                <div class="box-body">
-                  <div class="form-group">
-                    <dl class="dl-horizontal">
-                      <dt>Nome:</dt>
-                      <dd><?php echo $comp->nome; ?></dd>
-                      <dt>E-mail:</dt>
-                      <dd><?php echo $comp->email; ?></dd>
-                      <dt>Tipo de usuário:</dt>
-                      <dd><?php echo $comp->tipo; ?></dd>
-                    </dl>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="box box-success">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Permissões de acesso</h3>
-                      </div><!-- /.box-header -->
-                        <form class="form-horizontal" action="CrudPermissions.php" method="post">
-                          <div class="box-body">
-                            <div class="form-group">
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->noticias != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="noticias" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="noticias" value="Permitido">';
-                                 }
-                                 ?>
-                                <label> Notícias </label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->cardapios != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="cardapios" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="cardapios" value="Permitido">';
-                                 }
-                                 ?>
-                                <label> Cardápios </label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->cursos != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="cursos" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="cursos" value="Permitido">';
-                                 }
-                                 ?>
-                                <label> Cursos </label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->monitorias != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="monitorias" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="monitorias" value="Permitido">';
-                                 }
-                                 ?>
-                                <label>Monitorias</label>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->estagios != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="estagios" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="estagios" value="Permitido">';
-                                 }
-                                 ?>
-                                <label>Estágios</label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->eventos != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="eventos"  value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="eventos" value="Permitido">';
-                                 }
-                                 ?>
-                                <label>Eventos</label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->categorias != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="categorias" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="categorias" value="Permitido">';
-                                 }
-                                 ?>
-                                <label>Categorias</label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->locais != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="locais" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="locais" value="Permitido">';
-                                 }
-                                 ?>
-                                <label>Locais</label>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->assistencias != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="assistencias" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="assistencias" value="Permitido">';
-                                 }
-                                 ?>
-                                <label> Assistência Estudantil </label>
-                              </div>
-                              <div class="col-sm-3">
-                                 <?php
-                                 if ($dados->setores != null)
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="setores" value="Permitido" checked>';
-                                 }
-                                 else
-                                 {
-                                    echo '<input class="icheck" type="checkbox" name="setores" value="Permitido">';
-                                 }
-                                 ?>
-                                <label>Setores</label>
-                              </div>
-                            </div>
-                          </div><!-- /.box-body -->
-                          <div class="box-footer">
-                              <input type="hidden" name="usuario" value="<?php echo $comp->id; ?>"/>
-                              <input type="hidden" name="id" value="<?php echo $dados->id; ?>">
-                              <br>
-                              <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
-                              <br>
-                              <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewUsersObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
-                          </div><!-- /.box-footer -->
-                        </form>
-                        <?php
-                            }
-                          }
-                        ?>
-                    </div><!-- /.box -->
-                  </div>
+                  <div class="box-body">
+                    <div class="form-group">
+                      <dl class="dl-horizontal">
+                        <dt>Nome:</dt>
+                        <dd><?php echo $comp->nome; ?></dd>
+                        <dt>E-mail:</dt>
+                        <dd><?php echo $comp->email; ?></dd>
+                        <dt>Tipo de usuário:</dt>
+                        <dd><?php echo $comp->tipo; ?></dd>
+                      </dl>
+                    </div>
+                      <div class="col-sm-12">
+                        <div class="box box-success">
+                          <div class="box-header with-border">
+                            <h3 class="box-title">Permissões de acesso</h3>
+                          </div><!-- /.box-header -->
+                            <form class="form-horizontal" action="CrudPermissions.php" method="post">
+                              <div class="box-body">
+                                <div class="form-group">
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->noticias != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="noticias" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="noticias" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label> Notícias </label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->cardapios != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="cardapios" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="cardapios" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label> Cardápios </label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->cursos != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="cursos" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="cursos" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label> Cursos </label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->monitorias != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="monitorias" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="monitorias" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label>Monitorias</label>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->estagios != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="estagios" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="estagios" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label>Estágios</label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->eventos != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="eventos"  value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="eventos" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label>Eventos</label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->categorias != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="categorias" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="categorias" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label>Categorias</label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->locais != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="locais" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="locais" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label>Locais</label>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->assistencias != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="assistencias" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="assistencias" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label> Assistência Estudantil </label>
+                                  </div>
+                                  <div class="col-sm-3">
+                                     <?php
+                                       if ($dados->setores != null)
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="setores" value="Permitido" checked>';
+                                       }
+                                       else
+                                       {
+                                          echo '<input class="icheck" type="checkbox" name="setores" value="Permitido">';
+                                       }
+                                     ?>
+                                    <label>Setores</label>
+                                  </div>
+                                </div>
+                              </div><!-- /.box-body -->
+                              <div class="box-footer">
+                                  <input type="hidden" name="usuario" value="<?php echo $comp->id; ?>"/>
+                                  <input type="hidden" name="id" value="<?php echo $dados->id; ?>">
+                                  <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
+                                  <br>
+                                  <button type="button" name="voltar" value="voltar" onclick="location.href='ViewUsersObj.php'" class="btn btn-danger btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Voltar </button>
+                              </div><!-- /.box-footer -->
+                            </form>
+                            <?php
+                                }
+                                elseif ($exib == null)
+                                {
+                                  header('Location:ViewUsersObj.php');
+                                  exit;
+                                }
+                              }
+                            ?>
+                        </div><!-- /.box -->
+                      </div>
                   <!-- general form elements disabled -->
                 </div>
           </div>   <!-- /.row -->

@@ -61,24 +61,23 @@ include "../Session.php";
         <div id="loader"></div>
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Cardápios</h1>
+          <h1>Cardápios
+            <a class="btn btn-info btn-flat pull-right" href="ViewCardapiosObj.php"><i class="fa fa-list"></i>  Listar cardápios</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de cardápios</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" name="cadcardapio" id="form" method="post" action="CrudCardapios.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="dia" class="col-sm-2 control-label">Dia:</label>
                         <div class="col-sm-10">
-                          <select class="form-control" id="dia" name="dia" style="width: 100%;" required>
+                          <select class="form-control" id="dia" name="dia" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php $diaSelect = new Dia();
                                   $diaSelect->diaSelect();
@@ -89,7 +88,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="date">Data:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="data" id="date" placeholder="dd/mm/yyyy" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask required>
+                          <input type="text" class="form-control" name="data" id="date" placeholder="dd/mm/yyyy" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -103,7 +102,6 @@ include "../Session.php";
                           <div class="col-sm-2">
                             <button type="button" class="btn btn-info btn-flat" id="cadAli" name="button" style="width:100%;"><i class="fa fa-plus"></i> Adicionar Alimento </button>
                           </div>
-
                       </div>
                       <div id="resposta"></div>
                   </div><!-- /.box-body -->
@@ -114,7 +112,6 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->

@@ -70,7 +70,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="evento"> Evento: </label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" title="Campo Obrigatório!" id="evento" name="evento" placeholder="Nome do Evento" required>
+                           <input type="text" class="form-control" title="Campo Obrigatório!" id="evento" name="evento" placeholder="Nome do Evento" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -89,7 +89,7 @@ include "../Session.php";
                       <div class="form-group">
                          <label for="dataInicio" class="col-sm-2 control-label"> Data de inicio do evento: </label>
                          <div class="col-sm-10">
-                           <input type="text" class="form-control" title="Campo Obrigatório!" name="dataInicio" id="dataInicio" required placeholder="dd/mm/yyyy" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                           <input type="text" class="form-control" title="Campo Obrigatório!" name="dataInicio" id="dataInicio" data-toggle="tooltip" title="Campo Obrigatório!" required placeholder="dd/mm/yyyy" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                          </div>
                       </div>
                       <div class="form-group">
@@ -101,13 +101,13 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="horario" class="col-sm-2 control-label"> Horário do evento: </label>
                         <div class="col-sm-10">
-                          <input type="text" name="horario" id="horario" title="Campo Obrigatório!" class="form-control" placeholder="Digite aqui os horários do evento. Exemplos: 14h; 17h30 - 23h." required>
+                          <input type="text" name="horario" id="horario" title="Campo Obrigatório!" class="form-control" placeholder="Digite aqui os horários do evento. Exemplos: 14h; 17h30 - 23h." data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="texto" class="col-sm-2 control-label"> Descrição: </label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" title="Campo Obrigatório!" name="texto" id="texto" rows="8" cols="40" placeholder="Descrição do evento" required></textarea>
+                          <textarea class="form-control" title="Campo Obrigatório!" name="texto" id="texto" rows="8" cols="40" placeholder="Descrição do evento" data-toggle="tooltip" title="Campo Obrigatório!" required></textarea>
                         </div>
                       </div>
                       <div class="form-group">

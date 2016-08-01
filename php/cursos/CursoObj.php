@@ -48,33 +48,31 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Cursos</h1>
+          <h1>Cursos
+            <a class="btn btn-info btn-flat pull-right" href="ViewCursosObj.php"><i class="fa fa-list"></i>  Listar cursos</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div id="cadCurso">
                 <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de curso</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form_curso" method="post" action="CrudCursos.php" enctype="multipart/form-data">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="curso" class="col-sm-2 control-label">Nome do curso:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="nome" id="curso" placeholder="Digite o nome aqui" required>
+                          <input type="text" class="form-control" name="nome" id="curso" placeholder="Digite o nome aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                          <label for="inst" class="col-sm-2 control-label">Instituto:</label>
                          <div class="col-sm-10">
-                           <select class="form-control" name="instituto" id='inst' required>
+                           <select class="form-control" name="instituto" id='inst' data-toggle="tooltip" title="Campo Obrigatório!" required>
                              <option value=""></option>
                              <?php
                                  $instituto = new Select();

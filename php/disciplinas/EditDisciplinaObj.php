@@ -81,7 +81,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="disciplina" class="col-sm-2 control-label">Disciplina:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite o categoria aqui" value="<?php echo $comp->disciplina; ?>" required>
+                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite o categoria aqui" value="<?php echo $comp->disciplina; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">

@@ -60,7 +60,6 @@ include "../Session.php";
                 <div class="box-header with-border">
                   <h3 class="box-title">Edição de estágio</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <?php
 
                   $id = $_POST["id"];
@@ -78,38 +77,38 @@ include "../Session.php";
                     <div class="form-group">
                       <label for="titulo" class="col-sm-2 control-label">Título:</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="titulo" id="titulo" value="<?php echo $comp->titulo; ?>" placeholder="Digite aqui" required>
+                        <input type="text" class="form-control" name="titulo" id="titulo" value="<?php echo $comp->titulo; ?>" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                       </div>
                       <?php  ?>
                     </div>
                     <div class="form-group">
                       <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="atividades" id="atividades" value="<?php echo $comp->atividades; ?>" placeholder="Digite aqui" required>
+                        <input type="text" class="form-control" name="atividades" id="atividades" value="<?php echo $comp->atividades; ?>" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="salario" class="col-sm-2 control-label">Salário:</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="salario" id="salario" value="<?php echo $comp->salario; ?>" placeholder="Digite aqui" required>
+                        <input type="text" class="form-control" name="salario" id="salario" value="<?php echo $comp->salario; ?>" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="condicoes" class="col-sm-2 control-label">Condições:</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="condicoes" id="condicoes" value="<?php echo $comp->condicoes; ?>" placeholder="Digite aqui" required>
+                        <input type="text" class="form-control" name="condicoes" id="condicoes" value="<?php echo $comp->condicoes; ?>" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="exigencias" class="col-sm-2 control-label">Exigências:</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="exigencias" id="exigencias" value="<?php echo $comp->exigencias; ?>" placeholder="Digite aqui" required>
+                        <input type="text" class="form-control" name="exigencias" id="exigencias" value="<?php echo $comp->exigencias; ?>" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="curso" class="col-sm-2 control-label">Cursos:</label>
                       <div class="col-sm-10">
-                        <select class="form-control select2" name="curso[]" multiple style="width: 100%;" required>
+                        <select class="form-control select2" name="curso[]" multiple style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                           <option value=""></option>
                           <?php $cursoSelect = new Select();
                                 $cursoSelect->cursoGeneralMultiSelect($comp->curso);

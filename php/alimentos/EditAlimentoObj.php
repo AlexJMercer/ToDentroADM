@@ -65,24 +65,24 @@ include "../Session.php";
                   <h3 class="box-title">Cadastro de alimentos</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-<?php
+                <?php
 
-  $id = $_POST["id"];
+                  $id = $_POST["id"];
 
-  if (isset($_POST["editar"]))
-  {
-    $edit = new Alimentos();
-    $comp = $edit->EditarAlimentos($id);
+                  if (isset($_POST["editar"]))
+                  {
+                    $edit = new Alimentos();
+                    $comp = $edit->EditarAlimentos($id);
 
-    if ($edit != null)
-    {
-?>
+                    if ($edit != null)
+                    {
+                ?>
                 <form class="form-horizontal" id="form" method="post" action="CrudAlimento.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="dia" class="col-sm-2 control-label">Alimento:</label>
                         <div class="col-sm-10">
-                          <input type="text" name="alimento" class="form-control" placeholder="Digite o alimento aqui" value="<?php echo $comp->alimento; ?>" required>
+                          <input type="text" name="alimento" class="form-control" placeholder="Digite o alimento aqui" value="<?php echo $comp->alimento; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
@@ -91,7 +91,6 @@ include "../Session.php";
                     <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
                     <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewAlimentosObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
-
                   </div><!-- /.box-footer -->
                 </form>
                 <?php
@@ -99,19 +98,15 @@ include "../Session.php";
                     }
                 ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
-
     </div><!-- ./wrapper -->
-
     <!-- jQuery 2.1.4 -->
     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->

@@ -32,7 +32,6 @@ create table status(
 
 INSERT INTO status (status) VALUES ('Sob Avaliação!');
 INSERT INTO status (status) VALUES ('Rejeitado!');
-INSERT INTO status (status) VALUES ('Editado!');
 INSERT INTO status (status) VALUES ('Publicado!');
 INSERT INTO status (status) VALUES ('Publicado e editado!');
 

@@ -47,7 +47,9 @@ include "../Session.php";
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Setores</h1>
+          <h1>Setores
+            <a class="btn btn-info btn-flat pull-right" href="ViewSetoresObj.php"><i class="fa fa-list"></i>  Listar setores</a>
+          </h1>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -64,13 +66,13 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="setor" class="col-sm-2 control-label">Setor:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="setor" id="setor" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="setor" id="setor" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="texto" class="col-sm-2 control-label">Descrição:</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="texto" id="texto" rows="5" cols="40" placeholder="Digite aqui" required></textarea>
+                          <textarea class="form-control" name="texto" id="texto" rows="5" cols="40" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required></textarea>
                         </div>
                       </div>
                   </div><!-- /.box-body -->

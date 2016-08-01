@@ -53,7 +53,7 @@ include "../Session.php";
             {
               include '../inc/topo_basic.php';
             }
-            
+
             include '../inc/menutime.php';
       ?>
       <!-- Content Wrapper. Contains page content -->
@@ -61,7 +61,7 @@ include "../Session.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1> Notícias
-             <a class="btn btn-default btn-flat pull-right" href="NoticiaObj.php"><i class="fa fa-plus"></i>  Cadastrar notícias </a>
+             <a class="btn btn-primary btn-flat pull-right" href="NoticiaObj.php"><i class="fa fa-plus"></i>  Cadastrar notícias </a>
           </h1>
         </section>
         <!-- Main content -->

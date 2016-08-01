@@ -88,7 +88,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="dia" class="col-sm-2 control-label" >Dia:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" id="dia" name="dia" style="width: 100%;">
+                          <select class="form-control select2" id="dia" name="dia" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php $diaSelect = new Dia();
                                   $diaSelect->diaSelect($comp->dia);
@@ -99,7 +99,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="date">Data:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="data" id="date" placeholder="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime($comp->data)); ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask required>
+                          <input type="text" class="form-control" name="data" id="date" placeholder="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime($comp->data)); ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">

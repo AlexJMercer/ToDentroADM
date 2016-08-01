@@ -59,26 +59,24 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Monitorias</h1>
+          <h1>Monitorias
+            <a class="btn btn-info btn-flat pull-right" href="PreviewMonitoriasObj.php"><i class="fa fa-list"></i>  Listar monitorias</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de monitorias</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form role="form" class="form-horizontal" name="cadmonitorias" id="form" method="post" action="CrudMonitorias.php">
                   <div class="box-body">
                      <div class="form-group">
                         <label for="curso" class="control-label col-sm-2">Curso:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" id="curso" name="curso" style="width: 100%;">
+                          <select class="form-control select2" id="curso" name="curso" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php $cursoSelect = new Select();
                                   $cursoSelect->cursoSelect();
@@ -96,7 +94,7 @@ include "../Session.php";
                             </div>
                           </div>
                           </span>
-                           <select class="form-control" name="disciplina" id="disciplinas" required>
+                           <select class="form-control" name="disciplina" id="disciplinas" data-toggle="tooltip" title="Campo Obrigatório!" required>
                               <option value=""></option>
                            </select>
                         </div>
@@ -104,7 +102,7 @@ include "../Session.php";
                       <div class="form-group">
                            <label for="semestre" class="col-sm-2 control-label">Semestre:</label>
                            <div class="col-sm-10">
-                            <select class="form-control select2" name="semestre" id="semestre" style="width: 100%;">
+                            <select class="form-control select2" name="semestre" id="semestre" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                               <option value=""></option>
                               <?php $semestreSelect = new Select();
                                     $semestreSelect->semestreSelect();
@@ -115,7 +113,7 @@ include "../Session.php";
                         <div class="form-group">
                            <label for="sala" class="col-sm-2 control-label">Sala:</label>
                            <div class="col-sm-10">
-                              <select class="form-control select2" name="sala" id="sala" style="width: 100%;">
+                              <select class="form-control select2" name="sala" id="sala" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                                  <option value=""></option>
                                  <?php $localSelect = new Select();
                                        $localSelect->localSelect();
@@ -126,7 +124,7 @@ include "../Session.php";
                         <div class="form-group">
                            <label for="info" class="col-sm-2 control-label">Informações adicionais:</label>
                            <div class="col-sm-10">
-                              <textarea class="form-control" name="info" rows="6" placeholder="Digite aqui..."></textarea>
+                              <textarea class="form-control" name="info" rows="6" placeholder="Digite aqui..." data-toggle="tooltip" title="Campo Obrigatório!" required></textarea>
                            </div>
                         </div>
                   </div><!-- /.box-body -->
@@ -137,15 +135,13 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
-          </div>   <!-- /.row -->
+          </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

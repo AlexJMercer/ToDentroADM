@@ -45,32 +45,30 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Assistência Estudantil</h1>
+          <h1>Assistência Estudantil
+            <a class="btn btn-info btn-flat pull-right" href="ViewAssistenciasObj.php"><i class="fa fa-list"></i>  Listar assistências</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de assistência estudantil</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form" method="post" action="CrudAssistencias.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="nome" class="col-sm-2 control-label">Nome:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="assist" id="nome" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="assist" id="nome" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="texto" class="col-sm-2 control-label">Descrição:</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="texto" id="texto" rows="5" cols="40" placeholder="Digite aqui" required></textarea>
+                          <textarea class="form-control" name="texto" id="texto" rows="5" cols="40" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required></textarea>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
@@ -81,15 +79,13 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -102,6 +98,5 @@ include "../Session.php";
     <script src="../../dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
-
   </body>
 </html>

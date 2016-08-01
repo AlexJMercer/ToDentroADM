@@ -4,7 +4,7 @@ session_start();
 ?>
 <label for="alimentos" class="col-sm-2 control-label">Alimentos:</label>
 <div class="col-sm-8">
-  <select class="form-control select2" id="alimentos" name="alimento[]" multiple="multiple" style="width: 100%;" required>
+  <select class="form-control select2" id="alimentos" name="alimento[]" multiple="multiple" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
     <option value=""></option>
     <?php $alimentoSelect = new Select();
           $alimentoSelect->alimentoSelect($_SESSION['alimento_edit']);

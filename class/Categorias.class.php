@@ -43,15 +43,15 @@
       function ListarCategorias()
       {
          $sql    = "SELECT * from categorias Order by id_cat DESC";
-         $result = pg_query($sql);
+         $resultado = pg_query($sql);
 
-         while ($reg = pg_fetch_assoc($result))
+         while ($registro = pg_fetch_assoc($resultado))
          {
-            $obj            = new Categorias();
-            $obj->id        = $reg["id_cat"];
-            $obj->categoria = $reg["categoria"];
+            $object            = new Categorias();
+            $object->id        = $registro["id_cat"];
+            $object->categoria = $registro["categoria"];
 
-            $return[]       = $obj;
+            $return[]       = $object;
          }
          return $return;
       }
@@ -73,16 +73,16 @@
       public function EditarCategorias($id = "")
       {
         $sql    = "SELECT * FROM categorias WHERE categorias.id_cat =$id ";
-        $result = pg_query($sql);
+        $resultado = pg_query($sql);
         $return = NULL;
 
-        while ($reg = pg_fetch_assoc($result))
+        while ($registro = pg_fetch_assoc($resultado))
         {
-           $obj            = new Categorias();
-           $obj->id        = $reg["id_cat"];
-           $obj->categoria = $reg["categoria"];
+           $object            = new Categorias();
+           $object->id        = $registro["id_cat"];
+           $object->categoria = $registro["categoria"];
 
-           $return = $obj;
+           $return = $object;
         }
         return $return;
       }
@@ -90,8 +90,8 @@
       public function labelCategorias($categoria = "")
       {
         $sql    = "SELECT * from categorias";
-        $result = pg_query($sql);
-        $ln     = pg_num_rows($result);
+        $resultado = pg_query($sql);
+        $ln     = pg_num_rows($resultado);
 
         if ($ln==0)
         {
@@ -99,7 +99,7 @@
         }
         else
         {
-           while ($a = pg_fetch_assoc($result))
+           while ($a = pg_fetch_assoc($resultado))
            {
              $this->id        = $a['id_cat'];
              $this->categoria = $a['categoria'];

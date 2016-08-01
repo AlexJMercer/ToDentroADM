@@ -45,26 +45,24 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Locais</h1>
+          <h1>Locais
+            <a class="btn btn-info btn-flat pull-right" href="ViewLocaisObj.php"><i class="fa fa-list"></i>  Listar locais</a>
+          </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de locais</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form" method="post" action="CrudLocal.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="local" class="col-sm-2 control-label">Local:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="sala" id="local" placeholder="Digite o categoria aqui" autofocus required>
+                          <input type="text" class="form-control" name="sala" id="local" placeholder="Digite o categoria aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
@@ -75,15 +73,13 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
-          </div>   <!-- /.row -->
+          </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

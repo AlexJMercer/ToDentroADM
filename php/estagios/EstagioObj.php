@@ -46,67 +46,59 @@ include "../Session.php";?>
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            Estágios
+          <h1>Estágios
+            <a class="btn btn-info btn-flat pull-right" href="ViewEstagiosObj.php"><i class="fa fa-list"></i>  Listar estágios</a>
           </h1>
         </section>
-
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de estágio</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form" method="post" action="CrudEstagios.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label for="titulo" class="col-sm-2 control-label">Título:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="atividades" id="atividades" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="atividades" id="atividades" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="salario" class="col-sm-2 control-label">Salário:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="salario" id="salario" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="salario" id="salario" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="condicoes" class="col-sm-2 control-label">Condições:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="condicoes" id="condicoes" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="condicoes" id="condicoes" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="exigencias" class="col-sm-2 control-label">Exigências:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="exigencias" id="exigencias" placeholder="Digite aqui" required>
+                          <input type="text" class="form-control" name="exigencias" id="exigencias" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="curso" class="col-sm-2 control-label">Cursos:</label>
-                        <div class="col-sm-9">
-                          <select class="form-control select2" name="curso[]" multiple style="width: 100%;" required>
+                        <div class="col-sm-10">
+                          <select class="form-control select2" name="curso[]" multiple style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php $cursoSelect = new Select();
                                   $cursoSelect->cursoGeneralSelect();
                             ?>
                           </select>
-                        </div>
-                        <div class="col-sm-1">
-                          <button type="button" class="btn btn-info btn-flat pull-right" id="cadCurso" name="button"><i class="fa fa-plus"></i> Add Curso </button>
                         </div>
                       </div>
                       <div class="form-group">
@@ -123,21 +115,14 @@ include "../Session.php";?>
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <br>
-              <div class="element">
-
-              </div>
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
-
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -158,10 +143,6 @@ include "../Session.php";?>
     $(function(){
       $(".select2").select2();
 
-      $("#cadCurso").click(function()
-      {
-        $(".element").load("../Cursos/CursoObj.php #cadCurso")
-      });
 
       $("#salario").maskMoney({
         prefix:'R$ ',
@@ -169,27 +150,5 @@ include "../Session.php";?>
         affixesStay: false});
     });
     </script>
-
-    <script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery('#form_curso').submit(function(){
-			var dados = jQuery( this ).serialize();
-
-			jQuery.ajax({
-				type: "POST",
-				url: "../Cursos/CrudCursos.php",
-				data: dados,
-				success: function( data )
-				{
-					alert( data );
-				}
-			});
-
-			return false;
-		});
-	});
-	</script>
-
-
   </body>
 </html>

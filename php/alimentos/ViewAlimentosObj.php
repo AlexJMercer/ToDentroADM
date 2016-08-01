@@ -48,15 +48,12 @@ include "../Session.php";
             }
             include '../inc/menutime.php';
       ?>
-      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>Alimentos
             <a class="btn btn-primary btn-flat pull-right" href="AlimentoObj.php"><i class="fa fa-plus"></i>   Cadastrar alimentos </a>
           </h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-xs-12">
@@ -112,7 +109,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

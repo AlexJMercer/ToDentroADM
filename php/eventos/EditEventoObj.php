@@ -82,7 +82,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="evento"> Evento: </label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="evento" name="evento" placeholder="Nome do Evento" value="<?php echo $comp->evento; ?>" required>
+                           <input type="text" class="form-control" id="evento" name="evento" placeholder="Nome do Evento" value="<?php echo $comp->evento; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -96,7 +96,7 @@ include "../Session.php";
                       <div class="form-group">
                          <label for="dataInicio" class="col-sm-2 control-label">Data de inicio do evento:</label>
                          <div class="col-sm-10">
-                           <input type="text" class="form-control" name="dataInicio" id="dataInicio" value="<?php echo date('d/m/Y', strtotime($comp->dataInicio)); ?>" required data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                           <input type="text" class="form-control" name="dataInicio" id="dataInicio" value="<?php echo date('d/m/Y', strtotime($comp->dataInicio)); ?>" data-toggle="tooltip" title="Campo Obrigatório!" required data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                          </div>
                       </div>
                       <div class="form-group">
@@ -108,13 +108,13 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="horario" class="col-sm-2 control-label">Horário do evento:</label>
                         <div class="col-sm-10 bootstrap-timepicker">
-                          <input type="text" name="horario" id="horario" value="<?php echo $comp->horario; ?>" class="form-control timepicker">
+                          <input type="text" name="horario" id="horario" value="<?php echo $comp->horario; ?>" class="form-control timepicker" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="texto" class="col-sm-2 control-label"> Descrição: </label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="texto" id="texto" rows="8" cols="40"><?php echo $comp->texto; ?></textarea>
+                          <textarea class="form-control" name="texto" id="texto" rows="8" cols="40" data-toggle="tooltip" title="Campo Obrigatório!" required><?php echo $comp->texto; ?></textarea>
                         </div>
                       </div>
                       <div class="form-group">

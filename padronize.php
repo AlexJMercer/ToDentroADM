@@ -3,6 +3,7 @@
 
 ?>
 <a class="btn btn-primary btn-flat pull-right" href="Obj.php"><i class="fa fa-plus"></i>   Cadastrar  </a>
+<a class="btn btn-info btn-flat pull-right" href="ViewObj.php"><i class="fa fa-plus"></i>  Listar </a>
 <a class="btn btn-info btn-flat pull-right" href="ViewObj.php" title="Atualizar resultados" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh"></i></a>
 <i class="fa fa-check"></i>
 <i class="fa fa-magic"></i>

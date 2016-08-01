@@ -90,13 +90,38 @@ include_once 'Carrega.class.php';
       }
     }
 
-    public function EditarPermissions($id)
+    public function LoadIdPermission($id='')
+    {
+      $sql       = "SELECT p.id_perm FROM permissions p WHERE p.user_id = $id";
+      $resultado = pg_query($sql);
+      $num       = pg_num_rows($resultado);
+      $return    = NULL;
+
+      if ($num==1)
+      {
+        while ($registro = pg_fetch_assoc($resultado))
+        {
+          $object               = new Permissions();
+          $object->id           = $registro['id_perm'];
+
+          $return = $object;
+        }
+      }
+      return $return;
+    }
+
+    public function EditarPermissions($id='')
     {
       $sql       = "SELECT * FROM permissions p WHERE p.user_id = $id";
       $resultado = pg_query($sql);
+      $num       = pg_num_rows($resultado);
+      $return    = NULL;
 
+      if ($num==1)
+      {
         while ($registro = pg_fetch_assoc($resultado))
         {
+
           $object               = new Permissions();
           $object->id           = $registro['id_perm'];
           $object->usuario      = $registro['user_id'];
@@ -114,6 +139,9 @@ include_once 'Carrega.class.php';
           $return = $object;
         }
         return $return;
+      }
+
+
     }
 
   }

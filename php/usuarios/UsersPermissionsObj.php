@@ -91,47 +91,47 @@ include "../Session.php";
                           <div class="box-body">
                             <div class="form-group">
                               <div class="col-sm-3">
-                                <input type="checkbox" name="noticias" value="Permitido">
+                                <input type="checkbox" class="icheck" name="noticias" value="Permitido">
                                 <label> Notícias </label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="cardapios" value="Permitido">
+                                <input type="checkbox" class="icheck" name="cardapios" value="Permitido">
                                 <label> Cardápios </label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="cursos" value="Permitido">
+                                <input type="checkbox" class="icheck" name="cursos" value="Permitido">
                                 <label> Cursos </label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="monitorias" value="Permitido">
+                                <input type="checkbox" class="icheck" name="monitorias" value="Permitido">
                                 <label>Monitorias</label>
                               </div>
                             </div>
                             <div class="form-group">
                               <div class="col-sm-3">
-                                <input type="checkbox" name="estagios" value="Permitido">
+                                <input type="checkbox" class="icheck" name="estagios" value="Permitido">
                                 <label>Estágios</label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="eventos" value="Permitido">
+                                <input type="checkbox" class="icheck" name="eventos" value="Permitido">
                                 <label>Eventos</label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="categorias" value="Permitido">
+                                <input type="checkbox" class="icheck" name="categorias" value="Permitido">
                                 <label>Categorias</label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="locais" value="Permitido">
+                                <input type="checkbox" class="icheck" name="locais" value="Permitido">
                                 <label>Locais</label>
                               </div>
                             </div>
                             <div class="form-group">
                               <div class="col-sm-3">
-                                <input type="checkbox" name="assistencias" value="Permitido">
+                                <input type="checkbox" class="icheck" name="assistencias" value="Permitido">
                                 <label> Assistência Estudantil </label>
                               </div>
                               <div class="col-sm-3">
-                                <input type="checkbox" name="setores" value="Permitido">
+                                <input type="checkbox" class="icheck" name="setores" value="Permitido">
                                 <label>Setores</label>
                               </div>
                             </div>
@@ -157,7 +157,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -175,7 +175,7 @@ include "../Session.php";
 
     <script type="text/javascript">
     $(document).ready(function(){
-      $('input').each(function(){
+      $('input.icheck').each(function(){
         var self = $(this),
         label = self.next(),
         label_text = label.text();

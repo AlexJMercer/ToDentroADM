@@ -88,10 +88,11 @@ include "../Session.php";
                     <form action="EditCardapioObj.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                       <div class="col-lg-6 col-xs-12">
-                        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block margin" formaction="ViewCardapiosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
+                        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewCardapiosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
                       </div>
+                      <br>
                       <div class="col-lg-6 col-xs-12">
-                        <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block margin"><i class="fa fa-edit"></i> Editar </button>
+                        <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>
                       </div>
                     </form>
                   </div>
@@ -108,8 +109,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

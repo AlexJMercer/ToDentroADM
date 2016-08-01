@@ -584,19 +584,19 @@ class Select
    {
       if ($status==1)
       {
-        echo "<small class='badge bg-blue'>Sob Avaliação!</small>";
+        echo "<small class='label bg-blue'>Sob Avaliação!</small>";
       }
       if ($status==2)
       {
-        echo "<small class='badge bg-yellow'>Rejeitado!</small>";
+        echo "<small class='label bg-yellow'>Rejeitado!</small>";
       }
       if ($status==3)
       {
-        echo "<small class='badge bg-green'>Publicado!</small>";
+        echo "<small class='label bg-green'>Publicado!</small>";
       }
       if ($status==4)
       {
-        echo "<small class='badge bg-aqua'>Publicado e editado!</small>";
+        echo "<small class='label bg-aqua'>Publicado e editado!</small>";
       }
    }
 

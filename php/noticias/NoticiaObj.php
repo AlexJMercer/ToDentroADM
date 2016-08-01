@@ -68,7 +68,9 @@ include "../Session_editor.php";
         <div id="loader"></div>
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>Notícias</h1>
+            <h1>Notícias
+              <a class="btn btn-info btn-flat pull-right" href="ViewNoticiasObj.php"><i class="fa fa-list"></i>  Listar notícias </a>
+            </h1>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -104,7 +106,7 @@ include "../Session_editor.php";
                       <div class="form-group">
                         <label for="titulo" class="col-sm-2 control-label">Título:</label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" name="titulo" id="titulo" data-toggle="tooltip" title="Campo obrigatório!!" placeholder="Digite Aqui..."required>
+                           <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite Aqui..." data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -113,10 +115,14 @@ include "../Session_editor.php";
                           <textarea class="form-control"  name="linha_apoio" id="linha" rows="2" cols="40"></textarea>
                         </div>
                       </div>
+                      <?php
+                      if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+                      {
+                      ?>
                       <div class="form-group">
                         <label for="status" class="col-sm-2 control-label">Status:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo obrigatório!!" required>
+                          <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php
                                 $staSelect = new Select();
@@ -125,6 +131,21 @@ include "../Session_editor.php";
                           </select>
                         </div>
                       </div>
+                      <?php
+                      }
+                      else
+                      {
+                      ?>
+                      <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">Status:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="SOB AVALIAÇÃO!" disabled>
+                          <input type="hidden" name="status" value="1">
+                        </div>
+                      </div>
+                      <?php
+                      }
+                      ?>
                       <div class="form-group">
                         <?php
                           if (isset($_SESSION['categoria_edit']))
@@ -147,7 +168,7 @@ include "../Session_editor.php";
                       <div class="form-group">
                         <label for="noticia" class="col-sm-2 control-label">Noticia:</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control"  name="noticia" id="noticia" rows="16" cols="40" required></textarea>
+                          <textarea class="form-control"  name="noticia" id="noticia" rows="16" cols="40" data-toggle="tooltip" title="Campo Obrigatório!" required></textarea>
                           <br>
                         </div>
                       </div>
@@ -175,6 +196,33 @@ include "../Session_editor.php";
         include '../inc/style_page.html';
       ?>
       </div><!-- /.container -->
+
+      <div class="modal fade" id="info" tabindex="0" role="dialog" aria-labelledby="infoLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+             <h4 class="modal-title">Dicas</h4>
+           </div>
+           <div class="modal-body">
+             <dl>
+               <dt>Campos Obrigatórios:</dt>
+               <dd>A description list is perfect for defining terms.</dd>
+               <dt>Euismod</dt>
+               <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+               <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+               <dt>Malesuada porta</dt>
+               <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+             </dl>
+           </div>
+           <div class="modal-footer">
+
+             <button type="button" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
+           </div>
+         </div><!-- /.modal-content -->
+       </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>

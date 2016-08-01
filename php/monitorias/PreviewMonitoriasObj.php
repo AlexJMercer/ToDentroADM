@@ -74,7 +74,7 @@ include "../Session.php";
                         <div class="form-group">
                           <form class="" action="ViewMonitoriasObj.php" method="post">
                            <label for="curso">Curso:</label>
-                           <select class="form-control" name="curso" id="curso">
+                           <select class="form-control" name="curso" id="curso" required>
                              <option value="">Selecione um curso para continuar</option>
                               <?php $cursoSelect = new Select();
                                     $cursoSelect->cursoSelect();

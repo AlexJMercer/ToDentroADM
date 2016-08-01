@@ -91,7 +91,7 @@ include "../Session.php";
                       <div class="form-group">
                           <label for="semestre" class="col-sm-2 control-label">Semestre:</label>
                           <div class="col-sm-10">
-                            <select class="form-control select2" id="semestre" name="semestre" style="width: 100%;">
+                            <select class="form-control select2" id="semestre" name="semestre" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                               <option value=""></option>
                               <?php $semestreSelect = new Select();
                                     $semestreSelect->semestreSelect($comp->semestre);
@@ -102,7 +102,7 @@ include "../Session.php";
                         <div class="form-group">
                            <label for="sala" class="col-sm-2 control-label">Sala:</label>
                            <div class="col-sm-10">
-                              <select class="form-control select2" name="sala" id="sala" style="width: 100%;">
+                              <select class="form-control select2" name="sala" id="sala" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                                  <option value=""></option>
                                  <?php $localSelect = new Select();
                                        $localSelect->localSelect($comp->sala);
@@ -113,7 +113,7 @@ include "../Session.php";
                          <div class="form-group">
                             <label for="info" class="col-sm-2 control-label">Informações adicionais:</label>
                             <div class="col-sm-10">
-                               <textarea class="form-control" name="info" rows="4" placeholder="Digite aqui..."><?php echo $comp->info; ?></textarea>
+                               <textarea class="form-control" name="info" rows="4" placeholder="Digite aqui..." data-toggle="tooltip" title="Campo Obrigatório!" required><?php echo $comp->info; ?></textarea>
                             </div>
                          </div>
                   </div><!-- /.box-body -->

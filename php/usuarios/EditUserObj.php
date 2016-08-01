@@ -47,60 +47,69 @@ include "../Session.php";
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Locais</h1>
+          <h1>Usuários</h1>
         </section>
         <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Cadastro de locais</h3>
+                  <h3 class="box-title">Cadastro de usuários</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
-                <?php
-
-                  $id = $_POST["id"];
-
-                  if (isset($_POST["editar"]))
-                  {
-                    $edit = new Local();
-                    $comp = $edit->editar($id);
-
-                      if ($edit != null)
-                      {
-                ?>
-                <form class="form-horizontal" id="form" method="post" action="CrudLocal.php">
+                <form class="form-horizontal" name="formuser" id="form" method="post" action="CrudUsers.php">
                   <div class="box-body">
                       <div class="form-group">
-                        <label for="local" class="col-sm-2 control-label">Local:</label>
+                        <label for="nome" class="col-sm-2 control-label">Nome:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="sala" id='local' value="<?php echo $comp->sala; ?>" placeholder="Digite a sala aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="text" class="form-control" name="nome" id="nome" data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" name="email" id="email" data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="senha" class="col-sm-2 control-label">Senha:</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" name="senha" id="senha"  data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="csenha" class="col-sm-2 control-label">Confirmar senha:</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" name="csenha" id="csenha" onchange="validaSenha()" data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="type" class="col-sm-2 control-label">Tipo de usuário:</label>
+                        <div class="col-sm-10">
+                          <select class="form-control select2" name="tipo" id='type' data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                            <option value=""></option>
+                          <?php
+                                $typeSelect = new Select();
+                                $typeSelect->typeSelect();
+                          ?>
+                          </select>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
-                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
                     <br>
-                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewLocalObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
+                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>
-                <?php
-                      }
-                    }
-                ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -113,6 +122,16 @@ include "../Session.php";
     <script src="../../dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
+
+    <script type="text/javascript">
+      function validaSenha ()
+      {
+        if(document.formuser.csenha.value != document.formuser.senha.value)
+        {
+          alert("Ta diferente, digite um igual!!");
+        }
+      }
+    </script>
 
   </body>
 </html>

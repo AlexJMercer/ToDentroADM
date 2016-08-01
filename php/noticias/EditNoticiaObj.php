@@ -79,12 +79,11 @@ include "../Session.php";
                   {
                     $edit = new Noticias();
                     $comp = $edit->EditarNoticias($id);
-                    print_r($comp);
-                    var_dump($comp);
+                    //print_r($comp);
+                    //var_dump($comp);
                       if ($edit != null)
                       {
                 ?>
-                <!-- form start -->
                 <form class="form-horizontal" id="form" method="post" action="CrudNoticias.php" enctype="multipart/form-data">
                   <div class="box-body">
                       <div class="form-group">
@@ -109,7 +108,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="titulo" class="col-sm-2 control-label">Título:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o título aqui" value="<?php echo $comp->titulo; ?>" required>
+                          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o título aqui" value="<?php echo $comp->titulo; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -118,10 +117,14 @@ include "../Session.php";
                           <textarea class="form-control" name="linha_apoio" id="linha" rows="2" cols="40"><?php echo $comp->linha_apoio; ?></textarea>
                         </div>
                       </div>
+                      <?php
+                      if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+                      {
+                      ?>
                       <div class="form-group">
                         <label for="status" class="col-sm-2 control-label">Status:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" name="status" id="status" style="width:100%;" required>
+                          <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php
                                 $staSelect = new Select();
@@ -130,6 +133,21 @@ include "../Session.php";
                           </select>
                         </div>
                       </div>
+                      <?php
+                      }
+                      else
+                      {
+                      ?>
+                      <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">Status:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="SOB AVALIAÇÃO!" disabled>
+                          <input type="hidden" name="status" value="1">
+                        </div>
+                      </div>
+                      <?php
+                      }
+                      ?>
                       <div class="form-group">
                         <?php $_SESSION['categoria_edit']=$comp->categoria; ?>
                         <span id="listagemCategorias"></span>
@@ -147,7 +165,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="noticia" class="col-sm-2 control-label">Noticia:</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control"  name="noticia" id="noticia" rows="16" cols="40" required><?php echo $comp->texto; ?></textarea>
+                          <textarea class="form-control"  name="noticia" id="noticia" rows="16" cols="40" data-toggle="tooltip" title="Campo Obrigatório!" required><?php echo $comp->texto; ?></textarea>
                           <br>
                         </div>
                       </div>
@@ -166,14 +184,13 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- /.container -->
     </div><!-- ./wrapper -->
@@ -223,7 +240,7 @@ include "../Session.php";
       CKEDITOR.replace('noticia');
 
       $("#mydiv").load(location.href + " #mydiv");
-});
+    });
 
     </script>
 
@@ -237,7 +254,6 @@ include "../Session.php";
           $show = "../../dist/img/nadaCadastrado.png";
         }
     ?>
-
     <script type="text/javascript">
 
             $('.file').fileinput({

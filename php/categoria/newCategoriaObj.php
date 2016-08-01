@@ -2,7 +2,7 @@
 <div class="form-group">
    <label for="categoria" class="col-sm-2 control-label">Categoria:</label>
    <div class="col-sm-8">
-        <input type="text" class="form-control" name="new" placeholder="Digite a categoria aqui" autofocus required>
+        <input type="text" class="form-control" name="new" placeholder="Digite a categoria aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
    </div>
    <div class="col-sm-2">
       <button class="btn btn-success btn-flat" type="submit" name="cadastrar" value="cadastrar" style="width:100%;"><i class="fa fa-check"></i> Cadastrar </button>

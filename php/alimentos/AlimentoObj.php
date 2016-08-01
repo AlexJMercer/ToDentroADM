@@ -47,7 +47,9 @@ include "../Session.php";
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Alimentos</h1>
+          <h1>Alimentos
+            <a class="btn btn-info btn-flat pull-right" href="ViewAlimentosObj.php"><i class="fa fa-list"></i>  Listar alimentos</a>
+          </h1>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -64,7 +66,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="dia" class="col-sm-2 control-label">Alimento:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="alimento" placeholder="Digite o alimento aqui" required>
+                          <input type="text" class="form-control" name="alimento" placeholder="Digite o alimento aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
