@@ -1,5 +1,7 @@
 <?php
 include_once "../../class/Carrega.class.php";
+ini_set('session.save_path', '../tmp');
+
 session_start();
 ?>
 <label for="alimentos" class="col-sm-2 control-label">Alimentos:</label>

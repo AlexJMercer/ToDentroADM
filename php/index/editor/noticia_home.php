@@ -1,3 +1,4 @@
+<div class="col-lg-3 col-xs-6">
 <div class="small-box bg-aqua">
   <div class="inner">
     <?php
@@ -10,4 +11,5 @@
     <i class="fa fa-newspaper-o"></i>
   </div>
   <a href="../noticias/ViewNoticiasObj.php" class="small-box-footer">Ir para notícias <i class="fa fa-arrow-circle-right"></i></a>
+</div>
 </div>

@@ -1,6 +1,7 @@
 <?php
 
 include_once "../../class/Carrega.class.php";
+date_default_timezone_set('America/Sao_Paulo');
 
 include "../Session.php";
 
@@ -90,7 +91,9 @@ include "../Session.php";
 
                       $listar = new Noticias();
                       $list   = $listar->ListarNoticias();
-                      //print_r($list);
+                    /* echo "<pre>";
+                      var_dump($list);
+                      echo "</pre>";*/
 
                       if ($list != null)
                       {

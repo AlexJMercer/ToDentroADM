@@ -1,4 +1,5 @@
-<div class="small-box bg-orange-active">
+<div class="col-lg-3 col-xs-6">
+<div class="small-box bg-aqua">
   <div class="inner">
     <?php
       $cursos = new Select();
@@ -10,4 +11,5 @@
     <i class="ion ion-bag"></i>
   </div>
   <a href="../cursos/ViewCursosObj.php" class="small-box-footer">Ir para cursos <i class="fa fa-arrow-circle-right"></i></a>
+</div>
 </div>

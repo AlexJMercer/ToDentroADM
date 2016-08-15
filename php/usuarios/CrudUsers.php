@@ -11,7 +11,7 @@ if (isset($_POST['enviar']))
     $object->senha = $_POST['senha'];
     $object->tipo  = $_POST['tipo'];
 
-    $object->inserir();
+    $object->InserirUsuarios();
 
     if ($object->tipo==2)
     {

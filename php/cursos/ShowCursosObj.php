@@ -33,7 +33,7 @@ include "../Session.php";
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition skin-gree-light sidebar-mini">
+  <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
       <?php
             if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
@@ -47,15 +47,12 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>Cursos</h1>
         </section>
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cursos</h3>
@@ -96,15 +93,13 @@ include "../Session.php";
                   }
                 ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

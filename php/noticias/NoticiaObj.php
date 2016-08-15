@@ -87,8 +87,8 @@ include "../Session_editor.php";
                       <div class="form-group">
                         <label class="col-sm-2 control-label"> Autor: </label>
                         <div class="col-sm-10">
-                           <input type="text" value="Mercer" class="form-control" disabled>
-                           <input type="hidden" name="autor" value="1">
+                           <input type="text" value="<?php echo $_SESSION['nome']; ?>" class="form-control" disabled>
+                           <input type="hidden" name="autor" value="<?php echo $_SESSION['id']; ?>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -112,7 +112,7 @@ include "../Session_editor.php";
                       <div class="form-group">
                         <label for="linha" class="col-sm-2 control-label">Linha de apoio:</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control"  name="linha_apoio" id="linha" rows="2" cols="40"></textarea>
+                          <textarea class="form-control"  name="linha_apoio" id="linha" rows="2" cols="40" placeholder="Digite aqui..."></textarea>
                         </div>
                       </div>
                       <?php
@@ -148,7 +148,7 @@ include "../Session_editor.php";
                       ?>
                       <div class="form-group">
                         <?php
-                          if (isset($_SESSION['categoria_edit']))
+                          if (!empty($_SESSION['categoria_edit']))
                           {
                             unset($_SESSION['categoria_edit']);
                           }

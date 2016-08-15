@@ -90,7 +90,6 @@ include "../Session.php";
                       <div class="col-lg-6 col-xs-12">
                         <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewCardapiosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
                       </div>
-                      <br>
                       <div class="col-lg-6 col-xs-12">
                         <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>
                       </div>

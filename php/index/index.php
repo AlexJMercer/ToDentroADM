@@ -90,7 +90,6 @@ include "../Session_editor.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
         include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->

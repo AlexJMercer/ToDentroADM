@@ -248,7 +248,7 @@ include "../Session.php";
                                   <input type="hidden" name="id" value="<?php echo $dados->id; ?>">
                                   <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                                   <br>
-                                  <button type="button" name="voltar" value="voltar" onclick="location.href='ViewUsersObj.php'" class="btn btn-danger btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Voltar </button>
+                                  <button type="button" name="voltar" value="voltar" onclick="location.href='ViewUsersObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Voltar </button>
                               </div><!-- /.box-footer -->
                             </form>
                             <?php

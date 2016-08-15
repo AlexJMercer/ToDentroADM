@@ -65,7 +65,7 @@ include "../Session.php";
 
                     $exib = new Usuarios();
                     $comp = $exib->newUserPermission($_SESSION['novo_usuario']);
-                    unset($_SESSION['novo_usuario']);
+                    //unset($_SESSION['novo_usuario']);
                     //print_r($_SESSION);
 
                     if ($exib != null)
@@ -141,7 +141,7 @@ include "../Session.php";
                               <br>
                               <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
                               <br>
-                              <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
+                              <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewUsersObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                           </div><!-- /.box-footer -->
                         </form>
                         <?php

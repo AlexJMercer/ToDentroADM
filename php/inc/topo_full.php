@@ -42,7 +42,6 @@
               <img src="../../dist/img/LogoIFSP.jpg" class="img-circle" alt="User Image">
               <p>
                 <?php echo $_SESSION['nome']; ?>
-                <small>Administrador</small>
               </p>
             </li>
             <!-- Menu Footer-->
@@ -57,7 +56,6 @@
               </form>
             </li>
           </ul>
-
         </li>
         <!-- Control Sidebar Toggle Button -->
         <li class="dropdown user user-menu">

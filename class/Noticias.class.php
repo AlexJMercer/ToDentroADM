@@ -53,8 +53,11 @@ class Noticias
          $sql    = "INSERT INTO noticias (autor, data, hora, titulo, linha_apoio, status_id, texto, url)
                     VALUES ('$this->autor', '$this->data', '$this->hora', '$this->titulo', '$this->linha_apoio', '$this->status', '$this->noticia', '$this->url')";
          $return = pg_query($sql);
+         /*echo "<pre>";
+         var_dump($sql);
+         echo "</pre>";*/
 
-           if($return)
+          if($return)
            {
              $sql_id_not = "SELECT CURRVAL('noticias_id_not_seq')";
              $last       = pg_query($sql_id_not);
@@ -231,7 +234,7 @@ class Noticias
            $object->autor       = $reg['nome'];
            $object->titulo      = $reg['titulo'];
            $object->linha_apoio = $reg['linha_apoio'];
-           $object->status      = $reg['status'];
+           $object->status      = $reg['status_id'];
            $object->texto       = $reg['texto'];
            $object->url         = $reg['url'];
            $object->imagem      = $reg['imagem'];

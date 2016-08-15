@@ -60,10 +60,6 @@ include "../Session.php";
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Notícias</h3>
-                  <!-- tools box -->
-                  <div class="pull-right box-tools">
-                    <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                  </div><!-- /. tools -->
                 </div><!-- /.box-header -->
                   <?php
 
@@ -73,13 +69,17 @@ include "../Session.php";
                      {
                         $exib = new Noticias();
                         $comp = $exib->ShowNoticias($id);
-
+                        /*echo "<pre>";
+                        var_dump($comp);
+                        echo "</pre>";*/
                         if ($exib != null)
                         {
                   ?>
                 <div class="box-body">
                   <div class="form-group">
                     <div class="col-sm-7">
+                      <h1><?php echo $comp->titulo; ?></h1>
+                      <h4><?php echo $comp->linha_apoio; ?></h4>
                       <?php echo $comp->texto; ?>
                       <br>
                       <dl>
@@ -96,45 +96,31 @@ include "../Session.php";
                                  $label = new Categorias();
                                  $label->labelCategorias($comp->categoria);
                         ?></dd>
+                        <dt>Status:</dt>
+                        <dd><?php $badge = new Select();
+                                  $badge->labelStatus($comp->status);  ?></dd>
+                        <dt>URL do site:</dt>
+                        <dd> <a href="<?php echo $comp->url; ?>"><?php echo $comp->url; ?></a> </dd>
                       </dl>
                     </div>
                     <div class="col-sm-5" style="align: center;">
                       <br>
                       <img class="img-responsive-pad " src="<?php echo $comp->imagem; ?>" alt="Imagem" width="100%" height="100%" />
                     </div>
-                    <br>
-                    <form action="EditNoticiaObj.php" method="post">
-                      <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                      <div class="col-sm-6">
-                        <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewNoticiasObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
-                      </div>
-                      <br>
-                      <div class="col-sm-6">
-                        <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>
-                      </div>
-                    </form>
+                    <div class="form-group">
+                      <form action="EditNoticiaObj.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+                        <div class="col-sm-6">
+                          <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewNoticiasObj.php"><i class="fa fa-list"></i> Retornar para lista </button>
+                        </div>
+                        <br>
+                        <div class="col-sm-6">
+                          <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div><!-- /.box -->
-              <div class="box box-info collapsed-box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Informações cadastradas</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                  </div><!-- /.box-tools -->
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <dl class="dl-horizontal">
-                    <dt>Titulo:</dt>
-                    <dd><?php echo $comp->titulo; ?></dd>
-                    <dt>Linha de apoio:</dt>
-                    <dd><?php echo $comp->linha_apoio; ?></dd>
-                    <dt>Status:</dt>
-                    <dd><?php echo $comp->status; ?></dd>
-                    <dt>URL do site:</dt>
-                    <dd> <a href="<?php echo $comp->url; ?>"><?php echo $comp->url; ?></a> </dd>
-                  </dl>
-                </div><!-- /.box-body -->
               </div><!-- /.box -->
             <?php
                 }

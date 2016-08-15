@@ -44,11 +44,11 @@
             <div class="col-xs-12">
               <button type="submit" name="entrar" class="btn btn-info btn-block btn-flat"> Entrar <span class="glyphicon glyphicon-log-in"></span></button>
             </div><!-- /.col -->
-            <div class="col-xs-8">
+            <!--div class="col-xs-8">
               <div class="checkbox icheck">
                 <label><input type="checkbox"> Mantenha-me conectado</label>
               </div>
-            </div><!-- /.col -->
+            </div--><!-- /.col -->
           </div>
         </form>
         <a href="#">Esqueci minha senha</a><br>

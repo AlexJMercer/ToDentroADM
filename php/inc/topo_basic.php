@@ -29,21 +29,25 @@
               <img src="../../dist/img/LogoIFSP.jpg" class="img-circle" alt="User Image">
               <p>
                 <?php echo $_SESSION['nome']; ?>
-                <small>Teste</small>
               </p>
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
               <form class="" action="" method="post">
-                <div class="pull-left">
-                  <button type="button" name="button" class="btn btn-primary btn-flat"><i class="fa fa-user"></i>  Profile </button>
+                <div class="form-group">
+                  <button type="button" name="button" class="btn btn-primary btn-flat btn-block"><i class="fa fa-user"></i> Informações pessoais </button>
                 </div>
-                <div class="pull-right">
-                  <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat"><i class="fa fa-sign-out"></i>  Logout </button>
+                <div class="form-group">
+                  <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
                 </div>
               </form>
             </li>
           </ul>
+        </li>
+        <!-- Control Sidebar Toggle Button -->
+        <li class="dropdown user user-menu">
+         <a href="#" class="bg-teal" data-toggle="control-sidebar"><i class="fa fa-gears"></i>
+         <span class="hidden-xs"> Temas </span></a>
         </li>
       </ul>
     </div>

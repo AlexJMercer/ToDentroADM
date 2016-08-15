@@ -24,6 +24,8 @@ include "../Session.php";
     <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
     <!--FileInput-->
     <link rel="stylesheet" href="../../plugins/fileinput/css/fileinput.min.css">
+    <!--Loader-->
+    <link rel="stylesheet" href="../../dist/css/loader.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -79,8 +81,11 @@ include "../Session.php";
                   {
                     $edit = new Noticias();
                     $comp = $edit->EditarNoticias($id);
-                    //print_r($comp);
-                    //var_dump($comp);
+                    /*echo "<pre>";
+                    var_dump($comp);
+                    echo "</pre>";*/
+
+
                       if ($edit != null)
                       {
                 ?>
