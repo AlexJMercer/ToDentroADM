@@ -72,8 +72,8 @@
                       SET nome  ='$this->nome',
                           email ='$this->email',
                           senha ='$this->senha',
-                          type  ='$this->type'
-                      WHERE id  = $this->id";
+                          type_id  ='$this->tipo'
+                      WHERE id_user  = $this->id";
          $return = pg_query($sql);
          return $return;
       }

@@ -6,7 +6,7 @@ session_start();
 
 if(empty($_SESSION['email']) && empty($_SESSION['tipo_usuario']) && empty($_SESSION['nome']) && empty($_SESSION['id']))
 {
-   header('Location:../index/login_page.php?notlogged');
+   header('Location:../../?notlogged');
    exit;
 }
 

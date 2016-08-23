@@ -23,7 +23,7 @@ if (isset($_POST['enviar']))
       header("Location:ViewUsersObj.php");
     }
 }
-elseif (isset($_POST['editar']))
+elseif (isset($_POST['atualizar']))
 {
   $object        = new Usuarios();
   $object->id    = $_POST['id'];
@@ -31,7 +31,7 @@ elseif (isset($_POST['editar']))
   $object->email = $_POST['email'];
   $object->tipo  = $_POST['tipo'];
 
-  if (isset($_POST['senha']))
+  if (!empty($_POST['senha']))
   {
     $object->senha = $_POST['senha'];
   }
@@ -40,7 +40,8 @@ elseif (isset($_POST['editar']))
     $object->senha = $_POST['senha_old'];
   }
 
-  $object->EditarUsuarios();
+  $object->AtualizarUsuarios();
+  header("Location:ViewUsersObj.php");
 }
 
 ?>
