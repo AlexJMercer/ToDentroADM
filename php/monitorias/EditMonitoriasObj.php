@@ -68,7 +68,7 @@ include "../Session.php";
                   if (isset($_POST["editar"]))
                   {
                     $edit = new Monitorias();
-                    $comp = $edit->Editar($id);
+                    $comp = $edit->EditarMonitorias($id);
 
                     if ($edit != null)
                     {

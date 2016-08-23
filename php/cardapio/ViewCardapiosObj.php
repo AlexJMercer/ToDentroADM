@@ -75,15 +75,14 @@ include "../Session.php";
                     <?php
 
                       $listar = new Cardapios();
-                      $list = $listar->ListarCardapios();
+                      $list   = $listar->ListarCardapios();
 
-                      /*print_r($list);*/
                       if ($list != null)
                       {
                         foreach ($list as $line)
                         {
                     ?>
-                    <form name="view" class="" action="EditCardapioObj.php" method="post">
+                  <form name="view" class="" action="EditCardapioObj.php" method="post">
                     <tbody>
                       <tr>
                         <td><?php echo $line->dia; ?></td>
@@ -92,7 +91,7 @@ include "../Session.php";
                             <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                             <button type="submit" name="exibir" value="exibir" formaction="ShowCardapioObj.php" class="btn btn-info btn-flat"><i class="fa fa-expand"></i> Exibir </button>
                             <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i> Editar </button>
-                            <button type="submit" name="excluir" value="excluir" formaction="CrudCardapio.php" class='btn btn-danger btn-flat'><i class="fa fa-times"></i> Excluir </button></td>
+                            <button type="submit" name="excluir" value="excluir" formaction="ExcluirCardapioObj.php" class='btn btn-danger btn-flat'><i class="fa fa-times"></i> Excluir </button></td>
                       </tr>
                     </tbody>
                   </form>
@@ -113,8 +112,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

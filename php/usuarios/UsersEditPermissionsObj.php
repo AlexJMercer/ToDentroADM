@@ -96,7 +96,8 @@ include "../Session.php";
                         <dt>E-mail:</dt>
                         <dd><?php echo $comp->email; ?></dd>
                         <dt>Tipo de usuário:</dt>
-                        <dd><?php echo $comp->tipo; ?></dd>
+                        <dd><?php $type = new Select();
+                                  $type->labelType($comp->tipo);?></dd>
                       </dl>
                     </div>
                       <div class="col-sm-12">

@@ -4,7 +4,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>T</b><b>D</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Tô </b><b>Dentro</b></span>
+    <span class="logo-lg"><b> Tô </b><b> Dentro </b></span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top" role="navigation">
@@ -18,19 +18,58 @@
     <div class="navbar-custom-menu">
 
       <ul class="nav navbar-nav">
+        <!-- Notifications: style can be found in dropdown.less -->
+        <li class="dropdown notifications-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <?php
+                $ShowAval = new Select();
+                $number   = $ShowAval->ShowAvaliacao();
+
+                if($number != null)
+                {
+            ?>
+            <i class="fa fa-warning"></i>
+            <span class="label label-danger"><?php echo $number->total;?></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="header"> <i class="fa fa-warning text-red"></i> <?php echo $number->total;?> itens estão sob avaliação!</li>
+            <li>
+              <ul class="menu">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-newspaper-o text-red"></i><?php echo $number->noticia;?> Notícias para avaliação!
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-rocket text-red"></i><?php echo $number->evento;?> Eventos para avaliação!
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-file-text-o text-red"></i><?php echo $number->estagio;?> Estágios para avaliação!
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-laptop text-red"></i><?php echo $number->monitoria;?> Monitorias para avaliação!
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <?php
+              }
+          ?>
+        </li>
         <!-- Notifications Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu toggle button -->
           <a href="#" data-toggle="modal" data-target="#notificacao">
             <i class="glyphicon glyphicon-phone fa-1x"></i>
-            <span class="label label-danger">!</span>
             <span class="hidden-xs"> Enviar notificações </span>
           </a>
         </li>
-        <!-- Control Sidebar Toggle Button >
-        <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i> Skins</a>
-        </li-->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="../../dist/img/LogoIFSP.jpg" class="user-image" alt="User Image">
@@ -106,6 +145,6 @@
        <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
        </form>
      </div>
-   </div><!-- /.modal-content -->
- </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+   </div>
+ </div>
+</div>

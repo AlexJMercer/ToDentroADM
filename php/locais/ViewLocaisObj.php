@@ -49,7 +49,6 @@ include "../Session.php";
             }
             include '../inc/menutime.php';
       ?>
-      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -78,7 +77,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Local();
-                      $list = $listar->listar();
+                      $list = $listar->ListarLocal();
 
                       if ($list != null)
                       {
@@ -90,21 +89,29 @@ include "../Session.php";
                         <td><?php echo $line->sala; ?></td>
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
-
                           <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-
-                          <button type="submit" name="excluir" value="excluir" formaction="CrudLocal.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          <button type="submit" name="excluir" value="excluir" formaction="ExcluirLocalObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                         </td>
                       </tr>
                       </form>
-                    <?php
-                            }
+                      <?php
                           }
-                          else
-                          {
-                            echo "<h2> Nada cadastrado!!</h2>";
-                          }
-                    ?>
+                        }
+                        else
+                        {
+                      ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p>Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                      <?php
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->

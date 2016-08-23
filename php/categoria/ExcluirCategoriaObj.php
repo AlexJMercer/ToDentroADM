@@ -84,7 +84,7 @@ include "../Session.php";
                         <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewCategoriasObj.php"><i class="fa fa-list"></i> Retornar para lista </button>
                       </div>
                       <div class="col-sm-6">
-                        <button type="submit" name="excluir" value="excluir" class="btn btn-danger btn-flat btn-block"><i class="fa fa-times"></i> Confirmar exclusão da categoria </button>
+                        <button type="submit" name="excluir" value="excluir" class="btn btn-danger btn-flat btn-block"><i class="fa fa-times"></i> Confirmar exclusão </button>
                       </div>
                     </form>
                   </div>

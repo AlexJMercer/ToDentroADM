@@ -11,9 +11,11 @@ class Select
     public $dia;
     public $alimento;
     public $status;
-    //public $;
-    //public $;
-    //public $;
+    public $estagio;
+    public $noticia;
+    public $monitoria;
+    public $evento;
+    public $total;
     public $bd;
 
     function __construct()
@@ -477,7 +479,7 @@ class Select
           }
           else
           {
-            if($this->id==$categoria)
+            if($object->id==$categoria)
             {
                print "<small class='label bg-blue'>{$object->categoria}</small>  ";
             }
@@ -486,9 +488,35 @@ class Select
       }
    }
 
+   public function labelInstituto($instituto = "")
+   {
+     $sql    = "SELECT * FROM instituto i WHERE i.id_inst=$instituto";
+     $result = pg_query($sql);
+     $ln     = pg_num_rows($result);
+
+     if ($ln==0)
+     {
+        echo "<small class='label bg-red'>ERRO</small>";
+     }
+     else
+     {
+        while ($a = pg_fetch_assoc($result))
+        {
+          $object            = new Instituto();
+          $object->id        = $a['id_inst'];
+          $object->instituto = $a['instituto'];
+
+          if($object->id==$instituto)
+          {
+            print "<small class='label bg-blue'>{$object->instituto}</small>  ";
+          }
+        }
+      }
+   }
+
    public function labelCursos($cursos = "")
    {
-      $sql    = "SELECT id_curso, nome from cursos ORDER BY nome";
+      $sql    = "SELECT id_curso, nome FROM cursos ORDER BY nome";
       $result = pg_query($sql);
       $ln     = pg_num_rows($result);
 
@@ -515,7 +543,7 @@ class Select
             {
                if($object->id==$cursos)
                {
-                  print "<small class='label bg-blue'>{$object->categoria}</small>  ";
+                  print "<small class='label bg-blue'>{$object->nome}</small>  ";
                }
             }
          }
@@ -524,7 +552,7 @@ class Select
 
    public function typeSelect($type="")
    {
-      $sql    = "SELECT * from usertype Order by id_type";
+      $sql    = "SELECT * FROM usertype ORDER BY id_type";
       $result = pg_query($sql);
       $ln     = pg_num_rows($result);
 
@@ -536,16 +564,16 @@ class Select
       {
         while ($a = pg_fetch_array($result))
         {
-          $id   = $a['id_type'];
-          $type = $a['type'];
+          $this->id   = $a['id_type'];
+          $this->type = $a['type'];
 
           if ($type==$this->id)
           {
-            print "<option selected value='{$id}'>{$type}</option>";
+            print "<option selected value='{$this->id}'>{$this->type}</option>";
           }
           else
           {
-            print "<option value='{$id}'>{$type}</option>";
+            print "<option value='{$this->id}'>{$this->type}</option>";
           }
         }
       }
@@ -553,6 +581,15 @@ class Select
 
    public function diaSelectS($dia='')
    {
+     $sql_card = "SELECT c.dia FROM cardapios";
+     $result_card = pg_query($sql_card);
+     $return_card = null;
+
+     while ($teste = pg_fetch_assoc($result_card))
+     {
+       # code...
+     }
+
      $sql    = "SELECT * FROM dia ORDER BY id_dia";
      $result = pg_query($sql);
      $ln     = pg_num_rows($result);
@@ -584,7 +621,7 @@ class Select
    {
       if ($status==1)
       {
-        echo "<small class='label bg-blue'>Sob Avaliação!</small>";
+        echo "<small class='label bg-maroon-active'>Sob Avaliação!</small>";
       }
       if ($status==2)
       {
@@ -597,6 +634,46 @@ class Select
       if ($status==4)
       {
         echo "<small class='label bg-aqua'>Publicado e editado!</small>";
+      }
+   }
+
+   public function userType($type = '')
+   {
+      if ($type==1)
+      {
+        echo "<h6><i class='fa fa-circle text-yellow'></i> Autor </h6>";
+      }
+      if ($type==2)
+      {
+        echo "<h6><i class='fa fa-circle text-maroon'></i> Editor </h6>";
+      }
+      if ($type==3)
+      {
+        echo "<h6><i class='fa fa-circle text-teal'></i> Administrador </h6>";
+      }
+      if ($type==4)
+      {
+        echo "<h6><i class='fa fa-circle text-blue'></i> Revisor </h6>";
+      }
+   }
+
+   public function labelType($type = '')
+   {
+      if ($type==1)
+      {
+        echo "<small class='label bg-yellow'>Autor</small>";
+      }
+      if ($type==2)
+      {
+        echo "<small class='label bg-maroon'>Editor</small>";
+      }
+      if ($type==3)
+      {
+        echo "<small class='label bg-teal'>Administrador</small>";
+      }
+      if ($type==4)
+      {
+        echo "<small class='label bg-blue'>Revisor</small>";
       }
    }
 
@@ -796,6 +873,39 @@ class Select
        $total = 0;
        return $total;
      }
+   }
+
+   public function ShowAvaliacao()
+   {
+     $sqlnot     = "SELECT n.status_id FROM noticias n WHERE n.status_id ='1'";
+     $result_not = pg_query($sqlnot);
+     $num_not    = pg_num_rows($result_not);
+
+     $sqlevent     = "SELECT e.status_id FROM eventos e WHERE e.status_id ='1'";
+     $result_event = pg_query($sqlevent);
+     $num_event    = pg_num_rows($result_event);
+
+     $sqlmonit     = "SELECT m.status_id FROM monitorias m WHERE m.status_id ='1'";
+     $result_monit = pg_query($sqlmonit);
+     $num_monit    = pg_num_rows($result_monit);
+
+     $sqlestag     = "SELECT e.status_id FROM estagios e WHERE e.status_id ='1'";
+     $result_estag = pg_query($sqlestag);
+     $num_estag    = pg_num_rows($result_estag);
+
+     $num = $num_estag+$num_not+$num_event+$num_monit;
+
+
+     $object            = new Select();
+     $object->noticia   = $num_not;
+     $object->evento    = $num_event;
+     $object->monitoria = $num_monit;
+     $object->estagio   = $num_estag;
+     $object->total     = $num;
+
+     $return = $object;
+
+     return $return;
    }
 
 }

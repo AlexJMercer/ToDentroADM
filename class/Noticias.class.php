@@ -86,14 +86,54 @@ class Noticias
 
       public function ListarNoticias()
       {
-         $sql    = "SELECT n.id_not, n.titulo, n.data, n.status_id, s.id_sta FROM noticias n, status s WHERE n.status_id=s.id_sta ORDER BY id_not DESC";
+         $sql    = "SELECT n.id_not, n.titulo, n.data, n.status_id FROM noticias n ORDER BY id_not DESC";
          $result = pg_query($sql);
+         $return = null;
 
          while ($reg = pg_fetch_assoc($result))
          {
             $object         = new Noticias();
             $object->id     = $reg["id_not"];
             $object->titulo = $reg["titulo"];
+            $object->data   = $reg["data"];
+            $object->status = $reg["status_id"];
+
+            $return[] = $object;
+         }
+         return $return;
+      }
+
+      public function ListarNoticiasByUser($id='')
+      {
+         $sql    = "SELECT n.id_not, n.autor, n.titulo, n.data, n.status_id, s.id_sta FROM noticias n, status s WHERE n.status_id=s.id_sta AND n.autor=$id ORDER BY id_not DESC";
+         $result = pg_query($sql);
+         $return = null;
+
+         while ($reg = pg_fetch_assoc($result))
+         {
+            $object         = new Noticias();
+            $object->id     = $reg["id_not"];
+            $object->titulo = $reg["titulo"];
+            $object->data   = $reg["data"];
+            $object->status = $reg["status_id"];
+
+            $return[] = $object;
+         }
+         return $return;
+      }
+
+      public function ListarNoticiasByStatus()
+      {
+         $sql    = "SELECT n.id_not, n.autor, n.titulo, n.data, n.status_id FROM noticias n WHERE n.status_id='1' ORDER BY id_not DESC";
+         $result = pg_query($sql);
+         $return = null;
+
+         while ($reg = pg_fetch_assoc($result))
+         {
+            $object         = new Noticias();
+            $object->id     = $reg["id_not"];
+            $object->titulo = $reg["titulo"];
+            $object->autor = $reg['autor'];
             $object->data   = $reg["data"];
             $object->status = $reg["status_id"];
 

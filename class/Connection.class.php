@@ -160,7 +160,6 @@ include_once 'Carrega.class.php';
       echo json_encode(array("result"=>$resultado), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 
-
     function getMonitoriaById($id)
     {
       //Função Ok

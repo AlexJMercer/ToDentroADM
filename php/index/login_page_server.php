@@ -8,9 +8,9 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
+    <!--Font Awesome-->
     <link rel="stylesheet" href="plugins/font-awesome-4.5.0/font-awesome-4.5.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
+    <!--Ionicons-->
     <link rel="stylesheet" href="plugins/ionicons-2.0.1/ionicons-2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
@@ -27,11 +27,11 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="login_page.php"><img src="dist/img/to_dentro_logo_mini.png" alt="Tô Dentro" /></a>
+        <a href="../../index2.html"><img src="dist/img/to_dentro_logo_mini.png" alt="Tô Dentro" /></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Logue para iniciar sua sessão</p>
-        <form action="php/index/LoginObj.php" method="post">
+        <form action="LoginObj.php" method="post">
           <div class="form-group has-feedback">
             <input type="email" class="form-control" name='login' placeholder="Email" required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -42,7 +42,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <button type="submit" name="entrar" class="btn btn-info btn-block btn-flat"> Entrar <span class="glyphicon glyphicon-log-in"></span></button>
+              <button type="submit" name="entrar" class="btn btn-info btn-block btn-flat" disabled><span class="glyphicon glyphicon-log-in"></span>  Entrar</button>
             </div><!-- /.col -->
             <!--div class="col-xs-8">
               <div class="checkbox icheck">
@@ -53,6 +53,11 @@
         </form>
         <a href="#">Esqueci minha senha</a><br>
       </div><!-- /.login-box-body -->
+      <br>
+      <div class="callout callout-info">
+        <h4><i class="icon fa fa-icon"></i> Alerta!</h4>
+        <h2>Em breve...</h2>
+      </div>
       <?php
         if (isset($_GET['error']))
         {

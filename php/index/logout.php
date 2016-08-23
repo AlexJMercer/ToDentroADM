@@ -6,7 +6,7 @@ if (isset($_POST['logout']))
 {
   $object = new Logar();
   $object->Logout();
-  header('Location:login_page.php');
+  header('Location:../../');
 }
 
 ?>

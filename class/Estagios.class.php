@@ -15,6 +15,7 @@ include_once 'Carrega.class.php';
     private $exigencias;
     private $info;
     private $curso;
+    private $status;
     private $bd;
 
     function __construct()
@@ -44,13 +45,13 @@ include_once 'Carrega.class.php';
       return $retorno;
     }
 
-    public function Inserir()
+    public function InserirEstagios()
    {
 
      $this->transacao("BEGIN");
 
-     $sql    = "INSERT INTO estagios (titulo, salario, condicoes, atividades, exigencias, info_est)
-                 VALUES ('$this->titulo', '$this->salario', '$this->condicoes', '$this->atividades', '$this->exigencias', '$this->info')";
+     $sql    = "INSERT INTO estagios (titulo, status_id, salario, condicoes, atividades, exigencias, info_est)
+                 VALUES ('$this->titulo', '$this->status', '$this->salario', '$this->condicoes', '$this->atividades', '$this->exigencias', '$this->info')";
      $return = pg_query($sql);
      print_r($return);
 
@@ -78,7 +79,7 @@ include_once 'Carrega.class.php';
        $this->transacao("ROLLBACK");
    }
 
-    public function Listar()
+    public function ListarEstagios()
     {
       $sql     = "SELECT * FROM estagios";
       $result  = pg_query($sql);
@@ -95,17 +96,18 @@ include_once 'Carrega.class.php';
       return $retorno;
     }
 
-    public function Atualizar()
+    public function AtualizarEstagios()
     {
       $this->transacao("BEGIN");
 
       $sql    = "UPDATE estagios SET titulo = '$this->titulo',
+                                 status_id  = '$this->status',
                                  salario    = '$this->salario',
                                  condicoes  = '$this->condicoes',
                                  atividades = '$this->atividades',
                                  exigencias = '$this->exigencias',
                                  info_est   = '$this->info'
-                              WHERE id_est  =  $this->id";
+                              WHERE id_est  = '$this->id'";
       $return = pg_query($sql);
 
         if($return)
@@ -137,14 +139,14 @@ include_once 'Carrega.class.php';
         $this->transacao("ROLLBACK");
     }
 
-    public function Excluir()
+    public function ExcluirEstagios()
     {
-      $sql     = "DELETE from estagios where id_est = $this->id";
+      $sql     = "DELETE FROM estagios WHERE id_est = $this->id";
       $retorno = pg_query($sql);
       return $retorno;
     }
 
-    public function Editar($id)
+    public function EditarEstagios($id)
     {
       $sql1 = "SELECT * FROM estagios e, estagio_cursos ec WHERE e.id_est=ec.est_id AND e.id_est=$id";
       $sql2 = "SELECT c.id_curso FROM cursos c, estagio_cursos ec WHERE ec.est_id=$id AND c.id_curso=ec.curso_id";
@@ -159,6 +161,7 @@ include_once 'Carrega.class.php';
         $object             = new Estagios();
         $object->id         = $reg['id_est'];
         $object->titulo     = $reg['titulo'];
+        $object->status     = $reg["status_id"];
         $object->atividades = $reg['atividades'];
         $object->salario    = $reg['salario'];
         $object->condicoes  = $reg['condicoes'];

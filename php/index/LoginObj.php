@@ -19,7 +19,7 @@ if (isset($_POST['entrar']) && !empty($_POST['login']) && !empty($_POST['senha']
   else
   {
     //echo "Error";
-    header('Location:login_page.php?error');
+    header('Location:../../login_page.php?error');
     //return false;
   }
 }

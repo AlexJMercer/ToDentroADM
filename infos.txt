@@ -1,3 +1,0 @@
-phpPgAdmin5.1
-PHP 5.4.38
-apache2.4

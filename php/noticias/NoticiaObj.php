@@ -305,7 +305,7 @@ include "../Session_editor.php";
 
          function atualiza()
          {
-             $.get('../categoria/listagem_categorias_multiple.php', function (resultado){
+             $.get('../categoria/Listagem_Categorias_Multiple.php', function (resultado){
                   $('#listagemCategorias').html(resultado);
              })
          }

@@ -23,5 +23,24 @@ if (isset($_POST['enviar']))
       header("Location:ViewUsersObj.php");
     }
 }
+elseif (isset($_POST['editar']))
+{
+  $object        = new Usuarios();
+  $object->id    = $_POST['id'];
+  $object->nome  = $_POST['nome'];
+  $object->email = $_POST['email'];
+  $object->tipo  = $_POST['tipo'];
+
+  if (isset($_POST['senha']))
+  {
+    $object->senha = $_POST['senha'];
+  }
+  else
+  {
+    $object->senha = $_POST['senha_old'];
+  }
+
+  $object->EditarUsuarios();
+}
 
 ?>

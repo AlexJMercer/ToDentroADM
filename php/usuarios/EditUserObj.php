@@ -50,6 +50,18 @@ include "../Session.php";
           <h1>Usuários</h1>
         </section>
         <!-- Main content -->
+        <?php
+
+          $id = $_POST["id"];
+
+          if (isset($_POST["editar"]))
+          {
+            $edit = new Usuarios();
+            $comp = $edit->EditarUsuarios($id);
+            //var_dump($comp);
+              if ($edit != null)
+              {
+        ?>
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
@@ -62,49 +74,55 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="nome" class="col-sm-2 control-label">Nome:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="nome" id="nome" data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $comp->nome; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email:</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" name="email" id="email" data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="email" class="form-control" name="email" id="email" value="<?php echo $comp->email; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="senha" class="col-sm-2 control-label">Senha:</label>
+                        <label for="senha" class="col-sm-2 control-label">Nova senha:</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" name="senha" id="senha"  data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="password" class="form-control" name="senha" id="senha">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="csenha" class="col-sm-2 control-label">Confirmar senha:</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" name="csenha" id="csenha" onchange="validaSenha()" data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="password" class="form-control" name="csenha" id="csenha" onchange="validaSenha()">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="type" class="col-sm-2 control-label">Tipo de usuário:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" name="tipo" id='type' data-toggle="tooltip" title="Campo Obrigatório!" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <select class="form-control" name="tipo" id='type' data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
-                          <?php
-                                $typeSelect = new Select();
-                                $typeSelect->typeSelect();
-                          ?>
+                            <?php
+                                  $typeSelect = new Select();
+                                  $typeSelect->typeSelect($comp->tipo);
+                            ?>
                           </select>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
+                    <input type="hidden" name="senha_old" value="<?php echo $comp->senha; ?>"/>
+                    <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
+                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
-                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewSetoresObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
+                <?php
+                      }
+                    }
+                ?>
               </div><!-- /.box -->
             </div><!--/.col (right) -->
-          </div>   <!-- /.row -->
+          </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php

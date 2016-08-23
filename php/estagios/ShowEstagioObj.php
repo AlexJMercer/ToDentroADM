@@ -67,7 +67,7 @@ include "../Session.php";
                 if (isset($_POST["exibir"]))
                 {
                   $exib = new Estagios();
-                  $comp = $exib->Editar($id);
+                  $comp = $exib->EditarEstagios($id);
                   //print_r($comp);
                   //var_dump($comp);
                   if ($exib != null)

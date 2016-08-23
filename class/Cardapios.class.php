@@ -108,7 +108,7 @@ include_once "Carrega.class.php";
         {
            $obj       = new Cardapios();
            $obj->id   = $reg["id_card"];
-           $obj->dia  = $reg["id_dia"];
+           $obj->dia  = $reg["dia"];
            $obj->data = $reg["data"];
 
            foreach (pg_fetch_assoc($result2) as $value)

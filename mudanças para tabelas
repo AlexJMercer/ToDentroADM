@@ -1,2 +1,0 @@
-ALTER TABLE monitorias ADD COLUMN status_id integer DEFAULT('1') NOT NULL;
-ALTER TABLE monitorias ADD FOREIGN KEY (status_id) REFERENCES status;

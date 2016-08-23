@@ -3,9 +3,10 @@ echo "<meta charset='UTF-8'>";
 include_once "../class/Carrega.class.php";
 
 echo "<h1>Página de testes</h1><br>";
-
-$n = new Connection();
+$n = new Select();
+//$n = new Connection();
 echo "<pre>";
+$n->ShowAvaliacao();
 //$n->getAllEstagios();
 //$n->getAllEventos();
 //$n->getEventosById(2);
@@ -15,7 +16,7 @@ echo "<pre>";
 //$n->searchAllNoticias($pesquisa);
 //$n->getAllCategorias();
 //$n->getAllNoticias();
-$n->ShowNoticiaById(3);
+//$n->ShowNoticiaById(3);
 //$n->getAllMonitoriasByCurso(1);
 //$n->getMonitoriaById(1);
 //$n->getAllCursos();

@@ -76,7 +76,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Eventos();
-                      $list = $listar->Listar();
+                      $list = $listar->ListarEventos();
 
                       if ($list != null)
                       {
@@ -91,7 +91,7 @@ include "../Session.php";
                               <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                               <button type="submit" name="exibir" value="exibir" class="btn btn-flat btn-info" formaction="ShowEventoObj.php"><i class="fa fa-edit"></i> Exibir </button>
                               <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                              <button type="submit" name="excluir" value="excluir" formaction="CrudEventos.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                              <button type="submit" name="excluir" value="excluir" formaction="ExcluirEventoObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                            </td>
                         </form>
                      </tr>

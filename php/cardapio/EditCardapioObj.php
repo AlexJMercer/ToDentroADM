@@ -86,14 +86,9 @@ include "../Session.php";
                 <form class="form-horizontal" name="cadcardapio" id="form" method="post" action="CrudCardapios.php">
                   <div class="box-body">
                       <div class="form-group">
-                        <label for="dia" class="col-sm-2 control-label" >Dia:</label>
+                        <label for="dia" class="col-sm-2 control-label">Dia:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" id="dia" name="dia" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
-                            <option value=""></option>
-                            <?php $diaSelect = new Dia();
-                                  $diaSelect->diaSelect($comp->dia);
-                            ?>
-                          </select>
+                            <p class="form-control-static"><?php echo $comp->dia;?></p>
                         </div>
                       </div>
                       <div class="form-group">

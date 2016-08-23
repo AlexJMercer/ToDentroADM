@@ -29,14 +29,14 @@ class Setores
      $this->$key = $value;
   }
 
-  public function Inserir()
+  public function InserirSetores()
   {
     $sql    = "INSERT INTO setores (setor, texto) VALUES ('$this->setor', '$this->texto')";
     $return = pg_query($sql);
     return $return;
   }
 
-  public function Listar()
+  public function ListarSetores()
   {
     $sql    = "SELECT * FROM setores ORDER BY id_set";
     $result = pg_query($sql);
@@ -53,21 +53,21 @@ class Setores
     return $retorno;
   }
 
-  public function Excluir()
+  public function ExcluirSetores()
   {
     $sql     = "DELETE FROM setores WHERE id_set = $this->id";
     $retorno = pg_query($sql);
     return $retorno;
   }
 
-  public function Atualizar()
+  public function AtualizarSetores()
   {
     $sql     = "UPDATE setores SET setor = '$this->setor', texto = '$this->texto' WHERE id_set = $this->id";
     $retorno = pg_query($sql);
     return $retorno;
   }
 
-  public function Editar($id='')
+  public function EditarSetores($id='')
   {
     $sql    = "SELECT * FROM setores WHERE id_set =$id";
     $result = pg_query($sql);

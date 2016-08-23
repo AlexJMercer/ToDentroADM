@@ -76,7 +76,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Estagios();
-                      $list = $listar->listar();
+                      $list = $listar->ListarEstagios();
 
                       if ($list != null)
                       {
@@ -90,7 +90,7 @@ include "../Session.php";
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <button type="submit" name="exibir" value="exibir" formaction="ShowEstagioObj.php" class="btn btn-flat btn-info"><i class="fa fa-expand"></i> Exibir </button>
                           <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                          <button type="submit" name="excluir" value="excluir" formaction="CrudEstagios.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          <button type="submit" name="excluir" value="excluir" formaction="ExcluirEstagioObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                         </td>
                       </tr>
                       </form>

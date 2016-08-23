@@ -62,31 +62,26 @@ include "../Session_editor.php";
         </section>
         <section class="content">
           <div class="row">
-
             <?php
                 if($_SESSION['tipo_usuario']==3)
                 {
-                  include '/admin/home_admin.php';
+                  include 'admin/home_admin.php';
                 }
                 elseif($_SESSION['tipo_usuario']==4)
                 {
-                  include '/revisor/home_revisor.php';
+                  include 'revisor/home_revisor.php';
                 }
                 elseif ($_SESSION['tipo_usuario']==2)
                 {
-                  include '/editor/home_editor.php';
+                  include 'editor/home_editor.php';
                 }
                 elseif ($_SESSION['tipo_usuario']==1)
                 {
-                  include '/autor/home_autor.php';
+                  include 'autor/home_autor.php';
                 }
             ?>
-
           </div>
         </section>
-        <?php
-          //print_r($_SESSION);
-        ?>
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';

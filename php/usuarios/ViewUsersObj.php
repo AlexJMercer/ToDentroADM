@@ -83,7 +83,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Usuarios();
-                      $list   = $listar->listarUsuarios();
+                      $list   = $listar->ListarUsuarios();
 
                       if ($list != null)
                       {
@@ -93,15 +93,16 @@ include "../Session.php";
                       <tr class="odd gradeX">
                         <form name="view" action="EditUserObj.php" method="post">
                         <td><?php echo $line->nome; ?></td>
-                        <td><?php echo $line->tipo; ?></td>
+                        <td><?php $type = new Select();
+                                  $type->labelType($line->tipo); ?></td>
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <?php
-                              if ($line->tipo=="Administrador" || $line->tipo=="Autor" || $line->tipo=="Revisor")
+                              if ($line->tipo=="3" || $line->tipo=="1" || $line->tipo=="4")
                               {
                           ?>
                                 <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                                <button type="submit" name="excluir" value="excluir" formaction="CrudCategoria.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                                <button type="submit" name="excluir" value="excluir" formaction="ExcluirUserObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                           <?php
                               }
                               else
@@ -109,7 +110,7 @@ include "../Session.php";
                           ?>
                                 <button type="submit" class="btn btn-flat btn-github" formaction="UsersEditPermissionsObj.php" name="permissions" value="permissions" title="Definir ou editar quais as páginas o editor possui acesso"><i class="fa fa-credit-card"></i> Permissões </button>
                                 <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                                <button type="submit" name="excluir" value="excluir" formaction="CrudUsers.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                                <button type="submit" name="excluir" value="excluir" formaction="ExcluirUserObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                           <?php
                               }
                           ?>

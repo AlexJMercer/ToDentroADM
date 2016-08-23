@@ -69,7 +69,7 @@ include "../Session.php";
                     if (isset($_POST["exibir"]))
                     {
                       $exib = new Eventos();
-                      $comp = $exib->Editar($id);
+                      $comp = $exib->EditarEventos($id);
                       //print_r($comp);
                       //var_dump($comp);
                       if ($exib != null)

@@ -64,7 +64,7 @@ include "../Session.php";
                 <?php
 
                     $exib = new Usuarios();
-                    $comp = $exib->newUserPermission($_SESSION['novo_usuario']);
+                    $comp = $exib->NewUserPermission($_SESSION['novo_usuario']);
                     //unset($_SESSION['novo_usuario']);
                     //print_r($_SESSION);
 
@@ -79,7 +79,8 @@ include "../Session.php";
                       <dt>E-mail:</dt>
                       <dd><?php echo $comp->email; ?></dd>
                       <dt>Tipo de usuário:</dt>
-                      <dd><?php echo $comp->tipo; ?></dd>
+                      <dd><?php $type = new Select();
+                                $type->labelType($comp->tipo); ?></dd>
                     </dl>
                   </div>
                   <div class="col-sm-12">

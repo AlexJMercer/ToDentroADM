@@ -8,10 +8,11 @@
       </div>
       <div class="pull-left info">
         <p><?php echo $_SESSION['nome']; ?></p>
-        <h6><i class="fa fa-circle text-success"></i> Administrador </h6>
+           <?php  $type = new Select();
+                  $type->userType($_SESSION['tipo_usuario']);
+           ?>
       </div>
     </div>
-    <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">MENU</li>
       <?php

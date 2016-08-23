@@ -42,7 +42,7 @@
 
       public function ListarUsuarios()
       {
-         $sql    = "SELECT * FROM usuarios, usertype WHERE usuarios.type_id = usertype.id_type ORDER BY usuarios.id_user";
+         $sql    = "SELECT * FROM usuarios ORDER BY usuarios.id_user";
          $resultado = pg_query($sql);
          $return = null;
 
@@ -51,7 +51,7 @@
             $object       = new Usuarios();
             $object->id   = $registro["id_user"];
             $object->nome = $registro["nome"];
-            $object->tipo = $registro["type"];
+            $object->tipo = $registro["type_id"];
 
             $return[] = $object;
          }
@@ -98,25 +98,27 @@
 
       public function EditarUsuarios($id = "")
       {
-         $sql       = "SELECT * FROM usuarios, usertype WHERE usuarios.usertype =usertype.id AND usuarios.id =$id ";
+         $sql       = "SELECT * FROM usuarios WHERE usuarios.id_user =$id ";
          $resultado = pg_query($sql);
          $return    = null;
 
          while ($registro = pg_fetch_assoc($resultado))
          {
             $object        = new Usuarios();
-            $object->id    = $registro["id"];
+            $object->id    = $registro["id_user"];
             $object->nome  = $registro["nome"];
             $object->email = $registro["email"];
+            $object->tipo  = $registro["type_id"];
+            $object->senha = $registro["senha"];
 
             $return = $object;
          }
          return $return;
       }
 
-      public function editPermissionsUser($id='')
+      public function EditPermissionsUser($id='')
       {
-        $sql    = "SELECT * FROM usuarios, usertype WHERE usuarios.type_id =usertype.id_type AND usuarios.id_user=$id";
+        $sql    = "SELECT * FROM usuarios WHERE usuarios.id_user=$id";
         $resultado = pg_query($sql);
         $return = null;
 
@@ -125,22 +127,22 @@
            $object        = new Usuarios();
            $object->id    = $registro["id_user"];
            $object->nome  = $registro["nome"];
-           $object->email = $registro['email'];
-           $object->tipo  = $registro["type"];
+           $object->email = $registro["email"];
+           $object->tipo  = $registro["type_id"];
 
            $return = $object;
         }
         return $return;
       }
 
-      public function newUserPermission($email)
+      public function NewUserPermission($email)
       {
         /*$sql_user_id = "SELECT CURRVAL('usuarios_id_user_seq')";
         $busca       = pg_query($sql_user_id);
         $id_user     = pg_fetch_array($busca);
         $this->id    = $id_user[0];*/
 
-        $sql       = "SELECT * FROM usuarios, usertype WHERE usuarios.type_id =usertype.id_type AND usuarios.email='$email'";
+        $sql       = "SELECT * FROM usuarios WHERE usuarios.email='$email'";
         $resultadoado = pg_query($sql);
         $retorno   = null;
 
@@ -150,7 +152,7 @@
           $object->id    = $registro["id_user"];
           $object->nome  = $registro["nome"];
           $object->email = $registro["email"];
-          $object->tipo  = $registro["type"];
+          $object->tipo  = $registro["type_id"];
 
           $retorno = $object;
         }
@@ -164,7 +166,7 @@
         $id_user     = pg_fetch_array($busca);
         $this->id    = $id_user[0];*/
 
-        $sql       = "SELECT * FROM usuarios, usertype WHERE usuarios.type_id =usertype.id_type AND usuarios.id_user='$id'";
+        $sql       = "SELECT * FROM usuarios WHERE usuarios.id_user='$id'";
         $resultadoado = pg_query($sql);
         $retorno   = null;
 
@@ -174,7 +176,7 @@
           $object->id    = $registro["id_user"];
           $object->nome  = $registro["nome"];
           $object->email = $registro["email"];
-          $object->tipo  = $registro["type"];
+          $object->tipo  = $registro["type_id"];
 
           $retorno = $object;
         }

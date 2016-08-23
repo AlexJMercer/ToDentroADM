@@ -76,7 +76,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Setores();
-                      $list = $listar->listar();
+                      $list = $listar->ListarSetores();
 
                       if ($list != null)
                       {
@@ -89,7 +89,7 @@ include "../Session.php";
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                          <button type="submit" name="excluir" value="excluir" formaction="CrudSetores.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          <button type="submit" name="excluir" value="excluir" formaction="ExcluirSetorObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
                         </td>
                       </tr>
                       </form>
