@@ -8,6 +8,7 @@ $n = new Connection();
 echo "<pre>";
 //$n->ShowAvaliacao();
 //$n->getAllEstagios();
+$n->getNotificacoes();
 //$n->getAllEventos();
 //$n->getEventosById(2);
 //$n->getProcessoSeletivo();

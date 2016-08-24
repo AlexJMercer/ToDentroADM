@@ -49,7 +49,7 @@ include "../Session.php";
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Cardápios</h1>
+          <h1>Monitorias</h1>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -58,7 +58,7 @@ include "../Session.php";
               <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Cadastro de cardápios</h3>
+                  <h3 class="box-title">Edição de monitorias</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <?php
@@ -73,7 +73,7 @@ include "../Session.php";
                     if ($edit != null)
                     {
                 ?>
-                <form class="form-horizontal" name="cadcardapio" id="form" method="post" action="<?php $SELF_PHP;?>">
+                <form class="form-horizontal" id="form" method="post" action="CrudMonitorias.php">
                   <div class="box-body">
                       <div class="form-group">
                         <label class="col-sm-2 control-label" >Curso:</label>
@@ -88,6 +88,37 @@ include "../Session.php";
                           <p class="form-control-static"> <?php echo $comp->disciplina; ?></p>
                         </div>
                       </div>
+                      <?php
+                      if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+                      {
+                      ?>
+                      <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">Status:</label>
+                        <div class="col-sm-10">
+                          <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                            <option value=""></option>
+                            <?php
+                                $staSelect = new Select();
+                                $staSelect->statusSelect($comp->status);
+                            ?>
+                          </select>
+                        </div>
+                      </div>
+                      <?php
+                      }
+                      else
+                      {
+                      ?>
+                      <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">Status:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="SOB AVALIAÇÃO!" disabled>
+                          <input type="hidden" name="status" value="1">
+                        </div>
+                      </div>
+                      <?php
+                      }
+                      ?>
                       <div class="form-group">
                           <label for="semestre" class="col-sm-2 control-label">Semestre:</label>
                           <div class="col-sm-10">
@@ -119,9 +150,9 @@ include "../Session.php";
                   </div><!-- /.box-body -->
                   <div class="box-footer">
                     <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
-                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block">Atualizar</button>
+                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
-                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm ">Limpar</button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="javascript:history.back()'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-times"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->

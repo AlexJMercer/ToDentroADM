@@ -78,6 +78,9 @@ include "../Session.php";
                   <dl class="dl-horizontal">
                     <dt>Título:</dt>
                     <dd><?php echo $comp->titulo; ?></dd>
+                    <dt>Status:</dt>
+                    <dd><?php $badge = new Select();
+                              $badge->labelStatus($comp->status);  ?></dd>
                     <dt>Oferta para os cursos:</dt>
                     <dd><?php $cursos = new Select();
                               $cursos->labelCursos($comp->curso);
@@ -115,7 +118,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

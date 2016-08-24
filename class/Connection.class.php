@@ -465,5 +465,26 @@ include_once 'Carrega.class.php';
       echo json_encode(array("result"=>$resultado), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 
+    function getNotificacoes()
+    {
+      //Função Ok
+      //
+      $sql = "SELECT * FROM notificacoes";
+      $res = pg_query($sql);
+      $resultado = array();
+
+      while($row = pg_fetch_array($res))
+      {
+        $object              = new Notificacoes();
+        $object->id          = $row['id_notif'];
+        $object->titulo      = $row['titulo_notif'];
+        $object->texto       = $row['texto_notif'];
+        $object->notificacao = $row['notificar'];
+        array_push($resultado,
+        array('id'=>$object->id,'Titulo'=>$object->titulo,'Descricao'=>$object->texto, 'notificar'=>$object->notificacao));
+      }
+     echo json_encode(array("result"=>$resultado), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+    }
+
   }
 ?>

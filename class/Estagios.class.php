@@ -90,6 +90,7 @@ include_once 'Carrega.class.php';
          $object         = new Estagios();
          $object->id     = $reg['id_est'];
          $object->titulo = $reg['titulo'];
+         $object->status = $reg['status_id'];
 
          $retorno[] = $object;
       }
@@ -161,7 +162,7 @@ include_once 'Carrega.class.php';
         $object             = new Estagios();
         $object->id         = $reg['id_est'];
         $object->titulo     = $reg['titulo'];
-        $object->status     = $reg["status_id"];
+        $object->status     = $reg['status_id'];
         $object->atividades = $reg['atividades'];
         $object->salario    = $reg['salario'];
         $object->condicoes  = $reg['condicoes'];

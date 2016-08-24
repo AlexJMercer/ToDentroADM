@@ -79,6 +79,7 @@ include "../Session.php";
                     <thead>
                       <tr>
                         <th> Disciplina </th>
+                        <th> Status </th>
                         <th> Opções </th>
                       </tr>
                     </thead>
@@ -98,6 +99,8 @@ include "../Session.php";
                       <tr class="odd gradeX">
                         <form name="view" action="EditMonitoriasObj.php" method="post">
                         <td><?php echo $line->disciplina; ?></td>
+                        <td><?php $badge = new Select();
+                                  $badge->labelStatus($line->status);  ?></td>
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <input type="hidden" name="curso" value="<?php echo $curso;?>">
@@ -124,6 +127,7 @@ include "../Session.php";
                       </tr>
                       <?php
                         }
+                      }
                       ?>
                     </tbody>
                   </table>

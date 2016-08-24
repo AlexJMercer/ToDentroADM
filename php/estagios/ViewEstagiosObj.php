@@ -69,6 +69,7 @@ include "../Session.php";
                     <thead>
                       <tr>
                         <th>Estágio</th>
+                        <th>Status</th>
                         <th>Opções</th>
                       </tr>
                     </thead>
@@ -86,6 +87,8 @@ include "../Session.php";
                       <tr class="odd gradeX">
                         <form name="view" action="EditEstagioObj.php" method="post">
                         <td><?php echo $line->titulo; ?></td>
+                        <td><?php $badge = new Select();
+                                  $badge->labelStatus($line->status);  ?></td>
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <button type="submit" name="exibir" value="exibir" formaction="ShowEstagioObj.php" class="btn btn-flat btn-info"><i class="fa fa-expand"></i> Exibir </button>
@@ -123,7 +126,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

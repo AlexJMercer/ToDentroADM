@@ -69,6 +69,7 @@ include "../Session.php";
                       <tr>
                         <th>Evento</th>
                         <th>Data de inicio</th>
+                        <th>Status</th>
                         <th>Opções</th>
                       </tr>
                     </thead>
@@ -87,6 +88,8 @@ include "../Session.php";
                         <form name="view" action="EditEventoObj.php" method="post">
                            <td><?php echo $line->evento; ?></td>
                            <td><?php echo date('d/m/Y',strtotime($line->dataInicio)); ?></td>
+                           <td><?php $badge = new Select();
+                                     $badge->labelStatus($line->status);  ?></td>
                            <td>
                               <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                               <button type="submit" name="exibir" value="exibir" class="btn btn-flat btn-info" formaction="ShowEventoObj.php"><i class="fa fa-edit"></i> Exibir </button>
@@ -124,7 +127,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

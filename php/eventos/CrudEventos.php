@@ -7,6 +7,7 @@ include_once "../../class/Carrega.class.php";
    {
       $object             = new Eventos();
       $object->evento     = $_POST['evento'];
+      $object->status     = $_POST['status'];
       $object->dataInicio = $_POST['dataInicio'];
       $object->dataFim    = $_POST['dataFim'];
       $object->horario    = $_POST['horario'];
@@ -45,7 +46,7 @@ include_once "../../class/Carrega.class.php";
       $object->id = $_POST['id'];
 
       //print_r($object);
-      $object->Excluir();
+      $object->ExcluirEventos();
 
       header("Location:ViewEventosObj.php");
    }
@@ -55,20 +56,20 @@ include_once "../../class/Carrega.class.php";
       $object             = new Eventos();
       $object->id         = $_POST['id'];
       $object->evento     = $_POST['evento'];
+      $object->status     = $_POST['status'];
       $object->dataInicio = $_POST['dataInicio'];
       $object->dataFim    = $_POST['dataFim'];
       $object->horario    = $_POST['horario'];
       $object->categoria  = $_POST['categoria'];
       $object->texto      = $_POST['texto'];
 
-      $object->Atualizar();
+      $object->AtualizarEventos();
 
       if (!empty($_FILES["imagem"]["name"]))
       {
         $myUpload = new Upload($_FILES["imagem"]);
         $Up       = $myUpload->eventoUploadUpdate($_POST['id']);
       }
-
       header("Location:ViewEventosObj.php");
    }
 ?>

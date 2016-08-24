@@ -8,10 +8,11 @@ include_once "../../class/Carrega.class.php";
      $object->curso      = $_POST['curso'];
      $object->disciplina = $_POST['disciplina'];
      $object->semestre   = $_POST['semestre'];
+     $object->status     = $_POST['status'];
      $object->sala       = $_POST['sala'];
      $object->info       = $_POST['info'];
 
-     $object->Inserir();
+     $object->InserirMonitorias();
 
      header("Location:PreviewMonitoriasObj.php");
   }
@@ -21,7 +22,7 @@ include_once "../../class/Carrega.class.php";
      $object     = new Monitorias();
      $object->id = $_POST['id'];
 
-     $object->Excluir();
+     $object->ExcluirMonitorias();
 
      header("Location:PreviewMonitoriasObj.php");
   }
@@ -31,10 +32,11 @@ include_once "../../class/Carrega.class.php";
      $object           = new Monitorias();
      $object->id       = $_POST['id'];
      $object->sala     = $_POST['sala'];
+     $object->status   = $_POST['status'];
      $object->semestre = $_POST['semestre'];
      $object->info     = $_POST['info'];
 
-     $object->Atualizar();
+     $object->AtualizarMonitorias();
 
      header("Location:PreviewMonitoriasObj.php");
   }

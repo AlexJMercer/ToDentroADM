@@ -80,6 +80,9 @@ include "../Session.php";
                       <dl class="dl-horizontal">
                         <dt>Evento:</dt>
                         <dd><?php echo $comp->evento; ?></dd>
+                        <dt>Status:</dt>
+                        <dd><?php $badge = new Select();
+                                  $badge->labelStatus($comp->status);  ?></dd>
                         <dt>Categoria:</dt>
                         <dd><?php $categoria = new Select();
                                   $categoria->labelCategorias($comp->categoria);
@@ -99,27 +102,25 @@ include "../Session.php";
                       <form action="EditEventoObj.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <div class="col-sm-6">
-                          <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block margin" formaction="ViewEventosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
+                          <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewEventosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
                         </div>
                         <div class="col-sm-6">
-                          <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block margin"><i class="fa fa-edit"></i> Editar </button>
+                          <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>
                         </div>
                       </form>
                     </div>
                   </div>
-
                   <?php
                       }
                     }
                   ?>
-              <!-- general form elements disabled -->
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

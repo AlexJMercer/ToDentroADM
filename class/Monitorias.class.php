@@ -96,7 +96,7 @@ include_once 'Carrega.class.php';
     return $return;
   }
 
-  public function ShowMonitoria($id='')
+  public function ShowMonitorias($id='')
   {
     $sql    = "SELECT * FROM monitorias as m, disciplinas as d, cursos as c, local as l, semestre as s WHERE m.curso_m =c.id_curso AND m.disciplina_m =d.id_disc AND s.id_sem =m.semestre_m AND l.id_lo =m.sala_m AND m.id_monit =$id";
     $result = pg_query($sql);
@@ -105,11 +105,11 @@ include_once 'Carrega.class.php';
     while ($reg = pg_fetch_assoc($result))
     {
       $object             = new Monitorias();
-      $object->id         = $reg["id_monit"];
+      $object->id         = $reg['id_monit'];
       $object->curso      = $reg['nome'];
       $object->disciplina = $reg['disciplina'];
       $object->semestre   = $reg['semestre'];
-      $object->status     = $reg["status_id"];
+      $object->status     = $reg['status_id'];
       $object->sala       = $reg['sala'];
       $object->info       = $reg['info_m'];
 

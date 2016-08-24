@@ -67,7 +67,7 @@ include "../Session.php";
                   if (isset($_POST["editar"]))
                   {
                     $edit = new Estagios();
-                    $comp = $edit->Editar($id);
+                    $comp = $edit->EditarEstagios($id);
 
                       if ($edit != null)
                       {
@@ -79,8 +79,38 @@ include "../Session.php";
                       <div class="col-sm-10">
                         <input type="text" class="form-control" name="titulo" id="titulo" value="<?php echo $comp->titulo; ?>" placeholder="Digite aqui" data-toggle="tooltip" title="Campo Obrigatório!" required>
                       </div>
-                      <?php  ?>
                     </div>
+                    <?php
+                    if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+                    {
+                    ?>
+                    <div class="form-group">
+                      <label for="status" class="col-sm-2 control-label">Status:</label>
+                      <div class="col-sm-10">
+                        <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <option value=""></option>
+                          <?php
+                              $staSelect = new Select();
+                              $staSelect->statusSelect($comp->status);
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+                    <?php
+                    }
+                    else
+                    {
+                    ?>
+                    <div class="form-group">
+                      <label for="status" class="col-sm-2 control-label">Status:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" value="SOB AVALIAÇÃO!" disabled>
+                        <input type="hidden" name="status" value="1">
+                      </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group">
                       <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
                       <div class="col-sm-10">
@@ -135,15 +165,13 @@ include "../Session.php";
                     }
                 ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

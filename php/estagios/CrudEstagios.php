@@ -6,6 +6,7 @@ include_once "../../class/Carrega.class.php";
     {
       $object             = new Estagios();
       $object->titulo     = $_POST['titulo'];
+      $object->status     = $_POST['status'];
       $object->atividades = $_POST['atividades'];
       $object->salario    = $_POST['salario'];
       $object->condicoes  = $_POST['condicoes'];
@@ -13,7 +14,7 @@ include_once "../../class/Carrega.class.php";
       $object->curso      = $_POST['curso'];
       $object->info       = $_POST['info'];
       //print_r($object);
-      $object->Inserir();
+      $object->InserirEstagios();
 
       header("Location:ViewEstagiosObj.php");
     }
@@ -23,6 +24,7 @@ include_once "../../class/Carrega.class.php";
       $object             = new Estagios();
       $object->id         = $_POST['id'];
       $object->titulo     = $_POST['titulo'];
+      $object->status     = $_POST['status'];
       $object->atividades = $_POST['atividades'];
       $object->salario    = $_POST['salario'];
       $object->condicoes  = $_POST['condicoes'];
@@ -30,7 +32,7 @@ include_once "../../class/Carrega.class.php";
       $object->curso      = $_POST['curso'];
       $object->info       = $_POST['info'];
 
-      $object->atualizar();
+      $object->AtualizarEstagios();
 
       header("Location:ViewEstagiosObj.php");
     }
@@ -40,7 +42,7 @@ include_once "../../class/Carrega.class.php";
       $object     = new Estagios();
       $object->id = $_POST['id'];
 
-      $object->excluir();
+      $object->ExcluirEstagios();
 
       header("Location:ViewEstagiosObj.php");
     }

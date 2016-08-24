@@ -67,7 +67,7 @@ include "../Session.php";
                   if (isset($_POST["exibir"]))
                   {
                     $exib = new Monitorias();
-                    $comp = $exib->ShowMonitoria($id);
+                    $comp = $exib->ShowMonitorias($id);
 
                     if ($exib != null)
                     {
@@ -79,6 +79,9 @@ include "../Session.php";
                       <dd><?php echo $comp->curso; ?></dd>
                       <dt>Disciplina:</dt>
                       <dd><?php echo $comp->disciplina; ?></dd>
+                      <dt>Status:</dt>
+                      <dd><?php $badge = new Select();
+                                $badge->labelStatus($comp->status);  ?></dd>
                       <dt>Semestre:</dt>
                       <dd><?php echo $comp->semestre; ?></dd>
                       <dt>Local:</dt>

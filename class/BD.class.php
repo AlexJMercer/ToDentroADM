@@ -1,4 +1,5 @@
 <?php
+ini_set('session.save_path', '../../tmp');
   class BD
   {
     public $pdo;
@@ -18,7 +19,7 @@
       static $pdo = null;
       if ($pdo === null)
       {
-
+         //$config = require('/home/todentro3/public_html/dbconfig.php');
          $config = require(__DIR__ . '/../dbconfig.php');
          pg_connect("host=$config[host] user=$config[usuario] password='$config[senha]' dbname=$config[banco] port=$config[port] ")
               or die(' Erro de conexão com o Banco de dados!!');
