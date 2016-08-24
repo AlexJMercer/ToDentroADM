@@ -15,7 +15,7 @@ echo "<pre>";
 //$pesquisa = "Fenadoce";
 //$n->searchAllNoticias($pesquisa);
 //$n->getAllCategorias();
-$n->getAllNoticias();
+//$n->getAllNoticias();
 //$n->ShowNoticiaById(3);
 //$n->getAllMonitoriasByCurso(1);
 //$n->getMonitoriaById(1);

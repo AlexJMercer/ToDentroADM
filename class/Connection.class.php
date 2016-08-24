@@ -145,7 +145,7 @@ include_once 'Carrega.class.php';
     {
       //Função Ok
       //Realiza uma listagem de todas as monitorias de acordo com a id do curso para melhor filtragem
-      $sql       = "SELECT * FROM monitorias as m, disciplinas as d, cursos as c WHERE m.curso_m =c.id_curso AND m.disciplina_m =d.id_disc AND m.curso_m =$id";
+      $sql       = "SELECT * FROM monitorias as m, disciplinas as d, cursos as c WHERE m.curso_m =c.id_curso AND m.disciplina_m =d.id_disc AND m.status_id IN ('3', '4') AND m.curso_m =$id";
       $res       = pg_query($sql);
       $resultado = array();
 
@@ -244,7 +244,7 @@ include_once 'Carrega.class.php';
     function searchAllNoticias($search)
     {
       //Função OK
-      $sql = "SELECT * FROM noticias n WHERE n.titulo ILIKE '%$search%' ORDER BY n.id_not DESC";
+      $sql = "SELECT * FROM noticias n WHERE n.titulo ILIKE '%$search%' AND n.status_id IN ('3', '4') ORDER BY n.id_not DESC";
       $res = pg_query($sql);
       $resultado = array();
 
@@ -321,7 +321,7 @@ include_once 'Carrega.class.php';
     function getAllEstagios()
     {
       //Função OK
-      $sql       = "SELECT * FROM estagios ";
+      $sql       = "SELECT * FROM estagios e WHERE e.status_id IN ('3', '4') ORDER BY id_est DESC";
       $res       = pg_query($sql);
       $resultado = array();
 
@@ -418,8 +418,8 @@ include_once 'Carrega.class.php';
       //Função OK
       // Necessário decidir condições de busca
       //$sql = "SELECT * FROM eventos WHERE data_inicio BETWEEN NOW() AND CURRENT_DATE + INTERVAL '2 MONTH'
-      //         OR data_fim BETWEEN NOW() AND CURRENT_DATE + INTERVAL '2 MONTH' ORDER BY data_inicio ASC";
-      $sql = "SELECT * FROM eventos ORDER BY id_event DESC";
+      //         OR data_fim BETWEEN NOW() AND CURRENT_DATE + INTERVAL '2 MONTH' AND e.status_id IN ('3', '4') ORDER BY data_inicio ASC";
+      $sql = "SELECT * FROM eventos e WHERE e.status_id IN ('3', '4') ORDER BY id_event DESC";
       $res = pg_query($sql);
       $resultado = array();
 
