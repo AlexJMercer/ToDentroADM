@@ -25,8 +25,6 @@ include "../Session_editor.php";
     <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
     <!-- FileInput -->
     <link rel="stylesheet" href="../../plugins/fileinput/css/fileinput.min.css">
-    <!-- Bootstrap time Picker -->
-    <link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css">
     <!--Loader-->
     <link rel="stylesheet" href="../../dist/css/loader.css">
     <!-- Toast -->
@@ -69,19 +67,28 @@ include "../Session_editor.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>Notícias
-              <a class="btn btn-info btn-flat pull-right" href="ViewNoticiasObj.php"><i class="fa fa-list"></i>  Listar notícias </a>
+              <?php if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+                    {
+              ?>
+                    <a class="btn btn-info btn-flat pull-right" href="ViewNoticiasObj.php"><i class="fa fa-list"></i>  Listar notícias </a>
+              <?php }
+                    elseif ($_SESSION['tipo_usuario']==2)
+                    {
+              ?>
+                      <a class="btn btn-info btn-flat pull-right" href="ViewMyNoticiasObj.php"><i class="fa fa-list"></i>  Listar notícias </a>
+              <?php
+                    }
+              ?>
             </h1>
         </section>
         <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de notícias</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" id="form" method="post" action="CrudNoticias.php" enctype="multipart/form-data">
                   <div class="box-body">
                       <div class="form-group">
@@ -186,7 +193,6 @@ include "../Session_editor.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
@@ -196,7 +202,6 @@ include "../Session_editor.php";
         include '../inc/style_page.html';
       ?>
       </div><!-- /.container -->
-
       <div class="modal fade" id="info" tabindex="0" role="dialog" aria-labelledby="infoLabel" aria-hidden="true">
        <div class="modal-dialog">
          <div class="modal-content">
@@ -208,15 +213,9 @@ include "../Session_editor.php";
              <dl>
                <dt>Campos Obrigatórios:</dt>
                <dd>A description list is perfect for defining terms.</dd>
-               <dt>Euismod</dt>
-               <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-               <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-               <dt>Malesuada porta</dt>
-               <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
              </dl>
            </div>
            <div class="modal-footer">
-
              <button type="button" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
            </div>
          </div><!-- /.modal-content -->
@@ -236,17 +235,10 @@ include "../Session_editor.php";
     <!-- FileInput -->
     <script src="../../plugins/fileinput/js/fileinput.min.js" type="text/javascript"></script>
     <script src="../../plugins/fileinput/js/fileinput_locale_pt-BR.js" type="text/javascript"></script>
-    <!-- InputMask -->
-    <script src="../../plugins/input-mask/jquery.inputmask.js"></script>
-    <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-    <script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-    <!-- bootstrap time picker -->
-    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
     <!-- SlimScroll -->
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="../../plugins/fastclick/fastclick.min.js"></script>
-
     <!-- CK Editor -->
     <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
     <!-- AdminLTE App -->

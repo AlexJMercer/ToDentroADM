@@ -62,13 +62,12 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="local" class="col-sm-2 control-label">Local:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="sala" id="local" placeholder="Digite o categoria aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="text" class="form-control" name="sala" id="local" placeholder="Digite o local aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
-                    <br>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
                     <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>

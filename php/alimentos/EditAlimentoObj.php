@@ -49,22 +49,18 @@ include "../Session.php";
         <section class="content-header">
           <h1>
             Alimentos
+            <a class="btn btn-info btn-flat pull-right" href="ViewAlimentosObj.php"><i class="fa fa-list"></i>  Listar alimentos</a>
           </h1>
         </section>
-
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <!-- left column -->
-
-            <!-- right column -->
             <div class="col-lg-12">
               <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de alimentos</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <?php
 
                   $id = $_POST["id"];

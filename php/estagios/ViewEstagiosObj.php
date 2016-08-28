@@ -114,11 +114,11 @@ include "../Session.php";
                     </tr>
                     <?php
                           }
-
                     ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->

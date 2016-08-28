@@ -15,73 +15,78 @@
     </div>
     <ul class="sidebar-menu">
       <li class="header">MENU</li>
+      <li class="treeview">
+        <a href="../index/index.php">
+          <i class="fa fa-th"></i> <span>Página Inicial</span>
+        </a>
+      </li>
       <?php
 
           if($_SESSION['tipo_usuario']==3)
           {
-            include '/admin/menuadmin.html';
+            include 'admin/menuadmin.html';
           }
           elseif($_SESSION['tipo_usuario']==4)
           {
-            include '/revisor/menurevisor.html';
+            include 'revisor/menurevisor.html';
           }
           elseif($_SESSION['tipo_usuario']==2)
           {
 
             if ($_SESSION['perm_noticias'] != null)
             {
-              include '/editor/noticias.html';
+              include 'editor/noticias.html';
             }
 
             if ($_SESSION['perm_cardapios'] != null)
             {
-              include '/editor/cardapios.html';
+              include 'editor/cardapios.html';
             }
 
             if ($_SESSION['perm_cursos'] != null)
             {
-              include '/editor/cursos.html';
+              include 'editor/cursos.html';
             }
 
             if ($_SESSION['perm_monitorias'] != null)
             {
-              include '/editor/monitorias.html';
+              include 'editor/monitorias.html';
             }
 
             if ($_SESSION['perm_estagios'] != null)
             {
-              include '/editor/estagios.html';
+              include 'editor/estagios.html';
             }
 
             if ($_SESSION['perm_eventos'] != null)
             {
-              include '/editor/eventos.html';
+              include 'editor/eventos.html';
             }
 
             if ($_SESSION['perm_categorias'] != null)
             {
-              include '/editor/categorias.html';
+              include 'editor/categorias.html';
             }
 
             if ($_SESSION['perm_locais'] != null)
             {
-              include '/editor/locais.html';
+              include 'editor/locais.html';
             }
 
             if ($_SESSION['perm_assistencias'] != null)
             {
-              include '/editor/assistencias.html';
+              include 'editor/assistencias.html';
             }
 
             if ($_SESSION['perm_setores'] != null)
             {
-              include '/editor/setores.html';
+              include 'editor/setores.html';
             }
 
           }
           elseif ($_SESSION['tipo_usuario']==1)
           {
-            include '/autor/menubasic.html';
+            include 'autor/menubasic.html';
           }
       ?>
     </ul>

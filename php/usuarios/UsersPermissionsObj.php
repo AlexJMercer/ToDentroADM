@@ -56,7 +56,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Informações do usuário</h3>
@@ -151,7 +150,6 @@ include "../Session.php";
                         ?>
                     </div><!-- /.box -->
                   </div>
-                  <!-- general form elements disabled -->
                 </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->

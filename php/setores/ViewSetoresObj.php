@@ -93,23 +93,28 @@ include "../Session.php";
                         </td>
                       </tr>
                       </form>
-                    <?php
+                      <?php
+                              }
                             }
-                          }
-                          else
-                          {
-                    ?>
-                            <tr class="odd gradeX">
-                              <td>
-                                <?php  echo "<h2> Nada cadastrado!!</h2>"; ?>
-                              </td>
-                            </tr>
-                    <?php
-                          }
-                    ?>
+                            else
+                            {
+                      ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p> Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                      <?php
+                            }
+                      ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -117,7 +122,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

@@ -63,13 +63,12 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="nome" class="col-sm-2 control-label">Nome do instituto:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="instituto" id="nome" placeholder="Digite aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="text" class="form-control" name="instituto" id="nome" placeholder="Digite o instituto aqui" autofocus data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
-                    <br>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
                     <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>

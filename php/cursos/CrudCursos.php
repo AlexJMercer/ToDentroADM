@@ -10,11 +10,14 @@ include_once "../../class/Carrega.class.php";
       $object->texto     = $_POST['texto'];
 
       //print_r($object);
-      $object->InserirCursos();
-
-      $myUpload = new Upload($_FILES["logo"]);
-
-      $Up = $myUpload->cursoUpload();
+      if ($object->InserirCursos())
+      {
+        if (!empty($_FILES["logo"]["name"]))
+        {
+          $myUpload = new Upload($_FILES["logo"]);
+          $Up = $myUpload->cursoUpload();
+        }
+      }
 
       header("Location:ViewCursosObj.php");
   }
@@ -27,11 +30,14 @@ include_once "../../class/Carrega.class.php";
       $object->instituto = $_POST['instituto'];
       $object->texto     = $_POST['texto'];
 
-      $object->AtualizarCursos();
-
-      $myUpload = new Upload($_FILES["logo"]);
-
-      $Up = $myUpload->cursoUploadUpdate($_POST['id']);
+      if ($object->AtualizarCursos())
+      {
+        if (!empty($_FILES["logo"]["name"]))
+        {
+          $myUpload = new Upload($_FILES["logo"]);
+          $Up = $myUpload->cursoUploadUpdate($_POST['id']);
+        }
+      }
 
       header("Location:ViewCursosObj.php");
   }

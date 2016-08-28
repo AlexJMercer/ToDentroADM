@@ -56,25 +56,23 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de curso</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
-<?php
+                <?php
 
-  $id = $_POST["id"];
+                  $id = $_POST["id"];
 
-  if (isset($_POST["editar"]))
-  {
-    $edit = new Cursos();
-    $comp = $edit->EditarCursos($id);
-    //print_r($comp);
+                  if (isset($_POST["editar"]))
+                  {
+                    $edit = new Cursos();
+                    $comp = $edit->EditarCursos($id);
+                    //print_r($comp);
 
-    if ($edit != null)
-    {
-?>
+                    if ($edit != null)
+                    {
+                ?>
                 <form class="form-horizontal" id="form" method="post" action="CrudCursos.php" enctype="multipart/form-data">
                   <div class="box-body">
                       <div class="form-group">
@@ -116,15 +114,13 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

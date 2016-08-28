@@ -55,7 +55,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Informações do usuário</h3>
@@ -63,7 +62,7 @@ include "../Session.php";
                 <?php
 
                     $exib = new Usuarios();
-                    $comp = $exib->ProfileUser($_SESSION['id']);
+                    $comp = $exib->ListUserInfo($_SESSION['id']);
                     //print_r($_SESSION);
 
                     if ($exib != null)
@@ -77,42 +76,28 @@ include "../Session.php";
                         <dt>E-mail:</dt>
                         <dd><?php echo $comp->email; ?></dd>
                         <dt>Tipo de usuário:</dt>
-                        <dd><?php echo $comp->tipo; ?></dd>
+                        <dd><?php $type = new Select();
+                                  $type->labelType($comp->tipo); ?></dd>
                       </dl>
                     </div>
-                    <?php
-                        }
-                      //}
-                    ?>
-                </div>
-
-            <div class="col-sm-12">
-              <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Permissões do usuário</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="form-group">
-                    <dl class="dl-horizontal">
-                      <dt>Nome:</dt>
-                      <dd><?php echo $comp->nome; ?></dd>
-                      <dt>E-mail:</dt>
-                      <dd><?php echo $comp->email; ?></dd>
-                      <dt>Tipo de usuário:</dt>
-                      <dd><?php echo $comp->tipo; ?></dd>
-                    </dl>
+                <?php
+                    }
+                ?>
                   </div>
-                </div>
-            </div><!-- /.box -->
-            <!-- general form elements disabled -->
+                  <div class="box-footer">
+                    <form action="UserEditProfileObj.php" method="post">
+                      <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
+                      <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar informações pessoais</button>
+                    </form>
+                  </div>
+              </div><!-- /.box -->
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -128,20 +113,5 @@ include "../Session.php";
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
 
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $('input').each(function(){
-        var self = $(this),
-        label = self.next(),
-        label_text = label.text();
-
-        label.remove();
-        self.iCheck({
-          checkboxClass: 'icheckbox_line-green',
-          insert: '<div class="icheck_line-icon"></div>' + label_text
-    });
-  });
-});
-    </script>
   </body>
 </html>

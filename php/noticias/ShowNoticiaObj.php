@@ -56,7 +56,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Notícias</h3>
@@ -148,16 +147,5 @@ include "../Session.php";
     <!-- Select2 -->
     <script src="../../plugins/select2/select2.full.min.js"></script>
 
-    <script type="text/javascript">
-    $(function()
-    {
-      $(".select2").select2();
-    });
-
-    $(window).load(function()
-    {
-        $('#myModal').modal('show');
-    });
-    </script>
   </body>
 </html>

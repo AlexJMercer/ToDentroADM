@@ -55,7 +55,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Filtrar disciplinas</h3>
@@ -90,15 +89,13 @@ include "../Session.php";
                </div><!-- /.modal -->
                </div>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -107,61 +104,18 @@ include "../Session.php";
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
     <!-- FastClick -->
     <script src="../../plugins/fastclick/fastclick.min.js"></script>
+    <!-- Select2 -->
+    <script src="../../plugins/select2/select2.full.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
-    <!-- Select2 -->
-    <script src="../../plugins/select2/select2.full.min.js"></script>
-    <!-- bootstrap time picker -->
-    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
 
-    <!-- date-range-picker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 
     <script type="text/javascript">
     $(function()
     {
       $(".select2").select2();
-
-      $('#reservation').daterangepicker({
-        singleDatePicker: true,
-        format: 'DD/MM/YYYY',
-        "locale": {
-        "format": "DD/MM/YYYY",
-        "separator": " - ",
-        "applyLabel": "Apply",
-        "cancelLabel": "Cancel",
-        "fromLabel": "From",
-        "toLabel": "To",
-        "customRangeLabel": "Custom",
-        "daysOfWeek": [
-            "Dom",
-            "Seg",
-            "Ter",
-            "Qua",
-            "Qui",
-            "Sex",
-            "Sab"
-        ],
-        "monthNames": [
-            "Janeiro",
-            "Feveireiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ],
-        "firstDay": 1
-    },
-      });
     });
 
     $(window).load(function()

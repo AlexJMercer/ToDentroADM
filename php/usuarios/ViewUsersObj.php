@@ -3,6 +3,12 @@
 include_once "../../class/Carrega.class.php";
 
 include "../Session.php";
+
+if ($_SESSION['tipo_usuario']==2 || $_SESSION['tipo_usuario']==4 || $_SESSION['tipo_usuario']==1)
+{
+  header('Location:UsersProfileObj.php');
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,7 +104,13 @@ include "../Session.php";
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <?php
-                              if ($line->tipo=="3" || $line->tipo=="1" || $line->tipo=="4")
+                              if ($line->tipo=="3")
+                              {
+                          ?>
+                                <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
+                          <?php
+                              }
+                              elseif ($line->tipo=="1" || $line->tipo=="4")
                               {
                           ?>
                                 <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
@@ -117,17 +129,31 @@ include "../Session.php";
                         </td>
                       </tr>
                       </form>
-                    <?php
+                      <?php
+                              }
                             }
-                          }
-                          else
-                          {
-                            echo "<h2> Nada cadastrado!!</h2>";
-                          }
-                    ?>
+                            else
+                            {
+                      ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p> Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <p> Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                      <?php
+                            }
+                      ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -135,7 +161,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

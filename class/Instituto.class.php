@@ -29,14 +29,14 @@ class Instituto
       $this->$key = $value;
     }
 
-    public function Inserir()
+    public function InserirInstituto()
     {
       $sql    = "INSERT INTO instituto (instituto) VALUES ('$this->instituto')";
       $return = pg_query($sql);
       return $return;
     }
 
-    public function Listar()
+    public function ListarInstituto()
     {
       $sql    = "SELECT * FROM instituto";
       $result = pg_query($sql);
@@ -52,7 +52,7 @@ class Instituto
       return $return;
     }
 
-    public function Editar($id = "")
+    public function EditarInstituto($id = "")
     {
       $sql    = "SELECT * FROM instituto AS i WHERE i.id_inst =$id";
       $result = pg_query($sql);
@@ -68,14 +68,14 @@ class Instituto
       return $return;
     }
 
-    public function Excluir()
+    public function ExcluirInstituto()
     {
       $sql    = "DELETE FROM instituto WHERE id_inst =$this->id";
       $return = pg_query($sql);
       return $return;
     }
 
-    public function Atualizar()
+    public function AtualizarInstituto()
     {
         $sql    = "UPDATE instituto set instituto = '$this->instituto' WHERE id_inst = '$this->id'";
         $return = pg_query($sql);

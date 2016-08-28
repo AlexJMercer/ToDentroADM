@@ -11,7 +11,7 @@ include "../Session.php";
     {
 
       $exib = new Usuarios();
-      $comp = $exib->ListUserPermission($id);
+      $comp = $exib->ListUserInfo($id);
       //print_r($_SESSION);
       $load       = new Permissions();
       $permission = $load->LoadIdPermission($id);
@@ -28,7 +28,7 @@ include "../Session.php";
         exit;
       }
 
-      if ($edit != NULL AND $exib != NULL)
+      if ($dados != NULL AND $comp != NULL)
       {
 ?>
 <!DOCTYPE html>
@@ -83,7 +83,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title">Informações do usuário</h3>
@@ -248,10 +247,10 @@ include "../Session.php";
                                   <input type="hidden" name="usuario" value="<?php echo $comp->id; ?>"/>
                                   <input type="hidden" name="id" value="<?php echo $dados->id; ?>">
                                   <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
-                                  <br>
-                                  <button type="button" name="voltar" value="voltar" onclick="location.href='ViewUsersObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Voltar </button>
+
+                                  <button type="button" name="voltar" value="voltar" onclick="location.href='ViewUsersObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Voltar </button>
                               </div><!-- /.box-footer -->
-                            </form>
+
                             <?php
                                 }
                                 elseif ($exib == null)
@@ -263,7 +262,12 @@ include "../Session.php";
                             ?>
                         </div><!-- /.box -->
                       </div>
-                  <!-- general form elements disabled -->
+                    </div>
+                    <div class="box-footer">
+                      <button type="submit" formaction="CrudPermissions.php" name="excluir" value="excluir" class="btn btn-danger btn-flat btn-block"><i class="fa fa-times"></i> Excluir permissões</button>
+                    </div>
+                    </form>
+                  </div>
                 </div>
           </div>   <!-- /.row -->
         </section><!-- /.content -->

@@ -18,8 +18,6 @@ include "../Session.php";
     <link rel="stylesheet" href="../../plugins/font-awesome-4.5.0/font-awesome-4.5.0/css/font-awesome.min.css">
     <!--Ionicons-->
     <link rel="stylesheet" href="../../plugins/ionicons-2.0.1/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -47,46 +45,82 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Disciplinas
-            <a class="btn btn-info btn-flat pull-right" href="PreviewDisciplinasObj.php"><i class="fa fa-list"></i>  Listar disciplinas</a>
-          </h1>
+          <h1>Notificações</h1>
         </section>
+        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Cadastro de disciplinas</h3>
+                  <h3 class="box-title">Edição de notificação</h3>
                 </div><!-- /.box-header -->
-                <form class="form-horizontal" id="form" method="post" action="CrudDisciplinas.php">
+                <?php
+
+                  $id = $_POST["id"];
+
+                  if (isset($_POST["editar"]))
+                  {
+                    $edit = new Notificacoes();
+                    $comp = $edit->EditarNotificacoes($id);
+
+                      if ($edit != null)
+                      {
+                ?>
+                <form class="form-horizontal" id="form" method="post" action="CrudNotificacoes.php">
                   <div class="box-body">
-                      <div class="form-group">
-                        <label for="disciplina" class="col-sm-2 control-label">Disciplina:</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite aqui a disciplina"  data-toggle="tooltip" title="Campo Obrigatório!" required>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                         <label for="curso" class="col-sm-2 control-label">Curso:</label>
-                         <div class="col-sm-10">
-                           <span data-toggle="tooltip" title="Campo Obrigatório!">
-                           <select class="form-control select2" name="curso" id="curso" style="width: 100%;"  required>
-                             <option value=""></option>
-                             <?php $cursoSelect = new Select();
-                                   $cursoSelect->cursoSelect();
-                             ?>
-                           </select>
-                           </span>
-                         </div>
+                    <div class="form-group">
+                       <label for="titulo" class="col-sm-2 control-label">Título:</label>
+                       <div class="col-sm-10">
+                         <input type="text" class="form-control" name="titulo" id="titulo" value="<?php echo $comp->titulo; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                        </div>
+                       <br>
+                   </div>
+                   <div class="form-group">
+                      <label for="texto" class="col-sm-2 control-label">Texto:</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" name="texto" id="texto" rows="8" cols="40" data-toggle="tooltip" title="Campo Obrigatório!" required><?php echo $comp->texto; ?></textarea>
+                      </div>
+                   </div>
+                   <div class="form-group">
+                     <label for="notificar" class="col-sm-2 control-label">Notificar aplicativo:</label>
+                     <div class="col-sm-10">
+                       <div class="checkbox">
+                         <label>
+                          <?php
+                            $true = 't';
+                            if ($comp->notificacao == $true)
+                            {
+                          ?>
+                              <input type="checkbox"  name="notificar" value="notificar" checked>
+                          <?php
+                            }
+                            else
+                            {
+                          ?>
+                              <input type="checkbox"  name="notificar" value="notificar">
+                          <?php
+                            }
+                          ?>
+                              Enviar notificação!
+                         </label>
+                       </div>
+                     </div>
+                   </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
+                    <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
+                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
-                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewNotificacoesObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
+                <?php
+                      }
+                    }
+                ?>
               </div><!-- /.box -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
@@ -105,18 +139,8 @@ include "../Session.php";
     <script src="../../plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/app.min.js"></script>
-    <!-- Select2 -->
-    <script src="../../plugins/select2/select2.full.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
-
-    <script type="text/javascript">
-    $(function(){
-      $(".select2").select2({
-        placeholder: 'Selecione um curso'
-      });
-    });
-    </script>
 
   </body>
 </html>

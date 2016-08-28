@@ -43,5 +43,24 @@ elseif (isset($_POST['atualizar']))
   $object->AtualizarUsuarios();
   header("Location:ViewUsersObj.php");
 }
+elseif (isset($_POST['atualizarMy']))
+{
+  $object        = new Usuarios();
+  $object->id    = $_POST['id'];
+  $object->nome  = $_POST['nome'];
+  $object->email = $_POST['email'];
+
+  if (!empty($_POST['senha']))
+  {
+    $object->senha = $_POST['senha'];
+  }
+  else
+  {
+    $object->senha = $_POST['senha_old'];
+  }
+
+  $object->AtualizarInfo();
+  header("Location:UsersProfileObj.php");
+}
 
 ?>

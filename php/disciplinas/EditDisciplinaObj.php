@@ -55,22 +55,18 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de disciplinas</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <?php
 
                   $id = $_POST["id"];
 
                   if (isset($_POST["editar"]))
                   {
-
                     $edit = new Disciplinas();
                     $comp = $edit->EditarDisciplinas($id);
-
                     //print_r($comp);
                     //var_dump($comp);
                     if ($edit != null)
@@ -81,18 +77,20 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="disciplina" class="col-sm-2 control-label">Disciplina:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite o categoria aqui" value="<?php echo $comp->disciplina; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite aqui a disciplina" value="<?php echo $comp->disciplina; ?>" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
                          <label for="curso" class="col-sm-2 control-label">Curso:</label>
                          <div class="col-sm-10">
+                           <span data-toggle="tooltip" title="Campo Obrigatório!">
                            <select class="form-control select2" name="curso" id="curso" style="width: 100%;">
                              <option value=""></option>
                              <?php $cursoSelect = new Select();
                                    $cursoSelect->cursoSelect($comp->curso);
                              ?>
                            </select>
+                           </span>
                          </div>
                        </div>
                   </div><!-- /.box-body -->
@@ -108,14 +106,13 @@ include "../Session.php";
                   }
                 ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -133,9 +130,12 @@ include "../Session.php";
 
     <script type="text/javascript">
     $(function(){
-      $(".select2").select2();
+      $(".select2").select2({
+        placeholder: 'Selecione um curso'
+      });
     });
     </script>
+
 
   </body>
 </html>

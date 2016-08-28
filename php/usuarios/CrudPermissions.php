@@ -103,7 +103,16 @@ include_once '../../class/Carrega.class.php';
     header('Location:ViewUsersObj.php');
   }
 
-  if (isset($_POST['editar']))
+  elseif ($_POST['excluir'])
+  {
+    $object     = new Permissions();
+    $object->id = $_POST['id'];
+
+    $object->ExcluirPermissions();
+    header('Location:ViewUsersObj.php');
+  }
+
+  elseif (isset($_POST['atualizar']))
   {
     $object = new Permissions();
     $object->id = $_POST['id'];
@@ -201,7 +210,7 @@ include_once '../../class/Carrega.class.php';
 
     //print_r($object);
     //var_dump($object);
-    $object->InserirPermissions();
+    $object->AtualizarPermissions();
     header('Location:ViewUsersObj.php');
   }
 ?>

@@ -111,7 +111,6 @@ include "../Session.php";
                     </tr>
                     <?php
                           }
-
                     ?>
                     </tbody>
                   </table>
@@ -123,7 +122,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

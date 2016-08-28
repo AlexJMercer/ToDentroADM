@@ -68,7 +68,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Noticias</h3>
@@ -185,7 +184,7 @@ include "../Session.php";
                     <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
                     <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
-                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewNoticiasObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-times"></i> Cancelar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewNoticiasObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->

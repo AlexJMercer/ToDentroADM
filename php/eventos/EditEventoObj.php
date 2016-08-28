@@ -18,8 +18,8 @@ include "../Session.php";
     <link rel="stylesheet" href="../../plugins/font-awesome-4.5.0/font-awesome-4.5.0/css/font-awesome.min.css">
     <!--Ionicons-->
     <link rel="stylesheet" href="../../plugins/ionicons-2.0.1/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Bootstrap time Picker -->
-    <link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css">
+    <!--Loader-->
+    <link rel="stylesheet" href="../../dist/css/loader.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
     <!--FileInput-->
@@ -50,6 +50,7 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
+        <div id="loader"></div>
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1> Eventos </h1>
@@ -58,7 +59,6 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Eventos</h3>
@@ -92,7 +92,7 @@ include "../Session.php";
                       <div class="form-group">
                         <label for="status" class="col-sm-2 control-label">Status:</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <select class="form-control" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                             <option value=""></option>
                             <?php
                                 $staSelect = new Select();
@@ -157,21 +157,18 @@ include "../Session.php";
                   </div><!-- /.box-body -->
                   <div class="box-footer">
                     <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
-                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
-                    <br>
-                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewEventosObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
+                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewEventosObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -196,7 +193,13 @@ include "../Session.php";
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
 
-
+    <script type="text/javascript">
+      // Este evendo é acionado após o carregamento da página
+        jQuery(window).load(function() {
+      //Após a leitura da pagina o evento fadeOut do loader é acionado, esta com delay para ser perceptivo em ambiente fora do servidor.
+          jQuery("#loader").delay(2600).fadeOut();
+        });
+    </script>
 
     <script type="text/javascript">
     $(function(){

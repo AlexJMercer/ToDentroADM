@@ -16,12 +16,11 @@
       <span class="icon-bar"></span>
     </a>
     <div class="navbar-custom-menu">
-
       <ul class="nav navbar-nav">
-        <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <?php
+
                 $ShowAval = new Select();
                 $number   = $ShowAval->ShowAvaliacao();
 
@@ -36,22 +35,22 @@
             <li>
               <ul class="menu">
                 <li>
-                  <a href="#">
+                  <a href="../noticias/ViewNoticiasByStatusObj.php">
                     <i class="fa fa-newspaper-o text-red"></i><?php echo $number->noticia;?> Notícias para avaliação!
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="../eventos/ViewEventosByStatusObj.php">
                     <i class="fa fa-rocket text-red"></i><?php echo $number->evento;?> Eventos para avaliação!
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="../estagios/ViewEstagiosByStatusObj.php">
                     <i class="fa fa-file-text-o text-red"></i><?php echo $number->estagio;?> Estágios para avaliação!
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="../monitorias/ViewMonitoriasByStatusObj.php">
                     <i class="fa fa-laptop text-red"></i><?php echo $number->monitoria;?> Monitorias para avaliação!
                   </a>
                 </li>
@@ -62,7 +61,6 @@
               }
           ?>
         </li>
-        <!-- Notifications Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu toggle button -->
           <a href="#" data-toggle="modal" data-target="#notificacao">
@@ -85,20 +83,18 @@
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
-              <form class="" action="" method="post">
                 <div class="form-group">
-                  <button type="button" name="button" class="btn btn-primary btn-flat btn-block"><i class="fa fa-user"></i> Informações pessoais </button>
+                  <a href="../usuarios/UsersProfileObj.php" class="btn btn-primary btn-flat btn-block"><i class="fa fa-user"></i> Informações pessoais </a>
                 </div>
                 <div class="form-group">
                   <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
                 </div>
-              </form>
             </li>
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
         <li class="dropdown user user-menu">
-         <a href="#" class="bg-teal" data-toggle="control-sidebar"><i class="fa fa-gears"></i>
+         <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i>
          <span class="hidden-xs"> Temas </span></a>
         </li>
       </ul>

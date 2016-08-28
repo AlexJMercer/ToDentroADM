@@ -42,6 +42,7 @@
     {
       $sql    = "SELECT * FROM disciplinas as d, cursos as c WHERE d.curso =c.id_curso AND d.curso =$curso";
       $result = pg_query($sql);
+      $return = null;
 
       while ($reg = pg_fetch_assoc($result))
       {
@@ -72,6 +73,7 @@
     {
       $sql    = "SELECT * FROM disciplinas as d, cursos as c WHERE d.curso =c.id_curso AND d.id_disc =$id";
       $result = pg_query($sql);
+      $return = null;
 
       while ($reg = pg_fetch_assoc($result))
       {
@@ -89,6 +91,7 @@
     {
       $sql    = "SELECT * FROM disciplinas as d, cursos as c WHERE d.curso =c.id_curso AND d.id_disc =$id";
       $result = pg_query($sql);
+      $return = null;
 
       while ($reg = pg_fetch_assoc($result))
       {

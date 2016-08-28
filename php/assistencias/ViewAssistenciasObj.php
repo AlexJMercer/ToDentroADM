@@ -115,6 +115,7 @@ include "../Session.php";
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->

@@ -88,7 +88,7 @@ include "../Session.php";
                     <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
                     <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
-                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewSetoresObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewSetoresObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
                 <?php

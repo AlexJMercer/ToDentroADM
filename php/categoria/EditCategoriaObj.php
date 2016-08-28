@@ -53,12 +53,10 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de categorias</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <?php
 
                   $id = $_POST["id"];
@@ -92,15 +90,13 @@ include "../Session.php";
                     }
                 ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

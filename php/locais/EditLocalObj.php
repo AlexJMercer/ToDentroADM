@@ -53,12 +53,10 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Cadastro de locais</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <?php
 
                   $id = $_POST["id"];
@@ -66,7 +64,7 @@ include "../Session.php";
                   if (isset($_POST["editar"]))
                   {
                     $edit = new Local();
-                    $comp = $edit->editar($id);
+                    $comp = $edit->EditarLocal($id);
 
                       if ($edit != null)
                       {
@@ -82,8 +80,7 @@ include "../Session.php";
                   </div><!-- /.box-body -->
                   <div class="box-footer">
                     <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
-                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
-                    <br>
+                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewLocalObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
@@ -92,15 +89,13 @@ include "../Session.php";
                     }
                 ?>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

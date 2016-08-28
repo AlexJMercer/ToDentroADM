@@ -66,6 +66,8 @@ include "../Session.php";
                   {
                     $exib = new Notificacoes();
                     $comp = $exib->EditarNotificacoes($id);
+                    //var_dump($comp);
+                    $true = 't';
 
                     if ($exib != null)
                     {
@@ -78,7 +80,7 @@ include "../Session.php";
                            <dt>Texto:</dt>
                            <dd><textarea class="form-control"  rows="8" cols="40" disabled><?php echo $comp->texto; ?></textarea></dd>
                            <dt>Publicado:</dt>
-                           <dd><?php  if ($comp->notificacao==1)
+                           <dd><?php  if ($comp->notificacao==$true)
                                       {
                                         echo "<small class='label bg-blue'>Ativo!</small> ";
                                       }

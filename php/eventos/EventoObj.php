@@ -20,6 +20,8 @@ include "../Session.php";
     <link rel="stylesheet" href="../../plugins/ionicons-2.0.1/ionicons-2.0.1/css/ionicons.min.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
+    <!--Loader-->
+    <link rel="stylesheet" href="../../dist/css/loader.css">
     <!--FileInput-->
     <link rel="stylesheet" href="../../plugins/fileinput/css/fileinput.min.css">
     <!-- Theme style -->
@@ -59,12 +61,10 @@ include "../Session.php";
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
-              <!-- Horizontal Form -->
               <div class="box box-success">
                 <div class="box-header with-border">
                   <h3 class="box-title">Eventos</h3>
                 </div><!-- /.box-header -->
-                <!-- form start -->
                 <form class="form-horizontal" name="evento" method="post" action="CrudEventos.php" enctype="multipart/form-data">
                   <div class="box-body">
                       <div class="form-group">
@@ -149,20 +149,18 @@ include "../Session.php";
                       </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-lg btn-success btn-flat btn-block" ><i class="fa fa-check"></i> Enviar </button>
-                    <br>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block" ><i class="fa fa-check"></i> Enviar </button>
                     <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
-              <!-- general form elements disabled -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

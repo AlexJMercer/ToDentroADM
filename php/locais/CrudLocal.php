@@ -7,9 +7,9 @@ include_once "../../class/Carrega.class.php";
       $object       = new Local();
       $object->sala = $_POST['sala'];
 
-      $object->Inserir();
+      $object->InserirLocal();
 
-      header("Location:ViewLocalObj.php");
+      header("Location:ViewLocaisObj.php");
   }
 
   else if (isset($_POST['excluir']))
@@ -17,9 +17,9 @@ include_once "../../class/Carrega.class.php";
       $object     = new Local();
       $object->id = $_POST['id'];
 
-      $object->Excluir();
+      $object->ExcluirLocal();
 
-      header("Location:ViewLocalObj.php");
+      header("Location:ViewLocaisObj.php");
   }
 
   else if (isset($_POST['atualizar']))
@@ -28,9 +28,9 @@ include_once "../../class/Carrega.class.php";
       $object->id   = $_POST['id'];
       $object->sala = $_POST['sala'];
 
-      $object->Atualizar();
+      $object->AtualizarLocal();
 
-      header("Location:ViewLocalObj.php");
+      header("Location:ViewLocaisObj.php");
   }
 
 ?>

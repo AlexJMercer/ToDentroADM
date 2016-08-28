@@ -42,21 +42,20 @@
 
     public function ListarCursos()
     {
-      $sql    = "SELECT * FROM cursos Order by cursos.id_curso";
+      $sql    = "SELECT * FROM cursos ORDER BY cursos.id_curso";
       $result = pg_query($sql);
       $return = null;
 
       while ($reg = pg_fetch_assoc($result))
       {
-         $object       = new Cursos();
-         $object->id   = $reg["id_curso"];
-         $object->nome = $reg["nome"];
+         $object            = new Cursos();
+         $object->id        = $reg["id_curso"];
+         $object->nome      = $reg["nome"];
+         $object->instituto = $reg["inst_id"];
 
          $return[] = $object;
       }
-
       return $return;
-
     }
 
     public function ExcluirCursos()
@@ -68,7 +67,7 @@
 
     public function AtualizarCursos()
     {
-      $sql    = "UPDATE cursos set nome ='$this->nome', instituto='$this->instituto', texto ='$this->texto', logo ='$this->logo' where id_curso =$this->id";
+      $sql    = "UPDATE cursos set nome ='$this->nome', inst_id='$this->instituto', texto ='$this->texto' WHERE id_curso =$this->id";
       $return = pg_query($sql);
       return $return;
     }

@@ -78,6 +78,18 @@
          return $return;
       }
 
+      public function AtualizarInfo()
+      {
+         $return = false;
+         $sql    = "UPDATE usuarios
+                      SET nome  ='$this->nome',
+                          email ='$this->email',
+                          senha ='$this->senha'
+                      WHERE id_user = $this->id";
+         $return = pg_query($sql);
+         return $return;
+      }
+
       public function ExibirUsuarios($id = "")
       {
          $sql       = "SELECT * FROM usuarios, usertype WHERE usuarios.usertype =usertype.id AND usuarios.id =$id ";
@@ -159,7 +171,7 @@
         return $retorno;
       }
 
-      public function ListUserPermission($id)
+      public function ListUserInfo($id)
       {
         /*$sql_user_id = "SELECT CURRVAL('usuarios_id_user_seq')";
         $busca       = pg_query($sql_user_id);

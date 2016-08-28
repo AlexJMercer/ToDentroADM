@@ -52,12 +52,27 @@ include_once 'Carrega.class.php';
 
     public function AtualizarPermissions()
     {
-      # code...
+      $sql    = "UPDATE permissions SET noticias = '$this->noticias',
+                                        categorias ='$this->categorias',
+                                        cardapios = '$this->cardapios',
+                                        cursos = '$this->cursos',
+                                        monitorias = '$this->monitorias',
+                                        estagios = '$this->estagios',
+                                        eventos = '$this->eventos',
+                                        locais = '$this->locais',
+                                        assistencias = '$this->assistencias',
+                                        setores = '$this->setores'
+                                        WHERE id_perm = $this->id";
+      $return = pg_query($sql);
+      return $return;
     }
 
     public function ExcluirPermissions()
     {
-      # code...
+      $return = null;
+      $sql    = "DELETE FROM permissions WHERE id_perm = $this->id";
+      $return = pg_query($sql);
+      return $return;
     }
 
     public function loadPermissions($id)

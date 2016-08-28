@@ -18,8 +18,6 @@ include "../Session.php";
     <link rel="stylesheet" href="../../plugins/font-awesome-4.5.0/font-awesome-4.5.0/css/font-awesome.min.css">
     <!--Ionicons-->
     <link rel="stylesheet" href="../../plugins/ionicons-2.0.1/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -47,49 +45,72 @@ include "../Session.php";
             include '../inc/menutime.php';
       ?>
       <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>Disciplinas
-            <a class="btn btn-info btn-flat pull-right" href="PreviewDisciplinasObj.php"><i class="fa fa-list"></i>  Listar disciplinas</a>
-          </h1>
+          <h1>Informações pessoais</h1>
         </section>
+        <!-- Main content -->
+        <?php
+
+          $id = $_POST["id"];
+
+          if (isset($_POST["editar"]))
+          {
+            $edit = new Usuarios();
+            $comp = $edit->EditarUsuarios($id);
+            //var_dump($comp);
+              if ($edit != null)
+              {
+        ?>
         <section class="content">
           <div class="row">
             <div class="col-lg-12">
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Cadastro de disciplinas</h3>
+                  <h3 class="box-title">Edição de informações pessoais</h3>
                 </div><!-- /.box-header -->
-                <form class="form-horizontal" id="form" method="post" action="CrudDisciplinas.php">
+                <form class="form-horizontal" name="formuser" id="form" method="post" action="CrudUsers.php">
                   <div class="box-body">
                       <div class="form-group">
-                        <label for="disciplina" class="col-sm-2 control-label">Disciplina:</label>
+                        <label for="nome" class="col-sm-2 control-label">Nome:</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="disciplina" id="disciplina" placeholder="Digite aqui a disciplina"  data-toggle="tooltip" title="Campo Obrigatório!" required>
+                          <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $comp->nome; ?>" placeholder="Digite aqui seu nome" data-toggle="tooltip" title="Campo Obrigatório!" required>
                         </div>
                       </div>
                       <div class="form-group">
-                         <label for="curso" class="col-sm-2 control-label">Curso:</label>
-                         <div class="col-sm-10">
-                           <span data-toggle="tooltip" title="Campo Obrigatório!">
-                           <select class="form-control select2" name="curso" id="curso" style="width: 100%;"  required>
-                             <option value=""></option>
-                             <?php $cursoSelect = new Select();
-                                   $cursoSelect->cursoSelect();
-                             ?>
-                           </select>
-                           </span>
-                         </div>
-                       </div>
+                        <label for="email" class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" name="email" id="email" value="<?php echo $comp->email; ?>" placeholder="Digite aqui seu e-mail" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="senha" class="col-sm-2 control-label">Nova senha:</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite aqui sua nova senha" data-toggle="tooltip" title="Caso se deseje alterar a senha, digite neste campo, senão o deixe em branco">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="csenha" class="col-sm-2 control-label">Confirmar senha:</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" name="csenha" id="csenha" placeholder="Digite novamente sua nova senha" onchange="validaSenha()">
+                        </div>
+                      </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
+                    <input type="hidden" name="senha_old" value="<?php echo $comp->senha; ?>"/>
+                    <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
+                    <button type="submit" name="atualizarMy" value="atualizarMy" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
                     <br>
-                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='UsersProfileObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
+                <?php
+                      }
+                    }
+                ?>
               </div><!-- /.box -->
             </div><!--/.col (right) -->
-          </div>   <!-- /.row -->
+          </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <?php
@@ -105,17 +126,17 @@ include "../Session.php";
     <script src="../../plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/app.min.js"></script>
-    <!-- Select2 -->
-    <script src="../../plugins/select2/select2.full.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
 
     <script type="text/javascript">
-    $(function(){
-      $(".select2").select2({
-        placeholder: 'Selecione um curso'
-      });
-    });
+      function validaSenha ()
+      {
+        if(document.formuser.csenha.value != document.formuser.senha.value)
+        {
+          alert("Ta diferente, digite um igual!!");
+        }
+      }
     </script>
 
   </body>

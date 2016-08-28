@@ -72,8 +72,8 @@ include "../Session.php";
                       <div class="form-group">
                          <label for="inst" class="col-sm-2 control-label">Instituto:</label>
                          <div class="col-sm-10">
-                           <select class="form-control" name="instituto" id='inst' data-toggle="tooltip" title="Campo Obrigatório!" required>
-                             <option value=""></option>
+                           <select class="form-control" name="instituto" id='inst' data-toggle="tooltip" title="Campo Obrigatório!" placeholder="Selecione um instituto" required>
+                             <option value="">Selecione um instituto</option>
                              <?php
                                  $instituto = new Select();
                                  $instituto->institutoSelect();
@@ -101,7 +101,6 @@ include "../Session.php";
                   </div><!-- /.box-footer -->
                 </form>
                </div><!-- /.box -->
-              <!-- general form elements disabled -->
               </div>
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
@@ -109,8 +108,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
-        include '../inc/control-sidebar.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

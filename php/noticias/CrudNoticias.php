@@ -1,5 +1,8 @@
 <?php
 
+ini_set('session.save_path', '../tmp');
+
+session_start();
 //include 'Upload.class.php';
 include_once "../../class/Carrega.class.php";
 
@@ -30,7 +33,18 @@ include_once "../../class/Carrega.class.php";
           $noImage = new Noticias();
           $noImage->noImageUp();
         }
-        header("Location:ViewNoticiasObj.php?success");
+        if ($_SESSION['tipo_usuario']==3 || $_SESSION['tipo_usuario']==4)
+        {
+          header("Location:ViewNoticiasObj.php?success");
+        }
+        elseif ($_SESSION['tipo_usuario']==2)
+        {
+          header("Location:ViewMyNoticiasObj.php?success");
+        }
+        else
+        {
+          header("Location:../index/index.php?success");
+        }
       }
       else
       {

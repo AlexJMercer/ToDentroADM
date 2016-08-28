@@ -105,7 +105,9 @@ include "../Session.php";
                         ?>
                         <div class="form-group">
                           <label for="status" class="col-sm-2 control-label">Status:</label>
+
                           <div class="col-sm-10">
+                            <span data-toggle="tooltip" title="Campo Obrigatório!">
                             <select class="form-control" name="status" id="status" style="width:100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                               <option value=""></option>
                               <?php
@@ -113,6 +115,7 @@ include "../Session.php";
                                   $staSelect->statusSelect();
                               ?>
                             </select>
+                            </span>
                           </div>
                         </div>
                         <?php
@@ -133,7 +136,7 @@ include "../Session.php";
                       <div class="form-group">
                            <label for="semestre" class="col-sm-2 control-label">Semestre:</label>
                            <div class="col-sm-10">
-                            <select class="form-control select2" name="semestre" id="semestre" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                            <select class="form-control" name="semestre" id="semestre" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
                               <option value=""></option>
                               <?php $semestreSelect = new Select();
                                     $semestreSelect->semestreSelect();
@@ -144,12 +147,14 @@ include "../Session.php";
                         <div class="form-group">
                            <label for="sala" class="col-sm-2 control-label">Sala:</label>
                            <div class="col-sm-10">
-                              <select class="form-control select2" name="sala" id="sala" style="width: 100%;" data-toggle="tooltip" title="Campo Obrigatório!" required>
+                             <span data-toggle="tooltip" title="Campo Obrigatório!">
+                              <select class="form-control select2" name="sala" id="sala" style="width: 100%;" required>
                                  <option value=""></option>
                                  <?php $localSelect = new Select();
                                        $localSelect->localSelect();
                                  ?>
                              </select>
+                             </span>
                            </div>
                          </div>
                         <div class="form-group">
@@ -160,8 +165,7 @@ include "../Session.php";
                         </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
-                    <br>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
                     <button type="reset" class="btn btn-default btn-flat btn-block btn-sm "> <i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>
@@ -187,12 +191,6 @@ include "../Session.php";
     <script src="../../dist/js/demo.js"></script>
     <!-- Select2 -->
     <script src="../../plugins/select2/select2.full.min.js"></script>
-    <!-- bootstrap time picker -->
-    <script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
-
-    <!-- date-range-picker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 
     <script type="text/javascript">
     $(function()

@@ -36,21 +36,14 @@ include_once 'Carrega.class.php';
     {
       $sql    = "INSERT INTO assistencias (assist, texto) VALUES ('$this->assist', '$this->texto')";
       $return = pg_query($sql);
-
-      if ($return)
-      {
-        echo "<script> alert('Assistência estudantil cadastrada com sucesso!');</script>";
-      }
-      else
-      {
-        echo "<script> alert('Erro ao tentar cadastrar!');</script>";
-      }
+      return $return;
     }
 
     public function ListarAssistencias()
     {
       $sql    = "SELECT * FROM assistencias ORDER BY id_assist";
       $result = pg_query($sql);
+      $retorno = null;
 
       while ($reg    = pg_fetch_assoc($result))
       {
@@ -66,14 +59,14 @@ include_once 'Carrega.class.php';
 
     public function AtualizarAssistencias()
     {
-        $sql     = "UPDATE assistencias set assist ='$this->assist', texto ='$this->texto' where id_assist =$this->id";
+        $sql     = "UPDATE assistencias SET assist ='$this->assist', texto ='$this->texto' WHERE id_assist =$this->id";
         $retorno = pg_query($sql);
         return $retorno;
     }
 
     public function ExcluirAssistencias()
     {
-        $sql     = "DELETE from assistencias where id_assist =$this->id";
+        $sql     = "DELETE FROM assistencias WHERE id_assist =$this->id";
         $retorno = pg_query($sql);
         return $retorno;
     }
@@ -82,7 +75,8 @@ include_once 'Carrega.class.php';
     {
       $sql    = "SELECT * FROM assistencias WHERE assistencias.id_assist=$id";
       $result = pg_query($sql);
-
+      $retorno = null;
+      
       while ($reg = pg_fetch_assoc($result))
       {
         $obj         = new Assistencias();

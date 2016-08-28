@@ -60,14 +60,20 @@ include "../Session.php";
           <a class="btn btn-primary btn-flat pull-right" href="DisciplinaObj.php"><i class="fa fa-plus"></i>   Cadastrar disciplinas </a>
           </h1>
         </section>
+        <?php
+          $curso = $_POST["curso"];
+        ?>
         <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-xs-12">
-              <div class="box">
+              <div class="box box-info">
                 <div class="box-header">
                   <h3 class="box-title">Listagem de disciplinas</h3>
-                  <a class="btn btn-info btn-flat pull-right" href="ViewDisciplinasObj.php" title="Atualizar resultados" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh"></i></a>
+                  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <input type="hidden" name="curso" value="<?php echo $curso; ?>">
+                    <button type="submit" name="retornar" class="btn btn-info btn-flat pull-right" title="Atualizar resultados" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh"></i></button>
+                  </form>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="dataT" class="table table-bordered table-hover">
@@ -79,8 +85,6 @@ include "../Session.php";
                     </thead>
                     <tbody>
                     <?php
-
-                      $curso = $_POST["curso"];
 
                       if (isset($_POST['pesquisar']) || isset($_POST['retornar']))
                       {
@@ -104,18 +108,29 @@ include "../Session.php";
                         </td>
                       </tr>
                       </form>
-                    <?php
+                      <?php
+                              }
                             }
-                          }
-                          else
-                          {
-                            echo "<h2> Nada cadastrado!!</h2>";
-                          }
+                            else
+                            {
+                      ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p> Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                      <?php
+                            }
                         }
-                    ?>
+                      ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -123,7 +138,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

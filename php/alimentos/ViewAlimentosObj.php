@@ -91,17 +91,28 @@ include "../Session.php";
                         </td>
                       </tr>
                       </form>
-                    <?php
-                            }
+                      <?php
                           }
-                          else
-                          {
-                            echo "<h2> Nada cadastrado!!</h2>";
-                          }
-                    ?>
+                        }
+                        else
+                        {
+                      ?>
+                      <tr class="odd gradeX">
+                        <td>
+                          <p>Nada cadastrado!!</p>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
+                          <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
+                        </td>
+                      </tr>
+                      <?php
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->

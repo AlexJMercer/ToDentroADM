@@ -29,14 +29,14 @@ class Local
       $this->$key = $value;
     }
 
-    public function Inserir()
+    public function InserirLocal()
     {
       $sql    = "INSERT INTO local (sala) VALUES ('$this->sala')";
       $return = pg_query($sql);
       return $return;
     }
 
-    public function Listar()
+    public function ListarLocal()
     {
       $sql    = "SELECT * FROM local";
       $result = pg_query($sql);
@@ -52,7 +52,7 @@ class Local
       return $return;
     }
 
-    public function Editar($id = "")
+    public function EditarLocal($id = "")
     {
       $sql    = "SELECT * FROM local AS l WHERE l.id_lo =$id";
       $result = pg_query($sql);
@@ -68,14 +68,14 @@ class Local
       return $return;
     }
 
-    public function Excluir()
+    public function ExcluirLocal()
     {
       $sql    = "DELETE FROM local WHERE id_lo =$this->id";
       $return = pg_query($sql);
       return $return;
     }
 
-    public function Atualizar()
+    public function AtualizarLocal()
     {
         $sql    = "UPDATE local set sala = '$this->sala' WHERE id_lo = '$this->id'";
         $return = pg_query($sql);

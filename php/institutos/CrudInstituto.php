@@ -7,7 +7,7 @@ include_once "../../class/Carrega.class.php";
       $object            = new Instituto();
       $object->instituto = $_POST['instituto'];
 
-      $object->Inserir();
+      $object->InserirInstituto();
 
       header("Location:ViewInstitutosObj.php");
   }
@@ -17,7 +17,7 @@ include_once "../../class/Carrega.class.php";
       $object     = new Instituto();
       $object->id = $_POST['id'];
 
-      $object->Excluir();
+      $object->ExcluirInstituto();
 
       header("Location:ViewInstitutosObj.php");
   }
@@ -28,7 +28,7 @@ include_once "../../class/Carrega.class.php";
       $object->id        = $_POST['id'];
       $object->instituto = $_POST['instituto'];
 
-      $object->Atualizar();
+      $object->AtualizarInstituto();
 
       header("Location:ViewInstitutosObj.php");
   }

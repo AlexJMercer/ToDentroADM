@@ -77,7 +77,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Eventos();
-                      $list = $listar->ListarEventos();
+                      $list   = $listar->ListarEventos();
 
                       if ($list != null)
                       {
@@ -110,7 +110,6 @@ include "../Session.php";
                              </td>
                              <td>
                                <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
-
                                <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
                              </td>
                            </tr>
@@ -120,6 +119,7 @@ include "../Session.php";
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->
+                <div class="box-footer"></div>
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->

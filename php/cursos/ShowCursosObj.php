@@ -113,54 +113,5 @@ include "../Session.php";
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
 
-    <script type="text/javascript">
-    $(function()
-    {
-      $(".select2").select2();
-
-      $('#reservation').daterangepicker({
-        singleDatePicker: true,
-        format: 'DD/MM/YYYY',
-        "locale": {
-        "format": "DD/MM/YYYY",
-        "separator": " - ",
-        "applyLabel": "Apply",
-        "cancelLabel": "Cancel",
-        "fromLabel": "From",
-        "toLabel": "To",
-        "customRangeLabel": "Custom",
-        "daysOfWeek": [
-            "Dom",
-            "Seg",
-            "Ter",
-            "Qua",
-            "Qui",
-            "Sex",
-            "Sab"
-        ],
-        "monthNames": [
-            "Janeiro",
-            "Feveireiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ],
-        "firstDay": 1
-    },
-      });
-    });
-
-    $(window).load(function()
-    {
-        $('#myModal').modal('show');
-    });
-    </script>
   </body>
 </html>

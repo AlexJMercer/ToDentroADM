@@ -79,7 +79,6 @@ include "../Session.php";
                   <table id="dataT" class="table table-bordered table-hover dt-responsive nowrap">
                     <thead>
                       <tr>
-                        <th>ID</th>
                         <th>Data</th>
                         <th>Notícia</th>
                         <th>Status</th>
@@ -99,7 +98,6 @@ include "../Session.php";
                     ?>
                     <tr class="odd gradeX">
                       <form name="view" action="EditNoticiaObj.php" method="post">
-                        <td><?php echo $line->id; ?></td>
                         <td><?php echo date('d/m/Y',strtotime($line->data)); ?></td>
                         <td><?php echo $line->titulo; ?></td>
                         <td><?php $badge = new Select();
@@ -123,6 +121,12 @@ include "../Session.php";
                         <p>Nada cadastrado!!</p>
                       </td>
                       <td>
+                        <p>Nada cadastrado!!</p>
+                      </td>
+                      <td>
+                        <p>Nada cadastrado!!</p>
+                      </td>
+                      <td>
                         <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
                         <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
                       </td>
@@ -142,7 +146,7 @@ include "../Session.php";
       </div><!-- /.content-wrapper -->
       <?php
         include '../inc/footer.html';
-  include '../inc/style_page.html';
+        include '../inc/style_page.html';
       ?>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -153,7 +157,6 @@ include "../Session.php";
     <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="../../plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-
     <!-- SlimScroll -->
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
