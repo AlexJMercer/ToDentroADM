@@ -8,7 +8,7 @@ include_once "../../class/Carrega.class.php";
     $object->setor = $_POST['setor'];
     $object->texto = $_POST['texto'];
 
-    $object->Inserir();
+    $object->InserirSetores();
 
     header("Location:ViewSetoresObj.php");
   }
@@ -18,7 +18,7 @@ include_once "../../class/Carrega.class.php";
     $object     = new Setores();
     $object->id = $_POST['id'];
 
-    $object->Excluir();
+    $object->ExcluirSetores();
 
     header("Location:ViewSetoresObj.php");
   }
@@ -30,7 +30,7 @@ include_once "../../class/Carrega.class.php";
     $object->setor = $_POST['setor'];
     $object->texto = $_POST['texto'];
 
-    $object->Atualizar();
+    $object->AtualizarSetores();
 
     header("Location:ViewSetoresObj.php");
   }

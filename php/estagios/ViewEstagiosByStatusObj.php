@@ -69,6 +69,7 @@ include "../Session.php";
                     <thead>
                       <tr>
                         <th>Estágio</th>
+                        <th>Status</th>
                         <th>Opções</th>
                       </tr>
                     </thead>
@@ -76,7 +77,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Estagios();
-                      $list = $listar->ListarEstagios();
+                      $list = $listar->ListarEstagiosByStatus();
 
                       if ($list != null)
                       {
@@ -85,15 +86,17 @@ include "../Session.php";
                     ?>
                       <tr class="odd gradeX">
                         <form name="view" action="EditEstagioObj.php" method="post">
-                        <td><?php echo $line->titulo; ?></td>
-                        <td>
-                          <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
-                          <button type="submit" name="exibir" value="exibir" formaction="ShowEstagioObj.php" class="btn btn-flat btn-info"><i class="fa fa-expand"></i> Exibir </button>
-                          <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
-                          <button type="submit" name="excluir" value="excluir" formaction="ExcluirEstagioObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
-                        </td>
+                          <td><?php echo $line->titulo; ?></td>
+                          <td><?php $badge = new Select();
+                                    $badge->labelStatus($line->status);  ?></td>
+                          <td>
+                            <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
+                            <button type="submit" name="exibir" value="exibir" formaction="ShowEstagioObj.php" class="btn btn-flat btn-info"><i class="fa fa-expand"></i> Exibir </button>
+                            <button type="submit" name="editar" value="editar" class="btn btn-flat btn-warning"><i class="fa fa-edit"></i> Editar </button>
+                            <button type="submit" name="excluir" value="excluir" formaction="ExcluirEstagioObj.php" class='btn btn-flat btn-danger'><i class="fa fa-times"></i> Excluir </button>
+                          </td>
+                        </form>
                       </tr>
-                      </form>
                     <?php
                             }
                           }
@@ -101,6 +104,9 @@ include "../Session.php";
                           {
                     ?>
                     <tr class="odd gradeX">
+                      <td>
+                        <p> Nada cadastrado!!</p>
+                      </td>
                       <td>
                         <p> Nada cadastrado!!</p>
                       </td>

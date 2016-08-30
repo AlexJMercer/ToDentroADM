@@ -41,7 +41,7 @@ class Logar
       session_start();
       while ($reg = pg_fetch_assoc($result))
       {
-        $_SESSION['id']           = $reg['id_user'];
+        $_SESSION['id_user']      = $reg['id_user'];
         $_SESSION['nome']         = $reg['nome'];
         $_SESSION['email']        = $reg['email'];
         $_SESSION['tipo_usuario'] = $reg['type_id'];
@@ -49,7 +49,7 @@ class Logar
         if ($_SESSION['tipo_usuario']==2)
         {
           $object = new Permissions();
-          $object->loadPermissions($_SESSION['id']);
+          $object->loadPermissions($_SESSION['id_user']);
         }
       }
     }

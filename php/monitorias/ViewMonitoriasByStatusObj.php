@@ -79,16 +79,15 @@ include "../Session.php";
                     <thead>
                       <tr>
                         <th> Disciplina </th>
+                        <th> Status </th>
                         <th> Opções </th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
 
-                      if (isset($_POST['pesquisar']) || isset($_POST['retornar']) || isset($_POST['recarregar']))
-                      {
                         $listar = new Monitorias();
-                        $list = $listar->ListarMonitoriasEspecify($curso);
+                        $list = $listar->ListarMonitoriasByStatus();
 
                         if ($list != null)
                         {
@@ -98,6 +97,8 @@ include "../Session.php";
                       <tr class="odd gradeX">
                         <form name="view" action="EditMonitoriasObj.php" method="post">
                         <td><?php echo $line->disciplina; ?></td>
+                        <td><?php $badge = new Select();
+                                  $badge->labelStatus($line->status);  ?></td>
                         <td>
                           <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                           <input type="hidden" name="curso" value="<?php echo $curso;?>">
@@ -114,6 +115,9 @@ include "../Session.php";
                         {
                       ?>
                       <tr class="odd gradeX">
+                        <td>
+                          <p>Nada cadastrado!!</p>
+                        </td>
                         <td>
                           <p>Nada cadastrado!!</p>
                         </td>

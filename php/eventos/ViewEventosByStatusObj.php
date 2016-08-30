@@ -76,7 +76,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Eventos();
-                      $list = $listar->ListarEventos();
+                      $list = $listar->ListarEventosByStatus();
 
                       if ($list != null)
                       {
@@ -87,6 +87,8 @@ include "../Session.php";
                         <form name="view" action="EditEventoObj.php" method="post">
                            <td><?php echo $line->evento; ?></td>
                            <td><?php echo date('d/m/Y',strtotime($line->dataInicio)); ?></td>
+                           <td><?php $badge = new Select();
+                                     $badge->labelStatus($line->status);  ?></td>
                            <td>
                               <input type='hidden' name='id' value='<?php echo $line->id; ?>'>
                               <button type="submit" name="exibir" value="exibir" class="btn btn-flat btn-info" formaction="ShowEventoObj.php"><i class="fa fa-edit"></i> Exibir </button>
@@ -100,14 +102,19 @@ include "../Session.php";
                           }
                           else
                           {
-                             ?>
+                    ?>
                            <tr class="odd gradeX">
                              <td>
                                <p> Nada cadastrado!!</p>
                              </td>
                              <td>
+                               <p> Nada cadastrado!!</p>
+                             </td>
+                             <td>
+                               <p> Nada cadastrado!!</p>
+                             </td>
+                             <td>
                                <button type="button" class="btn btn-flat btn-warning" disabled><i class="fa fa-edit"></i> Editar </button>
-
                                <button type="button" class='btn btn-flat btn-danger' disabled><i class="fa fa-times"></i> Excluir </button>
                              </td>
                            </tr>

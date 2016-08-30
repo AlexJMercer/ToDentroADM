@@ -60,6 +60,23 @@ include_once 'Carrega.class.php';
       return $return;
    }
 
+   public function ListarMonitoriasByStatus()
+   {
+      $sql    = "SELECT * FROM monitorias as m, disciplinas as d WHERE m.disciplina_m =d.id_disc AND m.status_id='1'";
+      $result = pg_query($sql);
+
+     while ($reg = pg_fetch_assoc($result))
+     {
+        $object             = new Monitorias();
+        $object->id         = $reg["id_monit"];
+        $object->disciplina = $reg["disciplina"];
+        $object->status     = $reg["status_id"];
+
+        $return[] = $object;
+     }
+      return $return;
+   }
+
    public function ExcluirMonitorias()
    {
      $sql    = "DELETE FROM monitorias WHERE id_monit =$this->id";

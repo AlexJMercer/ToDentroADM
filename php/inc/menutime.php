@@ -4,7 +4,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="../../dist/img/LogoIFSP.jpg" class="img-circle" alt="User Image">
+        <img src="../../dist/img/LogoIFSul.png" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p><?php echo $_SESSION['nome']; ?></p>

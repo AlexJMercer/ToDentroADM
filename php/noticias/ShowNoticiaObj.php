@@ -107,12 +107,13 @@ include "../Session.php";
                       <img class="img-responsive-pad " src="<?php echo $comp->imagem; ?>" alt="Imagem" width="100%" height="100%" />
                     </div>
                     <div class="form-group">
-                      <form action="EditNoticiaObj.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <div class="col-sm-6">
-                          <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewNoticiasObj.php"><i class="fa fa-list"></i> Retornar para lista </button>
+                          <a href="javascript:history.back()" class="btn bg-maroon btn-flat btn-block"> <i class="fa fa-list"></i> Retornar para lista</a>
+                          <!--button type="submit" name="retornar" value="retornar"  formaction="ViewNoticiasObj.php"> </button-->
                         </div>
                         <br>
+                        <form action="EditNoticiaObj.php" method="post">
+                          <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <div class="col-sm-6">
                           <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>
                         </div>

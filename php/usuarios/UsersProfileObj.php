@@ -62,7 +62,7 @@ include "../Session.php";
                 <?php
 
                     $exib = new Usuarios();
-                    $comp = $exib->ListUserInfo($_SESSION['id']);
+                    $comp = $exib->ListUserInfo($_SESSION['id_user']);
                     //print_r($_SESSION);
 
                     if ($exib != null)

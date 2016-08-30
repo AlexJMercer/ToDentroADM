@@ -20,13 +20,13 @@
       <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="../../dist/img/LogoIFSP.jpg" class="user-image" alt="User Image">
+            <img src="../../dist/img/LogoIFSul.png" class="user-image" alt="User Image">
             <span class="hidden-xs"><?php echo $_SESSION['nome']; ?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="../../dist/img/LogoIFSP.jpg" class="img-circle" alt="User Image">
+              <img src="../../dist/img/LogoIFSul.png" class="img-circle" alt="User Image">
               <p>
                 <?php echo $_SESSION['nome']; ?>
               </p>
@@ -36,17 +36,19 @@
                 <div class="form-group">
                   <a href="../usuarios/UsersProfileObj.php" class="btn btn-primary btn-flat btn-block"><i class="fa fa-user"></i> Informações pessoais </a>
                 </div>
-                <div class="form-group">
-                  <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
-                </div>
+                <form action="../index/logout.php" method="post">
+                  <div class="form-group">
+                    <button type="submit" name="logout" value="logout" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
+                  </div>
+                </form>
             </li>
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
-        <li class="dropdown user user-menu">
+        <!--li class="dropdown user user-menu">
          <a href="#"  data-toggle="control-sidebar"><i class="fa fa-gears"></i>
          <span class="hidden-xs"> Temas </span></a>
-        </li>
+       </li-->
       </ul>
     </div>
   </nav>

@@ -70,6 +70,43 @@ include_once "Carrega.class.php";
           $this->transacao("ROLLBACK");
       }
 
+      public function AtualizarCardapios()
+      {
+           $this->transacao("BEGIN");
+
+           $sql         = "UPDATE cardapios SET data = '$this->data',
+                                    WHERE id_card    =  $this->id";
+           $return = pg_query($sql);
+
+          if($return)
+          {
+            $sql2    = "DELETE FROM alimentos_cardapios WHERE card_id = $this->id";
+            $return2 = pg_query($sql2);
+
+            if ($return2)
+            {
+              foreach ($this->alimento as $value)
+              {
+                $sql3    = "INSERT INTO alimentos_cardapios (card_id, ali_id) VALUES ('$this->id', '$value')";
+                $return3 = pg_query($sql3);
+              }
+              if ($return3)
+              {
+                $this->transacao("COMMIT");
+              }
+              else
+              {
+                $this->transacao("ROLLBACK");
+              }
+            }
+          }
+          else
+          {
+            $this->transacao("ROLLBACK");
+          }
+          $this->transacao("ROLLBACK");
+      }
+
       public function ListarCardapios()
       {
          $sql     = "SELECT * FROM cardapios c, dia d WHERE d.id_dia =c.dia ORDER BY d.id_dia";

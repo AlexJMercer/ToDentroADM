@@ -282,7 +282,7 @@ include "../Session.php";
          $("#cadCat").click(function(){
              $.ajax({
                  type: 'post',
-                 url: '../Categoria/newCategoriaObj.php',
+                 url: '../categoria/newCategoriaObj.php',
                  dataType: 'html',
                  success: function (txt) {
                      $('#resposta').html(txt);
@@ -293,7 +293,7 @@ include "../Session.php";
 
          function atualiza()
          {
-           $.get('../Categoria/Listagem_Categorias_Multiple.php', function (resultado){
+           $.get('../categoria/Listagem_Categorias_Multiple.php', function (resultado){
                 $('#listagemCategorias').html(resultado);
            })
          }

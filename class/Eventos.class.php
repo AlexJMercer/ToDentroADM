@@ -65,6 +65,25 @@ include_once 'Carrega.class.php';
       return $return;
     }
 
+    public function ListarEventosByStatus()
+    {
+      $sql    = "SELECT e.id_event, e.evento, e.data_inicio, e.status_id FROM eventos e WHERE e.status_id='1' ORDER BY data_inicio ASC";
+      $result = pg_query($sql);
+      $return = null;
+
+      while ($reg=pg_fetch_assoc($result))
+      {
+        $object             = new Eventos();
+        $object->id         = $reg["id_event"];
+        $object->dataInicio = $reg["data_inicio"];
+        $object->evento     = $reg["evento"];
+        $object->status     = $reg["status_id"];
+
+        $return[] = $object;
+      }
+      return $return;
+    }
+
     public function AtualizarEventos()
     {
       $return = false;

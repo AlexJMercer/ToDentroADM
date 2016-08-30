@@ -62,7 +62,6 @@
           ?>
         </li>
         <li class="dropdown user user-menu">
-          <!-- Menu toggle button -->
           <a href="#" data-toggle="modal" data-target="#notificacao">
             <i class="glyphicon glyphicon-phone fa-1x"></i>
             <span class="hidden-xs"> Enviar notificações </span>
@@ -70,13 +69,13 @@
         </li>
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="../../dist/img/LogoIFSP.jpg" class="user-image" alt="User Image">
+            <img src="../../dist/img/LogoIFSul.png" class="user-image" alt="User Image">
             <span class="hidden-xs"><?php echo $_SESSION['nome']; ?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="../../dist/img/LogoIFSP.jpg" class="img-circle" alt="User Image">
+              <img src="../../dist/img/LogoIFSul.png" class="img-circle" alt="User Image">
               <p>
                 <?php echo $_SESSION['nome']; ?>
               </p>
@@ -86,17 +85,24 @@
                 <div class="form-group">
                   <a href="../usuarios/UsersProfileObj.php" class="btn btn-primary btn-flat btn-block"><i class="fa fa-user"></i> Informações pessoais </a>
                 </div>
-                <div class="form-group">
-                  <button type="submit" name="logout" value="logout" formaction="../index/logout.php" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
-                </div>
+                <form action="../index/logout.php" method="post">
+                  <div class="form-group">
+                    <button type="submit" name="logout" value="logout" class="btn btn-danger btn-flat btn-block"><i class="fa fa-sign-out"></i>  Sair </button>
+                  </div>
+                </form>
             </li>
           </ul>
         </li>
-        <!-- Control Sidebar Toggle Button -->
         <li class="dropdown user user-menu">
+          <a href="#" data-toggle="modal" title="Informações básicas" data-target="#info">
+            <i class="fa fa-info fa-1x"></i>
+          </a>
+        </li>
+        <!-- Control Sidebar Toggle Button -->
+        <!--li class="dropdown user user-menu">
          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i>
          <span class="hidden-xs"> Temas </span></a>
-        </li>
+       </li-->
       </ul>
     </div>
   </nav>
@@ -144,3 +150,38 @@
    </div>
  </div>
 </div>
+
+<div class="modal fade" id="info" tabindex="0" role="dialog" aria-labelledby="infoLabel" aria-hidden="true">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <h4 class="modal-title">Informações</h4>
+     </div>
+     <div class="modal-body">
+       <dl>
+         <dt>Campos Obrigatórios:</dt>
+         <dd>Todos os campos de preenchimento obrigatórios apresentam o comportamento, demonstrado no exemplo abaixo, ao se sobrepor o cursor sobre o campo.</dd>
+         <dd><input type="text" name="name" class="form-control" placeholder="Exemplo de campo obrigatório" data-toggle="tooltip" title="Campo Obrigatório!"></dd>
+         <br>
+         <dt>Imagens:</dt>
+         <dd>Todas as imagens cadastradas no sistema, devem estar com os seguintes parâmetros.</dd>
+         <dd>Formato de imagem suportados:</dd>
+         <dd class="text-muted"><i>.png, .jpg, .gif</i></dd>
+         <dd>Tamanho máximo da imagem:</dd>
+         <dd class="text-muted"><i>500KB</i></dd>
+         <dd>Largura e altura da imagem:</dd>
+         <dd>Notícias:</dd>
+         <dd class="text-muted"><i>Largura máxima: 400px</i></dd>
+         <dd class="text-muted"><i>Altura máxima: 200px</i></dd>
+         <dd>Eventos e Cursos:</dd>
+         <dd class="text-muted"><i>Largura máxima: 300px</i></dd>
+         <dd class="text-muted"><i>Altura máxima: 180px</i></dd>
+       </dl>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-dafault btn-block btn-flat" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span><i class="fa fa-times"></i> Fechar</button>
+     </div>
+   </div><!-- /.modal-content -->
+ </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

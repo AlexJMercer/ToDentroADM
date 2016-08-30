@@ -27,7 +27,7 @@
 
                function atualiza()
                {
-                  jQuery.get('../categoria/listagem_categorias_multiple.php', function (resultado){
+                  jQuery.get('../categoria/Listagem_Categorias_Multiple.php', function (resultado){
                      jQuery('#listagemCategorias').html(resultado);
                   })
                }

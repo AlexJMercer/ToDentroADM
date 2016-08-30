@@ -101,7 +101,7 @@ include "../Session.php";
                       <form action="EditEventoObj.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <div class="col-sm-6">
-                          <button type="submit" name="retornar" value="retornar" class="btn bg-maroon btn-flat btn-block" formaction="ViewEventosObj.php"><i class="fa fa-edit"></i> Retornar para lista </button>
+                          <a href="javascript:history.back()" class="btn bg-maroon btn-flat btn-block"> <i class="fa fa-list"></i> Retornar para lista</a>
                         </div>
                         <div class="col-sm-6">
                           <button type="submit" name="editar" value="editar" class="btn btn-warning btn-flat btn-block"><i class="fa fa-edit"></i> Editar </button>

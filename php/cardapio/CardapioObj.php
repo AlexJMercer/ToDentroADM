@@ -106,8 +106,7 @@ include "../Session.php";
                       <div id="resposta"></div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Enviar</button>
-                    <br>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar</button>
                     <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>

@@ -17,7 +17,7 @@
 			jQuery.ajax(
       {
 				type: "POST",
-				url: "../alimentos/cadAlimentos.php",
+				url: "../alimentos/CadAlimentos.php",
 				data: dados,
             success: function (data)
             {

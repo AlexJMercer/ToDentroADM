@@ -95,7 +95,7 @@ include "../Session_editor.php";
                         <label class="col-sm-2 control-label"> Autor: </label>
                         <div class="col-sm-10">
                            <input type="text" value="<?php echo $_SESSION['nome']; ?>" class="form-control" disabled>
-                           <input type="hidden" name="autor" value="<?php echo $_SESSION['id']; ?>">
+                           <input type="hidden" name="autor" value="<?php echo $_SESSION['id_user']; ?>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -187,8 +187,7 @@ include "../Session_editor.php";
                       </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" name="enviar" value="enviar" class="btn btn-lg btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
-                    <br>
+                    <button type="submit" name="enviar" value="enviar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Enviar </button>
                     <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
                   </div><!-- /.box-footer -->
                 </form>
@@ -202,25 +201,7 @@ include "../Session_editor.php";
         include '../inc/style_page.html';
       ?>
       </div><!-- /.container -->
-      <div class="modal fade" id="info" tabindex="0" role="dialog" aria-labelledby="infoLabel" aria-hidden="true">
-       <div class="modal-dialog">
-         <div class="modal-content">
-           <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-             <h4 class="modal-title">Dicas</h4>
-           </div>
-           <div class="modal-body">
-             <dl>
-               <dt>Campos Obrigatórios:</dt>
-               <dd>A description list is perfect for defining terms.</dd>
-             </dl>
-           </div>
-           <div class="modal-footer">
-             <button type="button" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-magic"></i> Limpar </button>
-           </div>
-         </div><!-- /.modal-content -->
-       </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+      
 
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->

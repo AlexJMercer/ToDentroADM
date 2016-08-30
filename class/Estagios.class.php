@@ -97,6 +97,24 @@ include_once 'Carrega.class.php';
       return $retorno;
     }
 
+    public function ListarEstagiosByStatus()
+    {
+      $sql     = "SELECT * FROM estagios e WHERE e.status_id='1'";
+      $result  = pg_query($sql);
+      $retorno = null;
+
+      while ($reg = pg_fetch_assoc($result))
+      {
+         $object         = new Estagios();
+         $object->id     = $reg['id_est'];
+         $object->titulo = $reg['titulo'];
+         $object->status = $reg['status_id'];
+
+         $retorno[] = $object;
+      }
+      return $retorno;
+    }
+
     public function AtualizarEstagios()
     {
       $this->transacao("BEGIN");

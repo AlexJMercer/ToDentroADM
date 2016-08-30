@@ -89,7 +89,7 @@ include "../Session.php";
                     <?php
 
                       $listar = new Noticias();
-                      $list   = $listar->ListarNoticiasByUser($_SESSION['id']);
+                      $list   = $listar->ListarNoticiasByUser($_SESSION['id_user']);
 
                       if ($list != null)
                       {

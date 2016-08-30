@@ -103,14 +103,13 @@ include "../Session.php";
                         <div class="col-sm-2">
                          <button type="button" class="btn btn-info btn-flat" id="cadAli" name="button" style="width:100%;"><i class="fa fa-plus"></i> Adicionar Alimento </button>
                         </div>
-                        <div id="resposta"></div>
                       </div>
+                      <div id="resposta"></div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
                     <input type="hidden" name="id" value="<?php echo $comp->id; ?>"/>
-                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-lg btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
-                    <br>
-                    <button type="reset" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-times"></i>Limpar</button>
+                    <button type="submit" name="atualizar" value="atualizar" class="btn btn-success btn-flat btn-block"><i class="fa fa-check"></i> Atualizar </button>
+                    <button type="button" name="cancelar" value="cancelar" onclick="location.href='ViewCardapiosObj.php'" class="btn btn-default btn-flat btn-block btn-sm"><i class="fa fa-undo"></i> Cancelar </button>
                   </div><!-- /.box-footer -->
                 </form>
               </div><!-- /.box -->
@@ -169,7 +168,7 @@ include "../Session.php";
          $("#cadAli").click(function(){
              $.ajax({
                  type: 'post',
-                 url: '../Alimentos/newAlimentoObj.php',
+                 url: '../alimentos/newAlimentoObj.php',
                  dataType: 'html',
                  success: function (txt) {
                      $('#resposta').html(txt);
@@ -180,7 +179,7 @@ include "../Session.php";
 
          function atualiza()
          {
-             $.get('../Alimentos/Listagem_Alimentos.php', function (resultado){
+             $.get('../alimentos/Listagem_Alimentos.php', function (resultado){
                   $('#listagemAlimentos').html(resultado);
              })
          }

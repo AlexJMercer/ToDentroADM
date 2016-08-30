@@ -26,18 +26,12 @@ include_once "../../class/Carrega.class.php";
 
   elseif (isset($_POST['atualizar']))
   {
-      //realiza recadastramento
-      $object        = new Cardapios();
-      $object->id    = $_POST['id'];
+      $object           = new Cardapios();
+      $object->id       = $_POST['id'];
+      $object->data     = $_POST['data'];
+      $object->alimento = $_POST['alimento'];
 
-      $object->ExcluirCardapios();
-
-      $obj           = new Cardapios();
-      $obj->dia      = $_POST['dia'];
-      $obj->data     = $_POST['data'];
-      $obj->alimento = $_POST['alimento'];
-
-      $obj->InserirCardapios();
+      $object->AtualizarCardapios();
 
       header("Location:ViewCardapiosObj.php");
   }

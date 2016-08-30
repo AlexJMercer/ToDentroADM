@@ -41,7 +41,7 @@ include_once "../../class/Carrega.class.php";
         {
           header("Location:ViewMyNoticiasObj.php?success");
         }
-        else
+        elseif($_SESSION['tipo_usuario']==1)
         {
           header("Location:../index/index.php?success");
         }
